@@ -2,8 +2,8 @@
 
 @section('heading')
 <h2>
-    System Users
-    <small>Add, Edit and Delete Users</small>
+    Companies
+    <small>Manage Companies</small>
 </h2>
 @stop
 
