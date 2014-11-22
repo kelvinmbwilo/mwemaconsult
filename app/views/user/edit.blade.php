@@ -65,37 +65,7 @@ if($user->role == 'company'){
 
         });
 
-        var area = $("#area").html();
-        var dis = $("#disarea").html();
-        var reg = $("#regarea").html();
-        if($("select[name=role]").val() == "National" || $("select[name=role]").val() == "Administrator"){
-            $("#disarea,#regarea").html("");
-        }else if($("select[name=role]").val() == "Region"){
-            $("#regarea").html(reg);
-            $("#disarea").html("");
-        }else if($("select[name=role]").val() == "District"){
-            $("#disarea").html(dis);
-            $("#regarea").html("");
-        }
 
-        $("select[name=role]").change(function(){
-            if($(this).val() == "Region"){
-                $("#regarea").html(reg);
-                $("#disarea").html("");
-            }else if($(this).val() == "District"){
-                $("#disarea").html(dis);
-                $("#regarea").html("");
-            }else{
-                $("#disarea,#regarea").html("");
-            }
-        })
-
-        $("select[name=region]").change(function(){
-            $("#district-area").html("<i class='fa fa-spinner fa-spin'></i> Wait... ")
-            $.post("<?php echo url('user/region_check1') ?>/"+$(this).val(),function(dat){
-                $("#district-area").html(dat);
-            })
-        })
         function afterSuccess(){
             setTimeout(function() {
                 $("#myModal").modal("hide");

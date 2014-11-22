@@ -7,7 +7,7 @@ class Screening extends Eloquent  {
      *
      * @var string
      */
-    protected $table = 'order';
+    protected $table = 'screening';
 
     protected $guarded = array("id");
 

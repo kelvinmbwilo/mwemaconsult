@@ -158,7 +158,7 @@
                 </li>
                 <li>
                     <a href="index.html">
-                        <i class="fa fa-bar-chart-o"></i>
+                        <i class="fa fa-user"></i>
                         <span>Company Users</span>
                     </a>
                 </li>

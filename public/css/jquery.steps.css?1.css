@@ -57,6 +57,7 @@
     position: relative;
     display: block;
     width: 100%;
+    margin-left: 35px;
 }
 
 .wizard.vertical > .steps
@@ -73,7 +74,8 @@
 
 .wizard > .steps > ul > li
 {
-    width: 25%;
+    width: 20%;
+    margin-right: 30px;
 }
 
 .wizard > .steps > ul > li,
@@ -108,7 +110,7 @@
 .wizard > .steps .disabled a:active
 {
     background: #eee;
-    color: #aaa;
+    /*color: #aaa;*/
     cursor: default;
 }
 
