@@ -1,7 +1,11 @@
 <?php
 $region = array();
 $district = array();
-$role = array("admin"=>"admin","data"=>"Data Manager");
+if($user->role == 'company'){
+    $role = array("admin"=>"admin","data"=>"Data Manager");
+}else{
+    $role = array("admin"=>"admin","data"=>"Data Manager");
+}
 
 ?>
 <div class="panel panel-default">
@@ -32,7 +36,11 @@ $role = array("admin"=>"admin","data"=>"Data Manager");
                 Phone Number<br>{{ Form::text('phone',$user->phone,array('class'=>'form-control','placeholder'=>'Phone Number','required'=>'required')) }}
             </div>
             <div class='col-sm-6'>
+                @if($user->role == 'company')
+                Company <br>{{ Form::select('company',Company::all()->lists('name','id'),$user->company_id,array('class'=>'form-control','required'=>'requiered')) }}
+                @else
                 Role <br>{{ Form::select('role',$role,$user->role,array('class'=>'form-control','required'=>'requiered')) }}
+                @endif
             </div>
 
         </div>

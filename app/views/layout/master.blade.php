@@ -130,6 +130,8 @@
     <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->            <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
+
+                @if(Auth::user()->role == 'company')
                 <li>
                     <a href="index.html">
                         <i class="fa fa-dashboard"></i>
@@ -137,7 +139,38 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('order/new') }}">
+                        <i class="fa fa-plus-square"></i>
+                        <span>New Order</span>
+                    </a>
+                </li>
+                <li>
                     <a href="index.html">
+                        <i class="fa fa-th-list"></i>
+                        <span>View Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Company Users</span>
+                    </a>
+                </li>
+                @else
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('companies') }}">
                         <i class="fa fa-briefcase"></i>
                         <span>Companies</span>
                     </a>
@@ -149,8 +182,8 @@
                     </a>
                     <ul class="sub">
                         <li><a href="boxed_page.html">Manage</a></li>
-                        <li><a href="horizontal_menu.html">Make New Order</a></li>
-                        <li><a href="language_switch.html">View Orders</a></li>
+                        <li><a href="horizontal_menu.html">Place Order</a></li>
+                        <li><a href="language_switch.html">Manage My Orders</a></li>
                     </ul>
                 </li>
                 @if(Auth::user()->role == "admin")
@@ -160,6 +193,7 @@
                         <span>Users</span>
                     </a>
                 </li>
+                @endif
                 @endif
             </ul></div>
         <!-- sidebar menu end-->
@@ -175,7 +209,7 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        @yield('heading')
+                        @yield('heading1')
 
                     </header>
                     <div class="panel-body">

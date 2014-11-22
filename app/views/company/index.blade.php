@@ -9,6 +9,6 @@
 
 @section('contents')
     <div class="col-sm-12" id="listuser">
-        @include('user.list')
+        @include('company.list')
     </div>
 @stop

@@ -1,7 +1,7 @@
 <?php
 $users=array();
 if(Auth::user()->role == "admin"){
-    $users = User::where('company_id','=','0')->get();
+    $users = User::all();
 }
 ?>
 <div class="row">
@@ -37,7 +37,11 @@ if(Auth::user()->role == "admin"){
         <td>{{ $us->username }}</td>
         <td>{{ $us->email }}</td>
         <td>{{ $us->phone }}</td>
-        <td>{{ $us->role }}</td>
+        @if($us->role == 'company')
+        <td>company ({{ $us->company->name }})</td>
+        @else
+        <td>{{{ ($us->role == 'data')?"Data Manager":"Admin" }}}</td>
+        @endif
         <td id="{{ $us->id }}">
 
             <a href="#log" title="View Staff log" class="userlog"><i class="fa fa-list text-success"></i> log</a>&nbsp;&nbsp;&nbsp;

@@ -78,4 +78,38 @@ Route::get('profileInfo',array('as'=>'profileInfo', 'uses'=>'UserController@prof
 //route to display profile edit
 Route::get('profileEdit',array('as'=>'profileEdit', 'uses'=>'UserController@profileEdit'));
 
+//////////////////////////////////////////////////////////////////////////////////////////
+//////manage companies
+//////////////////////////////////////////////////////////////////////////////////////////
+//route to display company
+Route::get('companies',array('as'=>'companies', 'uses'=>'CompanyController@index'));
 
+//display a form to add new company
+Route::get('company/add',array('as'=>'addcompany', 'uses'=>'CompanyController@create'));
+
+//display a list of companies
+Route::get('company/list',array('uses'=>'CompanyController@companylist'));
+
+//adding new company
+Route::post('company/add',array('as'=>'addcompany1', 'uses'=>'CompanyController@store'));
+
+//display a form to edit company information
+Route::get('company/edit/{id}',array('as'=>'editcompany', 'uses'=>'CompanyController@edit'));
+
+//editng company information
+Route::post('company/edit/{id}',array('as'=>'editcompany', 'uses'=>'CompanyController@update'));
+
+//deleting company information
+Route::post('company/delete/{id}',array('as'=>'deletecompany', 'uses'=>'CompanyController@destroy'));
+
+//adding company user information
+Route::get('company/user/add/{id}',array('as'=>'companyuser', 'uses'=>'CompanyController@adduser'));
+
+//listing users for a company
+Route::get('company/user/list/{id}',array('as'=>'listcompusers', 'uses'=>'CompanyController@listuser'));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////Order Placement
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//display a form to create new order
+Route::get('order/new',array('as'=>'neworder', 'uses'=>'OrderController@create'));

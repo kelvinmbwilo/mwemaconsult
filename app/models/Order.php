@@ -12,11 +12,14 @@ class Order extends Eloquent  {
     protected $guarded = array("id");
 
     public function result(){
-        return $this::hasMany("Result","result_id","id");
+        return $this::hasMany("Result","order_id","id");
     }
 
     public function company(){
         return $this->belongsTo("Company","company_id",'id');
+    }
+    public function result1(){
+        return $this->belongsTo("Result","result_id",'id');
     }
 
     public function employee(){

@@ -1398,7 +1398,7 @@
     <table name="logs" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action" sqlType="VARCHAR" length="2550" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1440,6 +1440,7 @@
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="order_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="company_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="result" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="comment" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
@@ -1467,7 +1468,7 @@
       <column name="password" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="phone" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="role" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="company_id" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="company_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="remember_token" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>

@@ -47,9 +47,16 @@ class UserController extends \BaseController {
                     "lastname"=>Input::get("lastname"),
                     "phone"=>Input::get("phone"),
                     "email"=>Input::get("email"),
-                    "role"=>Input::get("role"),
                     "password"=>Hash::make(Input::get("password"))
                 ));
+                if(Input::has('role')){
+                    $user->role = Input::get('role');
+                    $user->save();
+                }elseif(Input::has('company')){
+                    $user->role = 'company';
+                    $user->company_id = Input::get('company');
+                    $user->save();
+                }
                 $name = $user->firstname." ".$user->lastname;
                 Logs::create(array(
                     "user_id"=>  Auth::user()->id,
@@ -104,12 +111,18 @@ class UserController extends \BaseController {
             $user->firstname = Input::get("firstname");
             $user->lastname = Input::get("lastname");
             $user->username = Input::get("username");
-            $user->role = Input::get("role");
             $user->email = Input::get("email");
             $user->phone = Input::get("phone");
             $user->save();
             $name = $user->firstname." ".$user->lastname;
-
+            if(Input::has('role')){
+                $user->role = Input::get('role');
+                $user->save();
+            }elseif(Input::has('company')){
+                $user->role = 'company';
+                $user->company_id = Input::get('company');
+                $user->save();
+            }
             //udating password
             if(Input::has("password")){
                 if(Input::get("password")===Input::get("re_enter_password")){
@@ -123,7 +136,7 @@ class UserController extends \BaseController {
                 "user_id"=>  Auth::user()->id,
                 "action"  =>"Update user named ".$name
             ));
-            return "<h4 class='text-success'>User Updated Successfull</h4>";
+            return "<h4 class='text-success'>User Updated Successful</h4>";
         }else{
             return "<h4 class='text-danger'>Email already exist please use other email</h4>";
         }

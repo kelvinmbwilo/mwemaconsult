@@ -1,7 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kelvin
- * Date: 11/22/14
- * Time: 5:48 AM
- */ 
+
+class Screening extends Eloquent  {
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'order';
+
+    protected $guarded = array("id");
+
+    public function package(){
+        return $this::belongsTo("Package","package_id","id");
+    }
+
+    public function result(){
+        return $this::hasMany("Result","screen_id","id");
+    }
+
+}
