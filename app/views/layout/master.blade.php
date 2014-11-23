@@ -169,6 +169,17 @@
                         <span>Invoice</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>References</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="boxed_page.html">Manage</a></li>
+                        <li><a href="horizontal_menu.html">Place Order</a></li>
+                        <li><a href="language_switch.html">Manage My Orders</a></li>
+                    </ul>
+                </li>
                 @else
                 <li>
                     <a href="index.html">

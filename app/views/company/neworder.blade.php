@@ -60,12 +60,12 @@
                 @foreach(Package::all() as $package)
 
                 <div class="form-group col-sm-6">
-                    <h3>{{ $package->name }}</h3>
+                    <h3><label><input type="checkbox" value="{{ $package->id }}" name="creteria[]" class="pack{{ $package->id }}"> {{ $package->name }}</label></h3>
                 <p><small class="">{{ $package->description }} </small></p>
                     @foreach($package->criteria as $criteria)
                     <label for="{{$criteria->id}}" class="col-lg-8">{{ $criteria->name }}</label>
-                    <div class="col-lg-4" name="{{ $criteria->name }}">
-                        <input checked class="service" id="{{ $criteria->id }}" value="{{ $criteria->id }}" type="checkbox" name="creteria[]">
+                    <div  class="icons col-lg-4" name="{{ $criteria->name }}">
+<!--                        <input class="pack{{ $package->id }} service" id="{{ $criteria->id }}" value="{{ $criteria->id }}" type="checkbox" name="creteria[]">-->
                     </div>
                     @endforeach
                 </div>
@@ -105,20 +105,38 @@
 <script>
     $(function ()
     {
-        $('.default-date-picker').datepicker({
-            format: 'mm-dd-yyyy'
+        $("h3 input[type=checkbox]").change(function(){
+            var clas = $(this).attr('class');
+            if(this.checked){
+                $(".icons input."+clas).attr("checked",true);
+            }else{
+                $(".icons input."+clas).attr("checked",false);
+            }
         });
+
         $("#wizard").steps({
             headerTag: "h2",
             bodyTag: "section",
             transitionEffect: "slideLeft",
+            onInit: function (event, currentIndex) {
+
+                    $("h3 input[type=checkbox]").each(function(){
+                        $(this).change(function(){
+                            var clas = $(this).attr('class');
+                            if(this.checked){
+                                $(".icons input."+clas).attr("checked",true);
+                            }else{
+                                $(".icons input."+clas).attr("checked",false);
+                            }
+                        });
+                    });
+            },
             onStepChanged: function (event, currentIndex, priorIndex)
             {
                 if(currentIndex === 2){
-                  if($( "input.service:checked").length === 0){
-                     alert("please select at least one service")
-                  }
 
+                }
+                if(currentIndex === 1){
 
                 }
                 // Used to skip the "Warning" step if the user is old enough.
@@ -149,7 +167,8 @@
                     $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Uploading file and saving changes, please wait...</span><h3>");
                     $('#fileUploader').ajaxSubmit({
                         target: '#output',
-                        success:  afterSuccess
+                        success:  afterSuccess,
+                        error: 
                     });
 
 

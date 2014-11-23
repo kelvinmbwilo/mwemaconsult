@@ -50,12 +50,13 @@ class OrderController extends \BaseController {
             "status"      => 'pending'
         ));
         foreach(Input::get('creteria') as $criteria){
-            $orderScreen= OrderScreening::create(array(
-                "order_id" => $order->id,
-                "employee_id" => $employee->id,
-                "screen_id" => $criteria
-            ));
-
+            foreach(Package::find($criteria)->criteria as $criteria1){
+                $orderScreen= OrderScreening::create(array(
+                    "order_id" => $order->id,
+                    "employee_id" => $employee->id,
+                    "screen_id" => $criteria1->id
+                ));
+            }
         }
         if(Input::file('docs')){
             $file = Input::file('docs'); // your file upload input field in the form should be named 'file'
@@ -69,10 +70,10 @@ class OrderController extends \BaseController {
                 $order->save();
             }
         }
-        Mail::send('company.confirmemail', array('key' => 'value'), function($message)
+        $mail = Mail::send('company.confirmemail', array('key' => 'value'), function($message)
         {
             $message->from('mwemaadvocate@gmail.com', 'Mwema Advocate');
-            $message->to('kelvinmbwilo@gmail.com', 'John Smith')->subject('Welcome!');
+            $message->to('request@mwemadvocates.com', 'John Smith')->subject('Welcome!');
             $message->attach(asset('images/logo1.png'));
         });
         Logs::create(array(
