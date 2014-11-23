@@ -139,3 +139,19 @@ Route::get('order/screen/{id}',array('uses'=>'OrderController@show'));
 //display a list of companies
 Route::get('order/pdf/{id}',array('uses'=>'OrderController@generatePdf'));
 
+//display a list of companies
+Route::get('process/order',array('uses'=>'ProcessController@index'));
+
+//display a list of companies
+Route::get('process/order/confirm',array('uses'=>'ProcessController@confirm'));
+
+//display a list of companies
+Route::post('order/unconfirm/{id}',array('uses'=>'ProcessController@unconfirm'));
+
+//display a list of companies
+Route::post('order/confirm/{id}',array('uses'=>'ProcessController@confirmorder'));
+
+//display a list of companies
+Route::post('order/confirm/summary/{id}',array('uses'=>'ProcessController@selectforms'));
+
+

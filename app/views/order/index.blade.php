@@ -1,10 +1,7 @@
 @extends("layout.master")
 
 @section('heading')
-<h2>
-    Companies
-    <small>Manage Companies</small>
-</h2>
+
 @stop
 
 @section('contents')

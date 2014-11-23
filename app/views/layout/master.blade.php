@@ -175,8 +175,8 @@
                         <span>References</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="boxed_page.html">Manage</a></li>
-                        <li><a href="horizontal_menu.html">Place Order</a></li>
+                        <li><a href="{{ url('process/order') }}">Confirmed</a></li>
+                        <li><a href="horizontal_menu.html">Unconfirmed Order</a></li>
                         <li><a href="language_switch.html">Manage My Orders</a></li>
                     </ul>
                 </li>
@@ -199,9 +199,12 @@
                         <span>Orders</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="boxed_page.html">Manage</a></li>
-                        <li><a href="horizontal_menu.html">Place Order</a></li>
-                        <li><a href="language_switch.html">Manage My Orders</a></li>
+                        <li><a href="{{ url('process/order') }}">
+                                <i class="fa fa-check-circle-o"></i> Confirmed <span class="badge">{{ count(Order::where('status','In Progress')->get()) }}</span> </a></li>
+                        <li><a href="{{ url('process/order/confirm') }}">
+                                <i class="fa fa-question-circle"></i> Unconfirmed <span class="badge">{{ count(Order::where('status','pending')->get()) }}</span></a></li>
+                        <li><a href="language_switch.html">
+                                <i class="fa fa-bookmark"></i> Published <span class="badge">{{ count(Order::where('status','Complete')->get()) }}</span></a></li>
                     </ul>
                 </li>
                 @if(Auth::user()->role == "admin")

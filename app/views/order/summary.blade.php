@@ -1,11 +1,13 @@
 <div class="row">
 <!--    logo-->
-    <div class="col-md-9"></div>
-    <div class="col-md-3"><img src="{{ asset('images/logo1.png') }}" </div>
+    <div class="col-sm-12">
+        <img src="{{ asset('images/logo1.png') }}" class="img-responsive img-rounded pull-right">
+    </div>
 
 
 </div>
-<div class="col-lg-12">
+<div class="row">
+<div class="col-md-12">
     <h4>Candidate Details</h4>
     <table class="table table-bordered table-striped">
         <tr><th>Candidate Full Name:</th><td>{{ $screen->employee->firstname }} {{ $screen->employee->middlename }} {{ $screen->employee->lastname }}</td></tr>
@@ -39,4 +41,4 @@
         2. The employment start date for reference 3: TZK Global Bank was 5 months later than claimed by the candidate.<br>
         3. These discrepancies in employment dates mean there is a period of 9 months that is not accounted for.<br></div>
 
-</div>
+</div></div>

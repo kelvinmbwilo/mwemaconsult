@@ -37,7 +37,7 @@
                             <br>Sir Name<input type="text" name="lastname" class="form-control" placeholder="Sir Name" required="required">
                         </div>
                         <div class="col-md-6">
-                            <br>Date Of Birth<br><input name="dob" class="form-control form-control-inline input-medium default-date-picker" placeholder="YYYY"  size="16" type="text" value="" />
+                            <br>Date Of Birth<br><input name="dob" class="form-control form-control-inline input-medium dates" placeholder="YYYY"  size="16" type="text" value="" />
                         </div>
 
                     </div>
@@ -105,14 +105,6 @@
 <script>
     $(function ()
     {
-        $("h3 input[type=checkbox]").change(function(){
-            var clas = $(this).attr('class');
-            if(this.checked){
-                $(".icons input."+clas).attr("checked",true);
-            }else{
-                $(".icons input."+clas).attr("checked",false);
-            }
-        });
 
         $("#wizard").steps({
             headerTag: "h2",
@@ -120,16 +112,7 @@
             transitionEffect: "slideLeft",
             onInit: function (event, currentIndex) {
 
-                    $("h3 input[type=checkbox]").each(function(){
-                        $(this).change(function(){
-                            var clas = $(this).attr('class');
-                            if(this.checked){
-                                $(".icons input."+clas).attr("checked",true);
-                            }else{
-                                $(".icons input."+clas).attr("checked",false);
-                            }
-                        });
-                    });
+
             },
             onStepChanged: function (event, currentIndex, priorIndex)
             {
@@ -181,6 +164,23 @@
             }
         });
 
+        $(".dates").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1950:<?php echo date("Y") ?>",
+            dateFormat:"yy-mm-dd"
+        });
+        //check boxes
+        $("h3 input[type=checkbox]").each(function(){
+            $(this).change(function(){
+                var clas = $(this).attr('class');
+                if(this.checked){
+                    $(".icons input."+clas).attr("checked",true);
+                }else{
+                    $(".icons input."+clas).attr("checked",false);
+                }
+            });
+        });
     });
 
 
