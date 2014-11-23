@@ -22,6 +22,7 @@
     {{ HTML::style("js/advanced-datatable/css/demo_page.css") }}
     {{ HTML::style("js/advanced-datatable/css/demo_table.css") }}
     {{ HTML::style("js/data-tables/DT_bootstrap.css") }}
+    <link rel="stylesheet" href="{{ asset('jqueryui/css/cupertino/jquery-ui-1.10.4.custom.min.css') }}">
     <!-- Custom styles for this template -->
     {{ HTML::style("css/style.css") }}
     {{ HTML::style("css/style-responsive.css") }}
@@ -48,7 +49,7 @@
 <div class="brand">
 
     <a href="{{ url('dashboard') }}" class="logo" style="margin: 0px">
-        <img src ="{{ asset("images/logo1.png") }}" style='height:85px;width:100%'>
+        <img src ="{{ asset("images/logo1.png") }}" style='height:85px;width:290px'>
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -145,7 +146,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.html">
+                    <a href="{{ url('company/order/'.Auth::user()->company_id) }}">
                         <i class="fa fa-th-list"></i>
                         <span>View Orders</span>
                     </a>
@@ -157,7 +158,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.html">
+                    <a href="{{ url('company/user/'.Auth::user()->company_id) }}">
                         <i class="fa fa-user"></i>
                         <span>Company Users</span>
                     </a>
@@ -232,6 +233,7 @@
 <!--Core js-->
 {{ HTML::script("bs3/js/bootstrap.min.js") }}
 {{ HTML::script("js/jquery.form.js") }}
+<script src="{{ asset('jqueryui/js/jquery-ui-1.10.4.custom.js') }}"></script>
 {{ HTML::script("js/jquery.dcjqaccordion.2.7.js") }}
 {{ HTML::script("js/jquery.scrollTo.min.js") }}
 {{ HTML::script("js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js") }}

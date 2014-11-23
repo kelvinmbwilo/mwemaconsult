@@ -8,6 +8,13 @@
 
 @section('contents')
 {{ HTML::style("css/jquery.steps.css%3F1.css") }}
+{{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
+{{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
+{{ HTML::style("js/bootstrap-timepicker/css/timepicker.css") }}
+{{ HTML::style("js/bootstrap-colorpicker/css/colorpicker.css") }}
+{{ HTML::style("js/bootstrap-daterangepicker/daterangepicker-bs3.css") }}
+{{ HTML::style("js/bootstrap-datetimepicker/css/datetimepicker.css") }}
+
 <section class="panel">
     <header class="panel-heading">
           Place a New Order
@@ -19,26 +26,27 @@
             <section>
                     <div class="form-group">
                         <div class="col-md-6">
-                            First Name<input type="text" name="firstname" class="form-control" placeholder="First Name">
+                            First Name<input type="text" name="firstname" class="form-control" placeholder="First Name" required="required">
                         </div>
                         <div class="col-md-6">
-                            Middle Name<input type="text" name="middlename" class="form-control" placeholder="Middle Name">
+                            Middle Name<input type="text" name="middlename" class="form-control" placeholder="Middle Name" >
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                            Sir Name<input type="text" name="lastname" class="form-control" placeholder="Sir Name">
-                        </div><div class="col-md-6">
-                            Date of Birth<input type="text" name="dob" class="form-control" placeholder="Date of Birth">
+                            <br>Sir Name<input type="text" name="lastname" class="form-control" placeholder="Sir Name" required="required">
+                        </div>
+                        <div class="col-md-6">
+                            <br>Date Of Birth<br><input name="dob" class="form-control form-control-inline input-medium default-date-picker" placeholder="YYYY"  size="16" type="text" value="" />
                         </div>
 
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                            Address<input type="text" name="address" class="form-control" placeholder="Address">
+                            <br>Address<input type="text" name="address" class="form-control" placeholder="Address" required="required">
                         </div>
                         <div class="col-md-6">
-                            Gender<select name="gender" class="form-control">
+                            <br>Gender<select name="gender" class="form-control">
                                 <option value="Male"><i class="fa fa-male"></i> Male</option>
                                 <option value="Female"><i class="fa fa-female"></i> Female</option>
                             </select>
@@ -55,9 +63,9 @@
                     <h3>{{ $package->name }}</h3>
                 <p><small class="">{{ $package->description }} </small></p>
                     @foreach($package->criteria as $criteria)
-                    <label for="{{$criteria->id}}" class="col-lg-8 control-label">{{ $criteria->name }}</label>
+                    <label for="{{$criteria->id}}" class="col-lg-8">{{ $criteria->name }}</label>
                     <div class="col-lg-4" name="{{ $criteria->name }}">
-                        <input checked class="service" id="{{ $criteria->id }}"  descr="{{ $criteria->description }}" type="checkbox" name="creteria[]">
+                        <input checked class="service" id="{{ $criteria->id }}" value="{{ $criteria->id }}" type="checkbox" name="creteria[]">
                     </div>
                     @endforeach
                 </div>
@@ -75,7 +83,7 @@
                 </ol>
                 <small style="font-size: large">collect all documents in one file/zip it and upload it here</small>
 
-                <input type="file" name="docs" >
+                <input type="file" name="docs" required="required">
             </section>
 
             <h2>Summary</h2>
@@ -89,9 +97,17 @@
     </div>
 </section>
 {{ HTML::script("js/jquery-steps/jquery.steps.js") }}
+{{ HTML::script("js/bootstrap-datepicker/js/bootstrap-datepicker.js") }}
+{{ HTML::script("js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js") }}
+{{ HTML::script("js/bootstrap-daterangepicker/moment.min.js") }}
+{{ HTML::script("js/bootstrap-colorpicker/js/bootstrap-colorpicker.js") }}
+{{ HTML::script("js/bootstrap-timepicker/js/bootstrap-timepicker.js") }}
 <script>
     $(function ()
     {
+        $('.default-date-picker').datepicker({
+            format: 'mm-dd-yyyy'
+        });
         $("#wizard").steps({
             headerTag: "h2",
             bodyTag: "section",
@@ -139,12 +155,11 @@
 
 
                 function afterSuccess(){
-                    setTimeout(function() {
-                        $("#myModal").modal("hide");
-                    }, 3000);
-                    $("#listuser").load("<?php echo url("user/list") ?>")
+                    var html = "<h2>Your order has been placed successful</h2>";
+                    html += "<h4>You will receive an email confirmation soon and confirmation  from Mwema Advocate within a day</h4>";
+                    html += "<a href='<?php echo url('order/new') ?>' class='btn btn-primary btn-lg'>Place Another Order</a> "
+                    $(".panel-body").html(html);
                 }
-                alert("Submitted!");
             }
         });
 

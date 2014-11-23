@@ -22,5 +22,8 @@ class Employee extends Eloquent  {
     public function order(){
         return $this::hasMany("Order","employee_id","id");
     }
+    public function screening(){
+        return $this::hasMany("OrderScreening","employee_id","id");
+    }
 
 }

@@ -19,4 +19,8 @@ class Screening extends Eloquent  {
         return $this::hasMany("Result","screen_id","id");
     }
 
+    public function order(){
+        return $this::hasMany("OrderScreening","order_id","id");
+    }
+
 }

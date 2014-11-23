@@ -1388,9 +1388,11 @@
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="company_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="firstname" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="middlename" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="lastname" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="dob" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="gender" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" length="2500" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1412,10 +1414,19 @@
       <column name="company_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="result_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="package" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="file" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="completed_date" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="orderScreening" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="order_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>

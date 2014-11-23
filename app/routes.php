@@ -113,3 +113,16 @@ Route::get('company/user/list/{id}',array('as'=>'listcompusers', 'uses'=>'Compan
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //display a form to create new order
 Route::get('order/new',array('as'=>'neworder', 'uses'=>'OrderController@create'));
+
+//create a new order
+Route::post('order/new/{id}',array('as'=>'neworder1', 'uses'=>'OrderController@store'));
+
+//route to display company orders
+Route::get('company/order/{id}',array('as'=>'companies', 'uses'=>'OrderController@index'));
+
+//route to display company users
+Route::get('company/order/{id}/list',array('as'=>'companyorders', 'uses'=>'OrderController@listorders'));
+
+//display a list of companies
+Route::get('company/order/{id}/list',array('uses'=>'CompanyController@companylist'));
+

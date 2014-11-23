@@ -2,6 +2,8 @@
 $users=array();
 if(Auth::user()->role == "admin"){
     $users = User::where('company_id',$company->id)->get();
+}if(Auth::user()->role == "company"){
+    $users = User::where('company_id',$company->id)->get();
 }
 ?>
 <div class="row">
@@ -24,8 +26,9 @@ if(Auth::user()->role == "admin"){
                     <th> Username </th>
                     <th> Email </th>
                     <th> Phone </th>
-                    <th> Role </th>
-                    <th> Action </th>
+                    @if(Auth::user()->role != "company")
+                        <th> Role </th>
+                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -37,15 +40,9 @@ if(Auth::user()->role == "admin"){
                     <td>{{ $us->username }}</td>
                     <td>{{ $us->email }}</td>
                     <td>{{ $us->phone }}</td>
+                    @if(Auth::user()->role != "company")
                     <td>{{ $us->role }}</td>
-                    <td id="{{ $us->id }}">
-
-                        <a href="#log" title="View Staff log" class="userlog"><i class="fa fa-list text-success"></i> log</a>&nbsp;&nbsp;&nbsp;
-                        @if(Auth::user()->id != $us->id)
-                        <a href="#edit" title="edit User" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
-                        <a href="#b" title="delete User" class="deleteuser"><i class="fa fa-trash-o text-danger"></i> </a>
-                        @endif
-                    </td>
+                    @endif
                 </tr>
                 @endforeach
 
