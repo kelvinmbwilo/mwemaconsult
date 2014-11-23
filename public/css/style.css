@@ -1,7 +1,7 @@
 /*Template Name:BucketAdmin Dashboard build with Bootstrap v3.0.3Template Version:1.0Author:ThemeBucket*/
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);
+@import url(css.css);
+@import url(css.css);
 @import url(bucket-ico-fonts.css);
 
 html {
@@ -54,7 +54,7 @@ a,a:hover,a:focus {
 .form-signin {
     max-width:430px;
     margin:100px auto;
-    background:#fff;
+    /*background:#fff;*/
     border-radius:5px;
     -webkit-border-radius:5px;
 }
@@ -62,7 +62,7 @@ a,a:hover,a:focus {
     margin:0;
     padding:0px 15px;
     text-align:center;
-    background:#999966;
+    /*background:#999966;*/
     border-radius:5px 5px 0 0;
     -webkit-border-radius:5px 5px 0 0;
     color:#fff;
@@ -70,7 +70,7 @@ a,a:hover,a:focus {
     text-transform:uppercase;
     font-weight:300;
     font-family:'Open Sans',sans-serif;
-    border-bottom:10px solid #999966;
+    /*border-bottom:10px solid #999966;*/
 }
 .form-signin .checkbox {
     margin-bottom:14px;
@@ -102,7 +102,7 @@ a,a:hover,a:focus {
     font-size:12px;
 }
 .form-signin .btn-login {
-    background:#999966;
+    background:#51B3BB;
     color:#fff;
     text-transform:uppercase;
     font-weight:300;
@@ -126,7 +126,7 @@ a,a:hover,a:focus {
     position:relative;
 }
 .user-login-info {
-    background:#eaeaec;
+    /*background:#eaeaec;*/
     margin:-20px -20px 20px -20px;
     padding:20px;
 }
@@ -4697,7 +4697,7 @@ div.tagsinput span.tag {
     text-align:center;
 }
 .monthly-stats h4 {
-    color:#fff;
+    color:#000;
     font-weight:normal;
     text-transform:uppercase;
     margin:0px;

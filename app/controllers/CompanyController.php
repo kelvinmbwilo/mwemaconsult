@@ -60,7 +60,8 @@ class CompanyController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$company = Company::find($id);
+        return View::make('company.dashboard',compact('company'));
 	}
 
 

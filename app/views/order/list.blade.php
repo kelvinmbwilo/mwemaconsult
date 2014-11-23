@@ -6,6 +6,9 @@
     <th>Full Name</th>
     <th class="hidden-phone">Birth of Date</th>
     <th class="hidden-phone">Address</th>
+    <th class="hidden-phone">Placement<br> Date</th>
+    <th class="hidden-phone">Delivery<br> Date</th>
+    <th class="hidden-phone">Address</th>
     <th class="hidden-phone">Status</th>
 </tr>
 </thead>
@@ -13,8 +16,11 @@
 @foreach(Order::where('company_id',Auth::user()->company_id)->get() as $employee)
 <tr class="gradeX">
     <td>{{ $employee->employee->id }}</td>
-    <td>{{  $employee->employee->firstname }}</td>
+    <td style="text-transform: capitalize">{{  $employee->employee->firstname }} {{  $employee->employee->middlename }} {{  $employee->employee->lastname }}</td>
     <td class="hidden-phone">{{  $employee->employee->dob }}</td>
+    <td class="center hidden-phone">{{  $employee->employee->address }}</td>
+    <td class="center hidden-phone">{{  date('j M Y',strtotime($employee->created_at)) }}</td>
+    <td class="center hidden-phone">{{  date('j M Y',strtotime($employee->created_at)+(5*24*60*60)) }}</td>
     <td class="center hidden-phone">{{  $employee->employee->address }}</td>
     <td class="center hidden-phone">{{  $employee->status }}</td>
 </tr>

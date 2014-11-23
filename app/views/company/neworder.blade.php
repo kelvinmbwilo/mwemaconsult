@@ -22,7 +22,7 @@
     <div class="panel-body">
       <form  id="fileUploader" action='{{ url("order/new/".Auth::user()->company_id) }}' method="POST" enctype="multipart/form-data">
         <div id="wizard" class="col-sm-10">
-            <h2>Candidate Details</h2>
+            <h2><i class="fa fa-user"></i> Candidate Details</h2>
             <section>
                     <div class="form-group">
                         <div class="col-md-6">
@@ -55,7 +55,7 @@
 
             </section>
 
-            <h2>Screening Types</h2>
+            <h2><i class="fa fa-search"></i> Screening Types</h2>
             <section class="checkboxes">
                 @foreach(Package::all() as $package)
 
@@ -72,7 +72,7 @@
                 @endforeach
             </section>
 
-            <h2>Required Documents</h2>
+            <h2><i class="fa fa-briefcase"></i> Required Documents</h2>
             <section>
                 <h3>Please Send us a copy of the following documents</h3>
                 <ol>
@@ -86,7 +86,7 @@
                 <input type="file" name="docs" required="required">
             </section>
 
-            <h2>Summary</h2>
+            <h2><i class="fa fa-list-alt"></i> Summary</h2>
             <section>
                 <div id="output"></div>
                 <div class="summary"></div>

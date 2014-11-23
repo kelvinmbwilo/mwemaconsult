@@ -11,6 +11,9 @@
 |
 */
 
+Route: Route::controller('password', 'RemindersController');
+
+
 Route::get('/', function()
 {
     return View::make('login');
@@ -84,6 +87,9 @@ Route::get('profileEdit',array('as'=>'profileEdit', 'uses'=>'UserController@prof
 //route to display company
 Route::get('companies',array('as'=>'companies', 'uses'=>'CompanyController@index'));
 
+//route to display company
+Route::get('company/{id}/dashboard',array('as'=>'companboard', 'uses'=>'CompanyController@show'));
+
 //display a form to add new company
 Route::get('company/add',array('as'=>'addcompany', 'uses'=>'CompanyController@create'));
 
@@ -124,5 +130,12 @@ Route::get('company/order/{id}',array('as'=>'companies', 'uses'=>'OrderControlle
 Route::get('company/order/{id}/list',array('as'=>'companyorders', 'uses'=>'OrderController@listorders'));
 
 //display a list of companies
-Route::get('company/order/{id}/list',array('uses'=>'CompanyController@companylist'));
+Route::post('order/summary/{id}',array('uses'=>'OrderController@summarylist'));
+
+//display a list of companies
+Route::get('order/screen/{id}',array('uses'=>'OrderController@show'));
+
+
+//display a list of companies
+Route::get('order/pdf/{id}',array('uses'=>'OrderController@generatePdf'));
 

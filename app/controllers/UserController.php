@@ -185,7 +185,14 @@ class UserController extends \BaseController {
                     "user_id"=>  Auth::user()->id,
                     "action"  =>"Logging in"
                 ));
-                return Redirect::to("home");
+                if($user->role == 'company'){
+                    $company = Company::find($user->company_id);
+                    return Redirect::to("company/".$user->company_id."/dashboard");
+                }
+                else{
+                    return Redirect::to("home");
+                }
+
             }
         }
         else{

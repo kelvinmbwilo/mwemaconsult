@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+@if(Auth::user())
+   @if(Auth::user()->role == 'company')
+    {{  Redirect::to("company/".Auth::user()->company_id."/dashboard");  }}
+   @else
+    {{  Redirect::to("home")  }}
+  @endif
+
+@else
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -8,7 +16,7 @@
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="http://bucketadmin.themebucket.net/images/favicon.png">
 
-    <title>Login</title>
+    <title>Mwema Advocate - Login</title>
 
     <!--Core CSS -->
     {{ HTML::style("bs3/css/bootstrap.min.css") }}
@@ -30,8 +38,8 @@
 
 <div class="container">
     <form class="form-signin" action="{{ url('login') }}" method="POST">
-        <img src ="{{ asset("images/logo1.png") }}" style='height:105px;width:100%'>
-        <h2 class="form-signin-heading" style="background-color:#999966;margin:0px;padding-top: 5px;padding-bottom: 5px">sign in now</h2>
+        <img class="img-rounded img-responsive" src ="{{ asset("images/logo1.png") }}" style='height:95px;width:90%;margin-left:5%'>
+        <h2 class="form-signin-heading" style=";margin:0px;padding-top: 15px;padding-bottom: 5px">sign in now</h2>
         <div class="login-wrap">
             @if(isset($error))
             <div class="alert alert-danger alert-dismissable" style="padding: 5px">
@@ -46,7 +54,7 @@
             <label class="checkbox">
                 <input type="checkbox" value="keep" name="keep"> Remember me
                 <span class="pull-right">
-                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+                    <a href="{{ url('password/remind/') }}" style="color: white"> Forgot Password?</a>
 
                 </span>
             </label>
@@ -91,3 +99,4 @@
 
 </body>
 </html>
+@endif

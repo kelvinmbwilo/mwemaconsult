@@ -1,15 +1,15 @@
 function fnFormatDetails ( oTable, nTr )
 {
-    var aData = oTable.fnGetData( nTr );
-    var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-    sOut += '<tr><td>Rendering engine:</td><td>'+aData[1]+' '+aData[4]+'</td></tr>';
-    sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
-    sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
-    sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
-    sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
-    sOut += '</table>';
 
-    return sOut;
+    var aData = oTable.fnGetData( nTr );
+    oTable.fnOpen( nTr, "<i class='fa fa-spin fa-spinner fa-2x'></i> ....", 'details' );
+    $.post("../../order/summary/"+aData[1],function(data){
+
+    var sOut = '<table style="width: 100%" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+    sOut += data;
+    sOut += '</table>';
+       oTable.fnOpen( nTr, sOut, 'details' );
+    })
 }
 
 $(document).ready(function() {
@@ -23,7 +23,7 @@ $(document).ready(function() {
      */
     var nCloneTh = document.createElement( 'th' );
     var nCloneTd = document.createElement( 'td' );
-    nCloneTd.innerHTML = '<img src="../../../images/open.png">';
+    nCloneTd.innerHTML = '<img src="../../../images/open.png" title="click here to view more details">';
     nCloneTd.className = "center";
 
     $('#hidden-table-info thead tr').each( function () {
@@ -58,9 +58,9 @@ $(document).ready(function() {
         }
         else
         {
-            /* Open this row */
+        /* Open this row */
             this.src = "../../../images/less.jpg";
-            oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
+            fnFormatDetails(oTable, nTr);
         }
     } );
 } );

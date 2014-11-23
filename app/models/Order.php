@@ -15,6 +15,10 @@ class Order extends Eloquent  {
         return $this::hasMany("Result","order_id","id");
     }
 
+    public function screening(){
+            return $this::hasMany("OrderScreening","order_id","id");
+        }
+
     public function company(){
         return $this->belongsTo("Company","company_id",'id');
     }

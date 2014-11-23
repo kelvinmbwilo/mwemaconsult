@@ -134,7 +134,7 @@
 
                 @if(Auth::user()->role == 'company')
                 <li>
-                    <a href="index.html">
+                    <a href="{{ url('company/'.Auth::user()->company_id.'/dashboard') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -161,6 +161,12 @@
                     <a href="{{ url('company/user/'.Auth::user()->company_id) }}">
                         <i class="fa fa-user"></i>
                         <span>Company Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('company/user/'.Auth::user()->company_id) }}">
+                        <i class="fa fa-user"></i>
+                        <span>Invoice</span>
                     </a>
                 </li>
                 @else
