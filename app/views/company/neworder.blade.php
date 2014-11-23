@@ -168,7 +168,7 @@
                     $('#fileUploader').ajaxSubmit({
                         target: '#output',
                         success:  afterSuccess,
-                        error: 
+                        
                     });
 
 
