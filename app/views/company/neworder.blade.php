@@ -167,8 +167,7 @@
                     $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Uploading file and saving changes, please wait...</span><h3>");
                     $('#fileUploader').ajaxSubmit({
                         target: '#output',
-                        success:  afterSuccess,
-                        
+                        success:  afterSuccess
                     });
 
 
