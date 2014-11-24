@@ -128,7 +128,7 @@
                     var html = "<h4>Summary</h4>";
                     html += "<table class='table table-bordered table-responsive'> ";
                     html += "<tr> ";
-                    html += "<th>Candidate Full Name</th><td>"+$('input[name=firsname]').val()+" "+$('input[name=middlename]').val()+" "+$('input[name=lastname]').val()+"</td> ";
+                    html += "<th>Candidate Full Name</th><td>"+$('input[name=firstname]').val()+" "+$('input[name=middlename]').val()+" "+$('input[name=lastname]').val()+"</td> ";
                     html += "</tr> ";
                     html += "<tr> ";
                     html += "<th>Date of Birth</th><td>"+$('input[name=dob]').val()+"</td> ";
