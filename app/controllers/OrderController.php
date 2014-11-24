@@ -73,8 +73,8 @@ class OrderController extends \BaseController {
         }
         $mail = Mail::send('company.confirmemail', array('key' => 'value'), function($message)
         {
-            $message->from('mwemaadvocate@gmail.com', 'Mwema Advocate');
-            $message->to('request@mwemadvocates.com', 'John Smith')->subject('Welcome!');
+            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
+            $message->to(Auth::user()->email, Auth::user()->firstname." ".Auth::user()->lastname)->subject('Welcome!');
             $message->attach(asset('images/logo1.png'));
         });
         Logs::create(array(

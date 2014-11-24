@@ -4,7 +4,7 @@
 <tr>
     <th>Ref#</th>
     <th>Full Name</th>
-    <th class="hidden-phone">Birth of Date</th>
+    <th class="hidden-phone">Birth Date</th>
     <th class="hidden-phone">Address</th>
     <th class="hidden-phone">Placement<br> Date</th>
     <th class="hidden-phone">Delivery<br> Date</th>
