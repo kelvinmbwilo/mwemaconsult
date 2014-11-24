@@ -97,6 +97,11 @@ class ProcessController extends \BaseController {
         $order->status = 'In Progress';
         $order->save();
     }
+    public function publishorder($id){
+        $order = OrderScreening::find($id);
+        $order->visibilty_status = 'show';
+        $order->save();
+    }
     public function selectforms($id){
         $order = Order::find($id);
 
@@ -132,7 +137,12 @@ class ProcessController extends \BaseController {
             echo "<td id='".$screen->id."'><a href='#' class='addform'> <i class='fa fa-pencil'></i> Update Form </a></td>";
             echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> view Summary Report </a></td>";
             echo "<td><a href='".url("order/pdf/".$screen->id)."'> <i class='fa fa-download'></i>  </a></td>";
-            echo "<td id='".$screen->id."'><a href='#w' class='publish'> <i class='fa fa-check text-success'></i> </a></td>";
+            if($screen->visibilty_status == 'show'){
+                echo "<td id='".$screen->id."'>Published</td>";
+            }else{
+                echo "<td id='".$screen->id."'><a href='#w' class='publish'> <i class='fa fa-check text-success'></i> </a></td>";
+
+            }
 
             echo "</tr>";
         }
@@ -207,16 +217,16 @@ class ProcessController extends \BaseController {
             $(".publish").click(function(){
                 var id1 = $(this).parent().attr('id');
                 $(".publish").show("slow").parent().parent().find("span").remove();
-                var btn = $(this).parent().parent().parent();
+                var btn = $(this).parent();
                 $(this).hide("slow").parent().append("<span><br>Are You Sure <br /><br><a href='#s' id='yes' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Yes</a> <a href='#s' id='no' class='btn btn-danger btn-xs'> <i class='fa fa-times'></i> No</a></span>");
                 $("#no").click(function(){
                     $(this).parent().parent().find(".publish").show("slow");
                     $(this).parent().parent().find("span").remove();
                 });
                 $("#yes").click(function(){
-                    $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>deleting...");
-                    $.post("<?php echo url('order/confirm') ?>/"+id1,function(data){
-                        btn.hide("slow").next("hr").hide("slow");
+                    $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>publishing...");
+                    $.post("<?php echo url('order/publish') ?>/"+id1,function(data){
+                        btn.html("Published");
                     });
                 });
             });

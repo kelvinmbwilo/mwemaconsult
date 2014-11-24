@@ -156,6 +156,9 @@ Route::post('order/unconfirm/{id}',array('uses'=>'ProcessController@unconfirm'))
 Route::post('order/confirm/{id}',array('uses'=>'ProcessController@confirmorder'));
 
 //display a list of companies
+Route::post('order/publish/{id}',array('uses'=>'ProcessController@publishorder'));
+
+//display a list of companies
 Route::post('order/confirm/summary/{id}',array('uses'=>'ProcessController@selectforms'));
 
 //display a list of companies
