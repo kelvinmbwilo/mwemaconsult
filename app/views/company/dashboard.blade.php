@@ -97,7 +97,9 @@
             <div class="panel-body">
                 <div class="monthly-stats">
                     <div class="clearfix">
-                        <h4 class="pull-left"  style="color:#000000"> Company Details</h4>
+                        <br><br><br>
+                        <h3 class="pull-left"  style="color:#000000"> Company Details</h3>
+
                         <!-- Nav tabs -->
                         <div class="btn-group pull-right stat-tab">
                             <a href="index.html#line-chart" class="btn stat-btn active" data-toggle="tab"><i class="ico-stats"></i></a>
@@ -107,6 +109,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="line-chart" style="color:#000000">
+                            <hr>
                             <h4>Name : {{ $company->name }}</h4>
                             <h4>Address : {{ $company->address }}</h4>
                             <h4>Region : {{ $company->getRegion->region }}</h4>
@@ -151,7 +154,7 @@ $i ++;
 
         $('.container1').highcharts({
             title: {
-                text: '<?php echo $company->name ?> Order Summary'
+                text: '<?php echo $company->name ?> Screening Order Summary'
             },
             xAxis: {
                 categories: ['Completed', 'In Progress', 'Pending', 'Declined']

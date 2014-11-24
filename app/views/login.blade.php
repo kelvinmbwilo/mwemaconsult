@@ -38,7 +38,7 @@
 
 <div class="container">
     <form class="form-signin" action="{{ url('login') }}" method="POST">
-        <img class="img-rounded img-responsive" src ="{{ asset("images/logo1.png") }}" style='height:95px;width:90%;margin-left:5%'>
+        <img class="img-rounded img-responsive" src ="{{ asset("refe.png") }}" style='height:95px;width:90%;margin-left:5%'>
         <h2 class="form-signin-heading" style=";margin:0px;padding-top: 15px;padding-bottom: 5px">sign in now</h2>
         <div class="login-wrap">
             @if(isset($error))
