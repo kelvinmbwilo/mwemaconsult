@@ -104,8 +104,8 @@ class ProcessController extends \BaseController {
         echo "<tr>";
         echo "<th style='width: 20%'>Screening Type</th>";
         echo "<th>Complete(%)</th>";
+        echo "<th style='width: 20%'>Update</th>";
         echo "<th style='width: 20%'>View Summary</th>";
-        echo "<th style='width: 20%'>Get Report</th>";
         echo "<th style='width: 5%'>Get Report</th>";
         echo "<th style='width: 5%'>publish</th>";
         echo "</tr>";
@@ -147,11 +147,14 @@ class ProcessController extends \BaseController {
         }else{
             $class1 = "danger";
         }
-        echo '<br><div class="progress">
+        echo '<br>
+        <div class="col-sm-10">
+        <div class="progress">
               <div title="'.$avg.'%" class="progress-bar progress-bar-'.$class1.' progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: '.$avg.'%">
                 <span class="sr-only">20% Complete</span>
               </div>
-            </div>';
+            </div></div>';
+        echo '<div class="col-sm-2"><a href="#d" class="btn btn-primary"><i class="fa fa-check"></i> Mark as Complete </a> </div>'
         ?>
         <script>
             $(".summary").click(function(){

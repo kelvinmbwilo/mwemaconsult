@@ -3,11 +3,7 @@
     <tr>
       <td>
          
-        <div class="row">
-           <div class="col-sm-12"> 
-             <h3 class="text-info"> Employment history and references </h3>
-           </div>
-        </div>
+
         
         <div class="row">
            <div class="col-sm-12"> 
@@ -15,7 +11,6 @@
            </div>
         </div>
         <div class="row">
-        ......
            <div class="form-group">
              <table width="100%" border="0" cellspacing="0" cellpadding="0" id="empl1">
                <tr>
@@ -54,6 +49,26 @@
                </tr>
              </table>
            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <br>
+                    Employment history and references - System Score
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                </div>
+
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                </div>
+            </div>
         </div>
          <div class="row">
            <div class="col-sm-12"> 
@@ -93,6 +108,25 @@
                </tr>
              </table>
            </div>
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <br>
+                    Job Role Confirmation - System Score
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                </div>
+
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                </div>
+            </div>
         </div>
          <div class="row">
            <div class="col-sm-12"> 
@@ -150,6 +184,26 @@
                </tr>
              </table>
            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <br>
+                    Confirmation of Employement Date - System Score
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                </div>
+
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="adresscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="form-group">

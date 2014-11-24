@@ -22,7 +22,17 @@
     <td class="center hidden-phone">{{  date('j M Y',strtotime($employee->created_at)) }}</td>
     <td class="center hidden-phone">{{  date('j M Y',strtotime($employee->created_at)+(5*24*60*60)) }}</td>
     <td class="center hidden-phone">{{  $employee->employee->address }}</td>
+    @if($employee->status == 'pending')
+    <td class="center hidden-phone" style="background-color: ">{{  $employee->status }}</td>
+    @elseif($employee->status == 'Complete')
+    <td class="center hidden-phone" style="background-color: lawngreen">{{  $employee->status }}</td>
+    @elseif($employee->status == 'In Progress')
+    <td class="center hidden-phone" style="background-color: yellow">{{  $employee->status }}</td>
+    @elseif($employee->status == 'Declined')
+    <td class="center hidden-phone" style="background-color: firebrick">{{  $employee->status }}</td>
+    @else
     <td class="center hidden-phone">{{  $employee->status }}</td>
+    @endif
 </tr>
 @endforeach
 </tbody>
