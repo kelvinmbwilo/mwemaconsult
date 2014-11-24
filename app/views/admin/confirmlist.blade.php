@@ -93,7 +93,7 @@
                     btn.hide("slow").next("hr").hide("slow");
                 });
             });
-        });//endof deleting category
+        });//end of confirming order
     })
 </script>
 @stop

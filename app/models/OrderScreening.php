@@ -23,4 +23,8 @@ class OrderScreening extends Eloquent  {
         return $this::belongsTo("Employee","employee_id","id");
     }
 
+    public function idcheck(){
+        return $this->hasOne('Iddocument', 'screen_id', 'id');
+    }
+
 }

@@ -54,7 +54,8 @@ class OrderController extends \BaseController {
                 $orderScreen= OrderScreening::create(array(
                     "order_id" => $order->id,
                     "employee_id" => $employee->id,
-                    "screen_id" => $criteria1->id
+                    "screen_id" => $criteria1->id,
+                    "visibilty_status" => 'hidden'
                 ));
             }
         }
@@ -153,17 +154,24 @@ class OrderController extends \BaseController {
             }else{
                 $class = "danger";
             }
-            echo "<tr style='border-bottom: 1px solid #ffd1d1'>";
-            $prog = '<div class="progress">
-                    <div title="'.$screen->complete.'%" class="progress-bar progress-bar-striped active progress-bar-'.$class.'" role="progressbar" aria-valuenow="'.$screen->complete.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$screen->complete.'%">
-                    <span class="sr-only">'.$screen->complete.'</span>
-                    </div>
-                    </div>';
-            echo "<th>".$screen->screening->name."</th>";
-            echo "<td>".$prog."</td>";
-            echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> </a></td>";
-            echo "<td><a href='#'> <i class='fa fa-cloud-download'></i> </a></td>";
-            echo "</tr>";
+            if($screen->visibilty_status == "hidden"){
+                echo "<tr style='border-bottom: 1px solid #ffd1d1'>";
+                echo "<th title=".$screen->screening->description.">".$screen->screening->name."</th>";
+                echo "<td colspan='3'> Processing</td>";
+                echo "</tr>";
+            }else{
+                echo "<tr style='border-bottom: 1px solid #ffd1d1'>";
+                $prog = '<div class="progress">
+                        <div title="'.$screen->complete.'%" class="progress-bar progress-bar-striped active progress-bar-'.$class.'" role="progressbar" aria-valuenow="'.$screen->complete.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$screen->complete.'%">
+                        <span class="sr-only">'.$screen->complete.'</span>
+                        </div>
+                        </div>';
+                echo "<th title=".$screen->screening->description.">".$screen->screening->name."</th>";
+                echo "<td>".$prog."</td>";
+                echo "<td id='".$screen->id."'><a href='#w' class='summary'> <i class='fa fa-th-list'></i> </a></td>";
+                echo "<td id='".$screen->id."'><a href='#w'> <i class='fa fa-cloud-download'></i> </a></td>";
+                echo "</tr>";
+            }
         }
         echo "</table>";
         $avg = intval($total/$i);
@@ -183,29 +191,31 @@ class OrderController extends \BaseController {
             </div>';
         ?>
 <script>
-    $(".summary").click(function(){
-        var id1 = $(this).parent().attr('id');
-        var modal = '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
-        modal+= '<div class="modal-dialog" style="width:70%;margin-right: 15% ;margin-left: 15%">';
-        modal+= '<div class="modal-content">';
-        modal+= '<div class="modal-header">';
-        modal+= '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
-        modal+= '<h4 class="modal-title" id="myModalLabel">Candidate Report</h4>';
-        modal+= '</div>';
-        modal+= '<div class="modal-body">';
-        modal+= ' </div>';
-        modal+= '</div>';
-        modal+= '</div>';
+        $(".summary").click(function(){
+            var id1 = $(this).parent().attr('id');
+            var modal = '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+            modal+= '<div class="modal-dialog" style="width:70%;margin-right: 15% ;margin-left: 15%">';
+            modal+= '<div class="modal-content">';
+            modal+= '<div class="modal-header">';
+            modal+= '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+            modal+= '<h4 class="modal-title" id="myModalLabel">Candidate Report</h4>';
+            modal+= '</div>';
+            modal+= '<div class="modal-body">';
+            modal+= ' </div>';
+            modal+= '</div>';
+            modal+= '</div>';
 
-        $("body").append(modal);
-        $("#myModal").modal("show");
-        $(".modal-body").html("<h3><i class='fa fa-spin fa-spinner '></i><span>loading...</span><h3>");
-        $(".modal-body").load("<?php echo url("order/screen/") ?>/"+id1);
-        $("#myModal").on('hidden.bs.modal',function(){
-            $("#myModal").remove();
-        })
+            $("body").append(modal);
+            $("#myModal").modal("show");
+            $(".modal-body").html("<h3><i class='fa fa-spin fa-spinner '></i><span>loading...</span><h3>");
+            $(".modal-body").load("<?php echo url("order/screen/") ?>/"+id1);
+            $("#myModal").on('hidden.bs.modal',function(){
+                $("#myModal").remove();
+            });
+        });
 
-    })
+
+
 </script>
 
         <?php

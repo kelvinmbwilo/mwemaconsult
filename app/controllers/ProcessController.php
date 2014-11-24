@@ -107,6 +107,7 @@ class ProcessController extends \BaseController {
         echo "<th style='width: 20%'>View Summary</th>";
         echo "<th style='width: 20%'>Get Report</th>";
         echo "<th style='width: 5%'>Get Report</th>";
+        echo "<th style='width: 5%'>publish</th>";
         echo "</tr>";
         $total = 0;$i = 0;
         foreach($order->screening as $screen){
@@ -126,11 +127,13 @@ class ProcessController extends \BaseController {
                     <span class="sr-only">'.$screen->complete.'</span>
                     </div>
                     </div>';
-            echo "<th>".$screen->screening->name."</th>";
+            echo "<th title=".$screen->screening->description.">".$screen->screening->name."</th>";
             echo "<td>".$prog."</td>";
-            echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-pencil'></i> Update Form </a></td>";
-            echo "<td><a href='#'> <i class='fa fa-th-list'></i> view Summary Report </a></td>";
+            echo "<td id='".$screen->id."'><a href='#' class='addform'> <i class='fa fa-pencil'></i> Update Form </a></td>";
+            echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> view Summary Report </a></td>";
             echo "<td><a href='#'> <i class='fa fa-download'></i>  </a></td>";
+            echo "<td id='".$screen->id."'><a href='#w' class='publish'> <i class='fa fa-check text-success'></i> </a></td>";
+
             echo "</tr>";
         }
         echo "</table>";
@@ -174,9 +177,74 @@ class ProcessController extends \BaseController {
                 })
 
             })
+            $(".addform").click(function(){
+                var id1 = $(this).parent().attr('id');
+                var modal = '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+                modal+= '<div class="modal-dialog" style="width:90%;margin-right: 5% ;margin-left: 5%">';
+                modal+= '<div class="modal-content">';
+                modal+= '<div class="modal-header">';
+                modal+= '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+                modal+= '<h4 class="modal-title" id="myModalLabel">Candidate Screening Form</h4>';
+                modal+= '</div>';
+                modal+= '<div class="modal-body">';
+                modal+= ' </div>';
+                modal+= '</div>';
+                modal+= '</div>';
+
+                $("body").append(modal);
+                $("#myModal").modal("show");
+                $(".modal-body").html("<h3><i class='fa fa-spin fa-spinner '></i><span>loading...</span><h3>");
+                $(".modal-body").load("<?php echo url("order/fill/") ?>/"+id1);
+                $("#myModal").on('hidden.bs.modal',function(){
+                    $("#myModal").remove();
+                })
+
+            })
+
+            $(".publish").click(function(){
+                var id1 = $(this).parent().attr('id');
+                $(".publish").show("slow").parent().parent().find("span").remove();
+                var btn = $(this).parent().parent().parent();
+                $(this).hide("slow").parent().append("<span><br>Are You Sure <br /><br><a href='#s' id='yes' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Yes</a> <a href='#s' id='no' class='btn btn-danger btn-xs'> <i class='fa fa-times'></i> No</a></span>");
+                $("#no").click(function(){
+                    $(this).parent().parent().find(".publish").show("slow");
+                    $(this).parent().parent().find("span").remove();
+                });
+                $("#yes").click(function(){
+                    $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>deleting...");
+                    $.post("<?php echo url('order/confirm') ?>/"+id1,function(data){
+                        btn.hide("slow").next("hr").hide("slow");
+                    });
+                });
+            });
         </script>
 
     <?php
+    }
+
+    public function fillform($id){
+        $screen = OrderScreening::find($id);
+        if($screen->screening->name == "Academic Qualifications"){
+            return View::make("screening.academic",compact('screen'));
+        }elseif($screen->screening->name == "Adverse Media Search"){
+            return View::make("screening.adverse",compact('screen'));
+        }elseif($screen->screening->name == "Compliance Database Check"){
+            return View::make("screening.compliance",compact('screen'));
+        }elseif($screen->screening->name == "Criminal Check"){
+            return View::make("screening.criminal",compact('screen'));
+        }elseif($screen->screening->name == "CV Analysis"){
+            return View::make("screening.cvanalysis",compact('screen'));
+        }elseif($screen->screening->name == "Employment Historyand References"){
+            return View::make("screening.employement",compact('screen'));
+        }elseif($screen->screening->name == "Gap Analysis"){
+            return View::make("screening.gapanalysis",compact('screen'));
+        }elseif($screen->screening->name == "ID Document Check"){
+            return View::make("screening.identitycheck",compact('screen'));
+        }elseif($screen->screening->name == "Professional Qualifications"){
+            return View::make("screening.professional",compact('screen'));
+        }else{
+            echo "Haijapatikana";
+        }
     }
 
 }

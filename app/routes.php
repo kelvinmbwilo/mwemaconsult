@@ -154,4 +154,12 @@ Route::post('order/confirm/{id}',array('uses'=>'ProcessController@confirmorder')
 //display a list of companies
 Route::post('order/confirm/summary/{id}',array('uses'=>'ProcessController@selectforms'));
 
+//display a list of companies
+Route::get('order/fill/{id}',array('uses'=>'ProcessController@fillform'));
+
+/////////////////////////////////////////////////////////////////////////////
+/////submiting the forms
+//////////////////////////////////////////////////////////////////////////////
+//id check form
+Route::post('form/submit/validity/{id}',array('uses'=>'ProcessFormController@idcheck'));
 

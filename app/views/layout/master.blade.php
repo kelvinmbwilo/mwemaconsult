@@ -200,11 +200,13 @@
                     </a>
                     <ul class="sub">
                         <li><a href="{{ url('process/order') }}">
-                                <i class="fa fa-check-circle-o"></i> Confirmed <span class="badge">{{ count(Order::where('status','In Progress')->get()) }}</span> </a></li>
+                                <i class="fa fa-check-circle"></i> Confirmed <span class="badge">{{ count(Order::where('status','In Progress')->get()) }}</span> </a></li>
                         <li><a href="{{ url('process/order/confirm') }}">
                                 <i class="fa fa-question-circle"></i> Unconfirmed <span class="badge">{{ count(Order::where('status','pending')->get()) }}</span></a></li>
                         <li><a href="language_switch.html">
                                 <i class="fa fa-bookmark"></i> Published <span class="badge">{{ count(Order::where('status','Complete')->get()) }}</span></a></li>
+                         <li><a href="language_switch.html">
+                                <i class="fa fa-times-circle"></i> Declined <span class="badge">{{ count(Order::where('status','Declined')->get()) }}</span></a></li>
                     </ul>
                 </li>
                 @if(Auth::user()->role == "admin")
