@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dabbd91-1584-4d5a-9895-dc760ff0b12e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/storage/test.pdf" afterPath="$PROJECT_DIR$/app/storage/test.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/OrderController.php" afterPath="$PROJECT_DIR$/app/controllers/OrderController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/order/list.blade.php" afterPath="$PROJECT_DIR$/app/views/order/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/dashboard.blade.php" afterPath="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mwemaconsult.iws" />
@@ -50,10 +47,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="neworder.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="neworder.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/company/neworder.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="26" selection-start="3579" selection-end="3579" vertical-scroll-proportion="0.3678161" vertical-offset="1032" max-vertical-offset="3474">
+            <state line="68" column="26" selection-start="3579" selection-end="3579" vertical-scroll-proportion="-7.111111" vertical-offset="1032" max-vertical-offset="3474">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="99" selection-start="1775" selection-end="1775" vertical-scroll-proportion="0.6896552" vertical-offset="468" max-vertical-offset="3456">
               <folding />
             </state>
           </provider>
@@ -92,15 +98,6 @@
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="158" column="73" selection-start="5986" selection-end="5986" vertical-scroll-proportion="0.0" vertical-offset="2844" max-vertical-offset="3204">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cvanalysis.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/screening/cvanalysis.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="31" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="1134">
               <folding />
             </state>
           </provider>
@@ -186,7 +183,6 @@
         <option value="$PROJECT_DIR$/app/controllers/ProcessFormController.php" />
         <option value="$PROJECT_DIR$/app/views/summary/idcheck.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layout/master.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/views/login.blade.php" />
         <option value="$PROJECT_DIR$/app/views/screening/employement.blade.php" />
         <option value="$PROJECT_DIR$/app/views/screening/gapanalysis.blade.php" />
@@ -197,6 +193,7 @@
         <option value="$PROJECT_DIR$/app/controllers/OrderController.php" />
         <option value="$PROJECT_DIR$/app/config/mail.php" />
         <option value="$PROJECT_DIR$/app/views/company/neworder.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
       </list>
     </option>
   </component>
@@ -869,13 +866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="32" selection-start="4814" selection-end="4814" vertical-scroll-proportion="0.0" vertical-offset="1612" max-vertical-offset="3456">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="68" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1944" />
@@ -976,7 +966,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/company/neworder.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="26" selection-start="3579" selection-end="3579" vertical-scroll-proportion="0.3678161" vertical-offset="1032" max-vertical-offset="3474">
+        <state line="68" column="26" selection-start="3579" selection-end="3579" vertical-scroll-proportion="-7.111111" vertical-offset="1032" max-vertical-offset="3474">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="99" selection-start="1775" selection-end="1775" vertical-scroll-proportion="0.6896552" vertical-offset="468" max-vertical-offset="3456">
           <folding />
         </state>
       </provider>

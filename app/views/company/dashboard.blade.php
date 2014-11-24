@@ -17,7 +17,7 @@
         <div class="mini-stat clearfix">
             <span class="mini-stat-icon orange"><i class="fa fa-gavel"></i></span>
             <div class="mini-stat-info">
-                <span>{{ count(Order::all()) }}</span>
+                <span>{{ count(Order::where('company_id',$company->id)->get()) }}</span>
                 Total Candidates
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="mini-stat clearfix">
             <span class="mini-stat-icon tar"><i class="fa fa-tag"></i></span>
             <div class="mini-stat-info">
-                <span>{{ count(Order::where('status','pending')->get()) }}</span>
+                <span>{{ count(Order::where('status','pending')->where('company_id',$company->id)->get()) }}</span>
                 Pending Order
             </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="mini-stat clearfix">
             <span class="mini-stat-icon pink"><i class="fa fa-money"></i></span>
             <div class="mini-stat-info">
-                <span>{{ count(Order::where('status','In Progress')->get()) }}</span>
+                <span>{{ count(Order::where('status','In Progress')->where('company_id',$company->id)->get()) }}</span>
                 Orders In progress
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="mini-stat clearfix">
             <span class="mini-stat-icon green"><i class="fa fa-eye"></i></span>
             <div class="mini-stat-info">
-                <span>{{ count(Order::where('status','Completed')->get()) }}</span>
+                <span>{{ count(Order::where('status','Completed')->where('company_id',$company->id)->get()) }}</span>
                 Completed Orders
             </div>
         </div>
