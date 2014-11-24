@@ -114,6 +114,9 @@ Route::get('company/user/add/{id}',array('as'=>'companyuser', 'uses'=>'CompanyCo
 //listing users for a company
 Route::get('company/user/list/{id}',array('as'=>'listcompusers', 'uses'=>'CompanyController@listuser'));
 
+//route to display company orders
+Route::get('company/user/{id}',array('as'=>'companies', 'uses'=>'CompanyController@listusers'));
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////Order Placement
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +128,7 @@ Route::post('order/new/{id}',array('as'=>'neworder1', 'uses'=>'OrderController@s
 
 //route to display company orders
 Route::get('company/order/{id}',array('as'=>'companies', 'uses'=>'OrderController@index'));
+
 
 //route to display company users
 Route::get('company/order/{id}/list',array('as'=>'companyorders', 'uses'=>'OrderController@listorders'));

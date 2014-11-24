@@ -93,7 +93,28 @@ class OrderController extends \BaseController {
 	public function show($id)
 	{
 		$screen = OrderScreening::find($id);
-        return View::make('order.summary',compact('screen'));
+        if($screen->screening->name == "Academic Qualifications"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "Adverse Media Search"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "Compliance Database Check"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "Criminal Check"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "CV Analysis"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "Employment Historyand References"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "Gap Analysis"){
+            return View::make('order.summary',compact('screen'));
+        }elseif($screen->screening->name == "ID Document Check"){
+            return View::make('summary.idcheck',compact('screen'));
+        }elseif($screen->screening->name == "Professional Qualifications"){
+            return View::make('order.summary',compact('screen'));
+        }else{
+            return View::make('order.summary',compact('screen'));
+        }
+
 	}
 
 
@@ -221,16 +242,176 @@ class OrderController extends \BaseController {
         <?php
     }
 
-    public function generatePdf(){
+    public function generatePdf($id){
+        $screen = OrderScreening::find($id);
+        if($screen->idcheck->address_score == 1){
+            $color = "#91CF4F";
+        }elseif($screen->idcheck->address_score == 2){
+            $color = "#FFBF00";
+        }elseif($screen->idcheck->address_score == 3){
+            $color = "#red";
+        }else{
+            $color = "#gray";
+        }
+
+        if($screen->idcheck->id_score == 1){
+            $color1 = "#91CF4F";
+        }elseif($screen->idcheck->id_score == 2){
+            $color1 = "#FFBF00";
+        }elseif($screen->idcheck->id_score == 3){
+            $color1 = "#red";
+        }else{
+            $color1 = "#gray";
+        }
+        $descr = $screen->idcheck->description;
+        $validate = $screen->idcheck->validated;
+        $rating =$screen->idcheck->rating;
+        $alias =$screen->idcheck->alias;
+        $mortality =$screen->idcheck->mortality;
+        $curradd =$screen->idcheck->currentaddress;
+        $data =$screen->idcheck->datapiece;
+
         $pdf = new TCPDF();
 
         $pdf->SetPrintHeader(false);
         $pdf->SetPrintFooter(false);
         $pdf->AddPage();
-        $pdf->Text(90, 140, 'This is a test');
+        $name = 'kelvin';
+      ///$html = '<style>'.file_get_contents(asset("bs3/css/bootstrap.min.css")).'</style>';
+        $html = <<<EOF
+<!-- EXAMPLE OF CSS STYLE -->
+<style>
+    h1 {
+        color: navy;
+        font-family: times;
+        font-size: 24pt;
+        text-decoration: underline;
+    }
+    p.first {
+        color: #003300;
+        font-family: helvetica;
+        font-size: 12pt;
+    }
+    p.first span {
+        color: #006600;
+        font-style: italic;
+    }
+    p#second {
+        color: rgb(00,63,127);
+        font-family: times;
+        font-size: 12pt;
+        text-align: justify;
+    }
+    p#second > span {
+        background-color: #FFFFAA;
+    }
+    table.first {
+        color: #003300;
+        font-family: helvetica;
+        font-size: 8pt;
+        border-left: 3px solid red;
+        border-right: 3px solid #FF00FF;
+        border-top: 3px solid green;
+        border-bottom: 3px solid blue;
+        background-color: #ccffcc;
+    }
+    td {
+        border: 2px solid blue;
+        background-color: #ffffee;
+    }
+    td.second {
+        border: 2px dashed green;
+    }
+    div.test {
+        color: #CC0000;
+        background-color: #FFFF66;
+        font-family: helvetica;
+        font-size: 10pt;
+        border-style: solid solid solid solid;
+        border-width: 2px 2px 2px 2px;
+        border-color: green #FF00FF blue red;
+        text-align: center;
+    }
+    .lowercase {
+        text-transform: lowercase;
+    }
+    .uppercase {
+        text-transform: uppercase;
+    }
+    .capitalize {
+        text-transform: capitalize;
+    }
+</style>
+
+<div class="row">
+
+<div class="col-md-12">
+<h4>Report Details</h4>
+<table>
+  <tr>
+  <th>Background Checks Included Within This Report:</th><th>Status</th>
+  </tr>
+  <tr>
+  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>Identity Validation</b></div></td><td><div style="padding: 0px; background-color: $color1 ;height: 25px" ></div></td>
+  </tr>
+  <tr>
+  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>Address Check</b></div></td><td><div style="padding: 0px; background-color: $color ;height: 25px" ></div></td>
+  </tr>
+</table>
+
+</div>
+<div class="col-md-12">
+    <br>
+<h4>Observations</h4>
+<div class="col-sm-12" style="padding: 10px; background-color: #F3F3F3;height: 100px;font-size: 1.2em">
+
+     $descr
+</div>
+</div>
+    <div class="col-md-12">
+        <h3>Identity Check</h3><hr>
+    <h4>Identity Validation</h4>
+    <table class="table table-bordered table-striped summarytable">
+        <tr>
+            <th>Candidate Identity Validated?</th>
+            <th>Confidence Rating<br>
+                (Low / Medium / High)</th>
+            <th>Alias Names found</th>
+            <th>Mortality file match?</th>
+        </tr>
+        <tr>
+            <td> $validate </td>
+            <td> $rating </td>
+            <td> $alias </td>
+            <td> $mortality </td>
+        </tr>
+    </table>
+
+        <h4>Address Check</h4>
+    <table class="table table-bordered table-striped summarytable">
+        <tr>
+            <th>Does the data suggest the candidate is resident at their current
+                address?</th>
+            <th>How many pieces of data support the validation?</th>
+        </tr>
+        <tr>
+            <td> $curradd </td>
+            <td>$data </td>
+        </tr>
+    </table>
+</div>
+    </div>
+EOF;
+        $pdf->writeHTML($html, true, false, true, false, '');
         $filename = storage_path() . '/test.pdf';
         $pdf->output($filename, 'F');
 
         return Response::download($filename);
  }
+
+    public function idshow($id)
+    {
+        $screen = OrderScreening::find($id);
+        return View::make('summary.idcheck',compact('screen'));
+    }
 }

@@ -92,6 +92,7 @@ class ProcessFormController extends \BaseController {
            "datapiece" => Input::get('candidateidentity'),
            "screen_id" => $id,
            "id_score" => Input::get('validscore'),
+           "description" => Input::get('coments'),
            "address_score" => Input::get('adresscore')
         ));
 

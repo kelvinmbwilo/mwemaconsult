@@ -152,12 +152,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.html">
-                        <i class="fa fa-bar-chart-o"></i>
-                        <span>Reports</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ url('company/user/'.Auth::user()->company_id) }}">
                         <i class="fa fa-user"></i>
                         <span>Company Users</span>
@@ -175,9 +169,9 @@
                         <span>References</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ url('process/order') }}">Confirmed</a></li>
-                        <li><a href="horizontal_menu.html">Unconfirmed Order</a></li>
-                        <li><a href="language_switch.html">Manage My Orders</a></li>
+                        <li><a href="{{ asset('Pre-employment_background_checklist.pdf') }}">Pre Employment Check list</a></li>
+                        <li><a href="{{ asset('user_account.pdf') }}">User Account Information</a></li>
+                        <li><a href="language_switch.html">Consent Form</a></li>
                     </ul>
                 </li>
                 @else
@@ -263,7 +257,12 @@
 <!--dynamic table-->
 {{ HTML::script("js/advanced-datatable/js/jquery.dataTables.js") }}
 {{ HTML::script("js/data-tables/DT_bootstrap.js") }}
+
+<script type="text/javascript" src="{{ asset('Highcharts/js/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('Highcharts/js/modules/exporting.js') }}"></script>
+<script type="text/javascript" src="{{ asset('Highcharts/js/themes/sand-signika.js') }}"></script>
 {{ HTML::script("js/scripts.js") }}
+
 
 </body>
 </html>
