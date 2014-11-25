@@ -23,10 +23,11 @@
       <form  id="fileUploader" action='{{ url("order/new/".Auth::user()->company_id) }}' method="POST" enctype="multipart/form-data">
         <div id="wizard" class="col-sm-10">
             <h2><i class="fa fa-user"></i> Candidate Details</h2>
-            <section>
+            <section style="padding-top: 1%">
+                <span class="help-block"> <span style="color: red">*</span> Required Fields</span>
                     <div class="form-group">
                         <div class="col-md-6">
-                            First Name<input type="text" name="firstname" class="form-control" placeholder="First Name" required="required">
+                            First Name<span style="color: red">*</span> <input type="text" name="firstname" class="form-control" placeholder="First Name" required="required">
                         </div>
                         <div class="col-md-6">
                             Middle Name<input type="text" name="middlename" class="form-control" placeholder="Middle Name" >
@@ -34,19 +35,19 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                            <br>Sir Name<input type="text" name="lastname" class="form-control" placeholder="Sir Name" required="required">
+                            <br>Sir Name<span style="color: red">*</span><input type="text" name="lastname" class="form-control" placeholder="Sir Name" required="required">
                         </div>
                         <div class="col-md-6">
-                            <br>Date Of Birth<br><input name="dob" class="form-control form-control-inline input-medium dates" placeholder="YYYY"  size="16" type="text" value="" />
+                            <br>Date Of Birth<span style="color: red">*</span><br><input name="dob" class="form-control form-control-inline input-medium dates" required="required" placeholder="YYYY"  size="16" type="text" value="" />
                         </div>
 
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                            <br>Address<input type="text" name="address" class="form-control" placeholder="Address" required="required">
+                            <br>Address<span style="color: red">*</span><input type="text" name="address" class="form-control" placeholder="Address" required="required">
                         </div>
                         <div class="col-md-6">
-                            <br>Gender<select name="gender" class="form-control">
+                            <br>Gender<span style="color: red">*</span><select name="gender" class="form-control">
                                 <option value="Male"><i class="fa fa-male"></i> Male</option>
                                 <option value="Female"><i class="fa fa-female"></i> Female</option>
                             </select>
@@ -56,7 +57,7 @@
             </section>
 
             <h2><i class="fa fa-search"></i> Screening Types</h2>
-            <section class="checkboxes">
+            <section class="checkboxes" style="padding-top: 1%">
                 @foreach(Package::all() as $package)
 
                 <div class="form-group col-sm-6">
@@ -73,7 +74,7 @@
             </section>
 
             <h2><i class="fa fa-briefcase"></i> Required Documents</h2>
-            <section>
+            <section style="padding-top: 1%">
                 <h3>Please Send us a copy of the following documents</h3>
                 <ol>
                     <li>Applicant Signing of Consent form</li>
@@ -81,13 +82,13 @@
                     <li>Details of education and employment</li>
                     <li>Professional Certificates</li>
                 </ol>
-                <small style="font-size: large">collect all documents in one file/zip it and upload it here</small>
+                <span style="color: red">*</span><small style="font-size: large">collect all documents in one file/zip it and upload it here</small><br>
 
-                <input type="file" name="docs" required="required">
+                 <input type="file" name="docs" required="required">
             </section>
 
             <h2><i class="fa fa-list-alt"></i> Summary</h2>
-            <section>
+            <section style="padding-top: 0.5%">
                 <div id="output"></div>
                 <div class="summary"></div>
 
@@ -97,6 +98,7 @@
     </div>
 </section>
 {{ HTML::script("js/jquery-steps/jquery.steps.js") }}
+{{ HTML::script("validation-master/jquery-validate.bootstrap-tooltip.min.js") }}
 {{ HTML::script("js/bootstrap-datepicker/js/bootstrap-datepicker.js") }}
 {{ HTML::script("js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js") }}
 {{ HTML::script("js/bootstrap-daterangepicker/moment.min.js") }}
@@ -110,10 +112,6 @@
             headerTag: "h2",
             bodyTag: "section",
             transitionEffect: "slideLeft",
-            onInit: function (event, currentIndex) {
-
-
-            },
             onStepChanged: function (event, currentIndex, priorIndex)
             {
                 if(currentIndex === 2){
