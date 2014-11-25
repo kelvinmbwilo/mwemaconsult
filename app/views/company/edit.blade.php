@@ -26,7 +26,7 @@
                 Address<br>{{ Form::text('address',$company->address,array('class'=>'form-control','placeholder'=>'Address','required'=>'required')) }}
             </div>
             <div class='col-sm-6'>
-                Region <br>{{ Form::select('region',Region::all()->lists('region','id'),$company->region,array('class'=>'form-control','required'=>'requiered')) }}
+                Country<br>{{ Form::select('country',Country::all()->lists('name','country_id'),$company->region,array('class'=>'form-control','required'=>'requiered')) }}
             </div>
         </div>
         <div id="output"></div>

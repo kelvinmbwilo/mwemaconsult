@@ -24,7 +24,7 @@ class Company extends Eloquent  {
     }
 
     public function getRegion(){
-        return $this->belongsTo('Country', 'region', 'id');
+        return $this->belongsTo('Country', 'region', 'country_id');
     }
 
     public function getusers(){

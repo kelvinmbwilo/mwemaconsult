@@ -100,13 +100,13 @@ class ProcessController extends \BaseController {
         $order = Order::find($id);
         $order->status = 'In Progress';
         $order->save();
-        Mail::send('company.confirmemail1', array('order' => $order), function($message,$id)
-        {
-            $order = Order::find($id);
-            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
-            $message->to($order->company->users->first()->email, $order->employee->firstname." ".$order->employee->lastname)->subject('Welcome!');
-            $message->attach(asset('images/logo1.png'));
-        });
+//        Mail::send('company.confirmemail1', array('order' => $order), function($message)
+//        {
+//            $order = Order::find($id);
+//            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
+//            $message->to($order->company->users->first()->email, $order->employee->firstname." ".$order->employee->lastname)->subject('Welcome!');
+//            $message->attach(asset('images/logo1.png'));
+//        });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,
             "action"  =>"confirm a new order for ". $order->employee->firstname." ".$order->employee->lastname
