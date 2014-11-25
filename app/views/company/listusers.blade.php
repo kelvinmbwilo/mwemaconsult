@@ -29,6 +29,7 @@ if(Auth::user()->role == "admin"){
                     @if(Auth::user()->role != "company")
                         <th> Role </th>
                     @endif
+                    <td>Company</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,7 @@ if(Auth::user()->role == "admin"){
                     @if(Auth::user()->role != "company")
                     <td>{{ $us->role }}</td>
                     @endif
+
                 </tr>
                 @endforeach
 

@@ -25,6 +25,7 @@ if(Auth::user()->role == "admin"){
         <th> Email </th>
         <th> Phone </th>
         <th> Role </th>
+        <th> Company </th>
         <th> Action </th>
     </tr>
     </thead>
@@ -38,10 +39,11 @@ if(Auth::user()->role == "admin"){
         <td>{{ $us->email }}</td>
         <td>{{ $us->phone }}</td>
         @if($us->role == 'company')
-        <td>company ({{ $us->company->name }})</td>
+        <td>Normal User</td>
         @else
         <td>{{{ ($us->role == 'data')?"Data Manager":"Admin" }}}</td>
         @endif
+        <td>{{{ ($us->role != 'company')?"Mwema Advocate":$us->company->name }}}</td>
         <td id="{{ $us->id }}">
 
             <a href="#log" title="View Staff log" class="userlog"><i class="fa fa-list text-success"></i> log</a>&nbsp;&nbsp;&nbsp;

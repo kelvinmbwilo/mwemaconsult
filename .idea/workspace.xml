@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dabbd91-1584-4d5a-9895-dc760ff0b12e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap-reset.css" afterPath="$PROJECT_DIR$/public/css/bootstrap-reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/confirmlist.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/confirmlist.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/declinelist.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/declinelist.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/list.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/order/list.blade.php" afterPath="$PROJECT_DIR$/app/views/order/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/neworder.blade.php" afterPath="$PROJECT_DIR$/app/views/company/neworder.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/publishlist.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/publishlist.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/list.blade.php" afterPath="$PROJECT_DIR$/app/views/user/list.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/listusers.blade.php" afterPath="$PROJECT_DIR$/app/views/company/listusers.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mwemaconsult.iws" />
@@ -35,28 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="neworder.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/company/neworder.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="49" selection-start="4546" selection-end="4546" vertical-scroll-proportion="-10.074074" vertical-offset="1240" max-vertical-offset="3438">
-              <folding>
-                <element signature="n#style#0;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#2;n#section#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#1;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#2;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#section#2;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#small#0;n#section#2;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#3;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="list.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/order/list.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,11 +85,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publishlist.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="publishlist.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/publishlist.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="8" selection-start="2575" selection-end="2575" vertical-scroll-proportion="0.41379312" vertical-offset="1152" max-vertical-offset="2484">
+            <state line="76" column="8" selection-start="2575" selection-end="2575" vertical-scroll-proportion="-2.0" vertical-offset="1314" max-vertical-offset="2484">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listcompanyuser.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/user/listcompanyuser.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="342">
+              <folding>
+                <marker date="1416714619373" expanded="true" signature="50:138" placeholder="..." />
+                <marker date="1416714619373" expanded="true" signature="204:245" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listusers.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/company/listusers.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="0" selection-start="1683" selection-end="1683" vertical-scroll-proportion="-10.666667" vertical-offset="540" max-vertical-offset="1170">
+              <folding>
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/user/list.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="28" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.41379312" vertical-offset="594" max-vertical-offset="3168">
+              <folding>
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,24 +132,6 @@
         <entry file="file://$PROJECT_DIR$/app/models/Screening.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="27" selection-start="227" selection-end="234" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="558">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderScreening.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/OrderScreening.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="29" selection-start="331" selection-end="340" vertical-scroll-proportion="-8.148149" vertical-offset="86" max-vertical-offset="648">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="29" selection-start="313" selection-end="322" vertical-scroll-proportion="-5.3333335" vertical-offset="162" max-vertical-offset="702">
               <folding />
             </state>
           </provider>
@@ -161,12 +150,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/OrderScreening.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Screening.php" />
         <option value="$PROJECT_DIR$/app/models/Employee.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/user/listcompanyuser.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/company/listusers.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Order.php" />
         <option value="$PROJECT_DIR$/public/js/dynamic_table_init.js" />
         <option value="$PROJECT_DIR$/app/controllers/tcpdf/examples/tcpdf_include.php" />
@@ -212,6 +199,8 @@
         <option value="$PROJECT_DIR$/app/views/admin/declinelist.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/list.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/publishlist.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/company/listusers.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/user/list.blade.php" />
       </list>
     </option>
   </component>
@@ -371,7 +360,51 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwemaconsult" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwemaconsult" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwemaconsult" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwemaconsult" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -533,21 +566,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/RemindersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="36.0" vertical-offset="972" max-vertical-offset="1458" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/password/remind.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="48" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.0" vertical-offset="736" max-vertical-offset="1404" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="37" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="162" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Package.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="28" selection-start="224" selection-end="232" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="432" />
@@ -891,8 +909,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/publishlist.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="8" selection-start="2575" selection-end="2575" vertical-scroll-proportion="0.41379312" vertical-offset="1152" max-vertical-offset="2484">
+        <state line="76" column="8" selection-start="2575" selection-end="2575" vertical-scroll-proportion="-2.0" vertical-offset="1314" max-vertical-offset="2484">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/listcompanyuser.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="562">
+          <folding>
+            <marker date="1416714619373" expanded="true" signature="50:138" placeholder="..." />
+            <marker date="1416714619373" expanded="true" signature="204:245" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/company/listusers.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1683" selection-end="1683" vertical-scroll-proportion="-10.666667" vertical-offset="540" max-vertical-offset="1170">
+          <folding>
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="28" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.41379312" vertical-offset="594" max-vertical-offset="3168">
+          <folding>
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
