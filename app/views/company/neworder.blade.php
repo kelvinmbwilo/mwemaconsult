@@ -24,6 +24,7 @@
         <div id="wizard" class="col-sm-10">
             <h2><i class="fa fa-user"></i> Candidate Details</h2>
             <section style="padding-top: 1%">
+                <form id="basics">
                 <span class="help-block"> <span style="color: red">*</span> Required Fields</span>
                     <div class="form-group">
                         <div class="col-md-6">
@@ -53,7 +54,7 @@
                             </select>
                     </div>
                 </div>
-
+                </form>
             </section>
 
             <h2><i class="fa fa-search"></i> Screening Types</h2>
@@ -61,7 +62,7 @@
                 @foreach(Package::all() as $package)
 
                 <div class="form-group col-sm-6">
-                    <h3><label><input type="checkbox" value="{{ $package->id }}" name="creteria[]" class="pack{{ $package->id }}"> {{ $package->name }}</label></h3>
+                    <h3><label><input type="checkbox" required="required" value="{{ $package->id }}" name="creteria[]" class="pack{{ $package->id }}"> {{ $package->name }}</label></h3>
                 <p><small class="">{{ $package->description }} </small></p>
                     @foreach($package->criteria as $criteria)
                     <label for="{{$criteria->id}}" class="col-lg-8">{{ $criteria->name }}</label>
@@ -98,7 +99,8 @@
     </div>
 </section>
 {{ HTML::script("js/jquery-steps/jquery.steps.js") }}
-{{ HTML::script("validation-master/jquery-validate.bootstrap-tooltip.min.js") }}
+{{ HTML::script("js/jquery.validate.min.js") }}
+<!--{{ HTML::script("validation-master/jquery-validate.bootstrap-tooltip.min.js") }}-->
 {{ HTML::script("js/bootstrap-datepicker/js/bootstrap-datepicker.js") }}
 {{ HTML::script("js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js") }}
 {{ HTML::script("js/bootstrap-daterangepicker/moment.min.js") }}
@@ -112,6 +114,26 @@
             headerTag: "h2",
             bodyTag: "section",
             transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                // Allways allow previous action even if the current form is not valid!
+                if (currentIndex > newIndex)
+                {
+                    return true;
+                }
+                // Forbid next action on "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age-2").val()) < 18)
+                {
+                    return false;
+                }
+                // Needed in some cases if the user went back (clean up)
+                if (currentIndex < newIndex)
+                {
+
+                }
+                $("#fileUploader").validate().settings.ignore = ":disabled,:hidden";
+                return $("#fileUploader").valid();
+            },
             onStepChanged: function (event, currentIndex, priorIndex)
             {
                 if(currentIndex === 2){

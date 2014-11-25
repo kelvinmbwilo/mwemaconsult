@@ -30,4 +30,8 @@ class Order extends Eloquent  {
         return $this::belongsTo("Employee","employee_id","id");
     }
 
+    public function user(){
+        return $this::belongsTo("User","sender","id");
+    }
+
 }

@@ -91,6 +91,13 @@ class ProcessController extends \BaseController {
         $order->status = 'Declined';
         $order->completed_date = Input::get('data');
         $order->save();
+        $array = array("name"=>$order->user->firstname." ".$order->user->lastname,"email"=>$order->user->email);
+        Mail::send('company.confirmemail3', array('order' => $order), function($message) use($array)
+        {
+            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
+            $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Declined Order');
+            $message->attach(asset('images/logo1.png'));
+        });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,
             "action"  =>"decline a new order for ". $order->employee->firstname." ".$order->employee->lastname
@@ -101,13 +108,13 @@ class ProcessController extends \BaseController {
         $order = Order::find($id);
         $order->status = 'In Progress';
         $order->save();
-//        Mail::send('company.confirmemail1', array('order' => $order), function($message)
-//        {
-//            $order = Order::find($id);
-//            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
-//            $message->to($order->company->users->first()->email, $order->employee->firstname." ".$order->employee->lastname)->subject('Welcome!');
-//            $message->attach(asset('images/logo1.png'));
-//        });
+        $array = array("name"=>$order->user->firstname." ".$order->user->lastname,"email"=>$order->user->email);
+        Mail::send('company.confirmemail1', array('order' => $order), function($message) use($array)
+        {
+            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
+            $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Order');
+            $message->attach(asset('images/logo1.png'));
+        });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,
             "action"  =>"confirm a new order for ". $order->employee->firstname." ".$order->employee->lastname

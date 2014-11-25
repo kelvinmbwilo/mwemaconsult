@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL - mwemaconsult@localhost" uuid="c7408546-d783-4023-90f3-733d24ab5c96">
-    <database-info product="MySQL" version="5.5.38-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+    <database-info product="MySQL" version="5.5.40-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -1543,6 +1543,7 @@
       <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="file" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="completed_date" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="sender" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>

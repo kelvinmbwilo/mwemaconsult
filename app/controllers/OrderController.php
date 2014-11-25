@@ -46,7 +46,7 @@ class OrderController extends \BaseController {
         $order = Order::create(array(
             "company_id"  => $id,
             "employee_id" => $employee->id,
-            "result_id"   => 0,
+            "result_id"   => mt_rand(100000,1000000),
             "status"      => 'pending'
         ));
         foreach(Input::get('creteria') as $criteria){
@@ -71,10 +71,10 @@ class OrderController extends \BaseController {
                 $order->save();
             }
         }
-        $mail = Mail::send('company.confirmemail', array('key' => 'value'), function($message)
+        $mail = Mail::send('company.confirmemail', array('order' => $order), function($message)
         {
             $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
-            $message->to(Auth::user()->email, Auth::user()->firstname." ".Auth::user()->lastname)->subject('Welcome!');
+            $message->to(Auth::user()->email, Auth::user()->firstname." ".Auth::user()->lastname)->subject('Pre-employment Background Check Order');
             $message->attach(asset('images/logo1.png'));
         });
         Logs::create(array(

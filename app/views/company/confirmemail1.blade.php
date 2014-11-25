@@ -1,1 +1,2 @@
-<h4>The order reference no {{ $order->id }}  for {{ $order->employee->firstname }} {{ $order->employee->lastname }} has been received by Mwema Advocate</h4>
+<h4>Please be informed that your request with reference number {{ $order->result_id }}  for pre-employment background check on {{ $order->employee->firstname }} {{ $order->employee->lastname }} is now on
+progress as from now you will be notified on status of the process</h4>
