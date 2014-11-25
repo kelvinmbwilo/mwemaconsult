@@ -38,7 +38,7 @@ class CompanyController extends \BaseController {
 		$company = Company::create(array(
            "name" => Input::get("name"),
            "address" => Input::get("address"),
-           "region" => Input::get("region"),
+           "region" => Input::get("country"),
            "email" => Input::get("email"),
            "tel" => Input::get("phone"),
            "fax" => Input::get("fax")
@@ -89,7 +89,7 @@ class CompanyController extends \BaseController {
 		$company = Company::find($id);
         $company->name = Input::get("name");
         $company->address = Input::get("address");
-        $company->region = Input::get("region");
+        $company->region = Input::get("country");
         $company->email = Input::get("email");
         $company->tel = Input::get("phone");
         $company->fax = Input::get("fax");
