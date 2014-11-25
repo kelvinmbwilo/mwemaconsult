@@ -188,7 +188,7 @@ class OrderController extends \BaseController {
                 echo "<th title=".$screen->screening->description.">".$screen->screening->name."</th>";
                 echo "<td>".$prog."</td>";
                 echo "<td id='".$screen->id."'><a href='#w' class='summary'> <i class='fa fa-th-list'></i> </a></td>";
-                echo "<td id='".$screen->id."'><a href='#w'> <i class='fa fa-cloud-download'></i> </a></td>";
+                echo "<td id='".$screen->id."'><a href='".url("order/pdf/".$screen->id)."'> <i class='fa fa-cloud-download'></i> </a></td>";
                 echo "</tr>";
             }
         }
