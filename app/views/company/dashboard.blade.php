@@ -112,7 +112,7 @@
                             <hr>
                             <h4>Name : {{ $company->name }}</h4>
                             <h4>Address : {{ $company->address }}</h4>
-                            <h4>Region : {{ $company->getRegion->name }}</h4>
+                            <h4>Country : {{ $company->getRegion->name }}</h4>
                             <h4>Email : {{ $company->email }}</h4>
                             <h4>Tel : {{ $company->tel }}</h4>
                             <h4>Fax : {{ $company->fax }}</h4>

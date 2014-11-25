@@ -16,7 +16,7 @@
         <th> # </th>
         <th> Name </th>
         <th> Address </th>
-        <th> Region </th>
+        <th> Country </th>
         <th> Email </th>
         <th> Phone </th>
         <th> Fax </th>
@@ -30,7 +30,7 @@
         <td>{{ $i++ }}</td>
         <td class="name" style="text-transform: capitalize">{{ $us->name }}</td>
         <td>{{ $us->address }}</td>
-        <td>{{ $us->getRegion->region }}</td>
+        <td>{{ $us->getRegion->name }}</td>
         <td>{{ $us->email }}</td>
         <td>{{ $us->tel}}</td>
         <td>{{ $us->fax}}</td>
