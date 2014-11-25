@@ -137,4 +137,9 @@ class CompanyController extends \BaseController {
         Return View::make("user.listcompanyuser",compact("company"));
     }
 
+    public function listivoice($id){
+        $company = Company::find($id);
+        Return View::make("company.invoices",compact("company"));
+    }
+
 }

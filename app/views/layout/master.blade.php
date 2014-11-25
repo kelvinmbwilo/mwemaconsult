@@ -68,43 +68,30 @@
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
         <!-- notification dropdown start-->
+        @if(Auth::user()->role != 'company')
         <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="blank.html#">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#d" title="pending orders">
 
                 <i class="fa fa-bell-o"></i>
-                <span class="badge bg-warning">3</span>
+                <span class="badge bg-warning">{{ count(Order::where('status','pending')->get()) }}</span>
             </a>
             <ul class="dropdown-menu extended notification">
                 <li>
                     <p>Notifications</p>
                 </li>
+                @foreach(Order::where('status','pending')->get() as $order)
                 <li>
                     <div class="alert alert-info clearfix">
                         <span class="alert-icon"><i class="fa fa-bolt"></i></span>
                         <div class="noti-info">
-                            <a href="blank.html#"> Server #1 overloaded.</a>
+                            <a href="{{ url('process/order/confirm') }}"> {{ $order->employee->firstname }} {{ $order->employee->lastname }} from {{ $order->company->name }}</a>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="alert alert-danger clearfix">
-                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
-                        <div class="noti-info">
-                            <a href="blank.html#"> Server #2 overloaded.</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="alert alert-success clearfix">
-                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
-                        <div class="noti-info">
-                            <a href="blank.html#"> Server #3 overloaded.</a>
-                        </div>
-                    </div>
-                </li>
-
+                @endforeach
             </ul>
         </li>
+        @endif
         <!-- notification dropdown end -->
         <li>
             <input type="text" class="form-control search" placeholder=" Search">
@@ -158,7 +145,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('company/user/'.Auth::user()->company_id) }}">
+                    <a href="{{ url('company/invoice/'.Auth::user()->company_id) }}">
                         <i class="fa fa-user"></i>
                         <span>Invoice</span>
                     </a>
@@ -171,12 +158,12 @@
                     <ul class="sub">
                         <li><a href="{{ asset('Pre-employment_background_checklist.pdf') }}">Pre Employment Check list</a></li>
                         <li><a href="{{ asset('user_account.pdf') }}">User Account Information</a></li>
-                        <li><a href="language_switch.html">Consent Form</a></li>
+                        <li><a href="{{ asset('Background_check_authorization.pdf') }}">Consent Form</a></li>
                     </ul>
                 </li>
                 @else
                 <li>
-                    <a href="index.html">
+                    <a href="{{ url('home') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -197,9 +184,9 @@
                                 <i class="fa fa-check-circle"></i> Confirmed <span class="badge">{{ count(Order::where('status','In Progress')->get()) }}</span> </a></li>
                         <li><a href="{{ url('process/order/confirm') }}">
                                 <i class="fa fa-question-circle"></i> Unconfirmed <span class="badge">{{ count(Order::where('status','pending')->get()) }}</span></a></li>
-                        <li><a href="#">
+                        <li><a href="{{ url('order/published') }}">
                                 <i class="fa fa-bookmark"></i> Published <span class="badge">{{ count(Order::where('status','Complete')->get()) }}</span></a></li>
-                         <li><a href="#">
+                         <li><a href="{{ url('order/declined') }}">
                                 <i class="fa fa-times-circle"></i> Declined <span class="badge">{{ count(Order::where('status','Declined')->get()) }}</span></a></li>
                     </ul>
                 </li>

@@ -117,6 +117,9 @@ Route::get('company/user/list/{id}',array('as'=>'listcompusers', 'uses'=>'Compan
 //route to display company orders
 Route::get('company/user/{id}',array('as'=>'companies', 'uses'=>'CompanyController@listusers'));
 
+//route to display company ivoices
+Route::get('company/invoice/{id}',array('as'=>'companies', 'uses'=>'CompanyController@listivoice'));
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////Order Placement
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,32 +139,38 @@ Route::get('company/order/{id}/list',array('as'=>'companyorders', 'uses'=>'Order
 //display a list of companies
 Route::post('order/summary/{id}',array('uses'=>'OrderController@summarylist'));
 
-//display a list of companies
+//display a summary of order
 Route::get('order/screen/{id}',array('uses'=>'OrderController@show'));
 
 
-//display a list of companies
+//display a pdf report of a id check order
 Route::get('order/pdf/{id}',array('uses'=>'OrderController@generatePdf'));
 
-//display a list of companies
+//display a list of orders ready for processing
 Route::get('process/order',array('uses'=>'ProcessController@index'));
 
-//display a list of companies
+//display a list of orders waiting confirmation
 Route::get('process/order/confirm',array('uses'=>'ProcessController@confirm'));
 
-//display a list of companies
+//display a list of published order
+Route::get('order/published',array('uses'=>'OrderController@published'));
+
+//display a list of declined  order
+Route::get('order/declined',array('uses'=>'OrderController@declined'));
+
+//declining of an a order
 Route::post('order/unconfirm/{id}',array('uses'=>'ProcessController@unconfirm'));
 
-//display a list of companies
+//confirming of order
 Route::post('order/confirm/{id}',array('uses'=>'ProcessController@confirmorder'));
 
-//display a list of companies
+//publishing a part of order
 Route::post('order/publish/{id}',array('uses'=>'ProcessController@publishorder'));
 
-//display a list of companies
+//displayng a sumary of
 Route::post('order/confirm/summary/{id}',array('uses'=>'ProcessController@selectforms'));
 
-//display a list of companies
+//display a form to fill in screening results
 Route::get('order/fill/{id}',array('uses'=>'ProcessController@fillform'));
 
 /////////////////////////////////////////////////////////////////////////////

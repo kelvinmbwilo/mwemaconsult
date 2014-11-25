@@ -121,24 +121,22 @@ class OrderController extends \BaseController {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function published()
 	{
-		//
+        return View::make('admin.publishlist');
 	}
 
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function declined()
 	{
-		//
+        return View::make('admin.declinelist');
 	}
 
 

@@ -137,9 +137,11 @@ class ProcessController extends \BaseController {
             echo "<td id='".$screen->id."'><a href='#' class='addform'> <i class='fa fa-pencil'></i> Update Form </a></td>";
             echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> view Summary Report </a></td>";
             echo "<td><a href='".url("order/pdf/".$screen->id)."'> <i class='fa fa-download'></i>  </a></td>";
+//            if($screen)
             if($screen->visibilty_status == 'show'){
                 echo "<td id='".$screen->id."'>Published</td>";
             }else{
+
                 echo "<td id='".$screen->id."'><a href='#w' class='publish'> <i class='fa fa-check text-success'></i> </a></td>";
 
             }
