@@ -72,7 +72,7 @@
                 }else{
                     $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>Unconfirming, Please wait...");
                     var ss = $(this).parent();
-                    $.post("<?php echo url('order/unconfirm') ?>/"+id1,function(data){
+                    $.post("<?php echo url('order/unconfirm') ?>/"+id1,{data:txt},function(data){
                         ss.html("<br><i class='fa fa-check'></i>Order Uncormfined...");
                         setTimeout(function() {
                             btn.hide("slow").next("hr").hide("slow");

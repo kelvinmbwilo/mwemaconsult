@@ -89,6 +89,7 @@ class ProcessController extends \BaseController {
     public function unconfirm($id){
         $order = Order::find($id);
         $order->status = 'Declined';
+        $order->completed_date = Input::get('data');
         $order->save();
         Logs::create(array(
             "user_id"=>  Auth::user()->id,

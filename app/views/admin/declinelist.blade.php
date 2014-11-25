@@ -16,6 +16,7 @@
             <th class="hidden-phone">Address</th>
             <th class="hidden-phone">Placement<br> Date</th>
             <th class="hidden-phone">Delivery<br> Date</th>
+            <th class="hidden-phone">Reason</th>
         </tr>
         </thead>
         <tbody>
@@ -28,7 +29,7 @@
             <td class="center hidden-phone">{{  $employee->employee->address }}</td>
             <td class="center hidden-phone">{{  date('j M Y',strtotime($employee->created_at)) }}</td>
             <td class="center hidden-phone">{{  date('j M Y',strtotime($employee->created_at)+(5*24*60*60)) }}</td>
-
+            <td class="center hidden-phone">{{  $employee->completed_date }}</td>
         </tr>
         @endforeach
         </tbody>

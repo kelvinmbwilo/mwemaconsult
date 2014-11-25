@@ -8,7 +8,7 @@
     <th class="hidden-phone">Address</th>
     <th class="hidden-phone">Placement<br> Date</th>
     <th class="hidden-phone">Delivery<br> Date</th>
-    <th class="hidden-phone">Status</th>
+    <th style="width: 10%" class="hidden-phone">Status</th>
 </tr>
 </thead>
 <tbody>
@@ -27,7 +27,7 @@
     @elseif($employee->status == 'In Progress')
     <td class="center hidden-phone" style="background-color: yellow">{{  $employee->status }}</td>
     @elseif($employee->status == 'Declined')
-    <td class="center hidden-phone" style="background-color: firebrick" title="">{{  $employee->status }}</td>
+    <td class="center hidden-phone" style="background-color: firebrick" title="{{  $employee->completed_date }}">{{  $employee->status }} <br> {{  $employee->completed_date }}</td>
     @else
     <td class="center hidden-phone">{{  $employee->status }}</td>
     @endif
