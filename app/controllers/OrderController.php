@@ -268,6 +268,17 @@ class OrderController extends \BaseController {
         $mortality =$screen->idcheck->mortality;
         $curradd =$screen->idcheck->currentaddress;
         $data =$screen->idcheck->datapiece;
+        $name = $screen->employee->firstname." ".$screen->employee->middlename." ".$screen->employee->lastname;
+        $dob = $screen->employee->dob;
+        $address= $screen->employee->address;
+        $company= $screen->employee->company->name;
+        $ref = $screen->order->id;
+        $date1 = date('j M Y',strtotime($screen->order->created_at));
+        if($screen->complete == 100){
+            $date2 = date('j M Y',strtotime($screen->updated_at ));
+        }else{
+            $date2 = $screen->complete;
+        }
 
         $pdf = new TCPDF();
 
@@ -279,6 +290,9 @@ class OrderController extends \BaseController {
         $html = <<<EOF
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
+    table{
+     background-color:#F9F9F9;
+    }
     h1 {
         color: navy;
         font-family: times;
@@ -314,11 +328,8 @@ class OrderController extends \BaseController {
         background-color: #ccffcc;
     }
     td {
-        border: 2px solid blue;
+        border: 1px solid grey;
         background-color: #ffffee;
-    }
-    td.second {
-        border: 2px dashed green;
     }
     div.test {
         color: #CC0000;
@@ -340,7 +351,24 @@ class OrderController extends \BaseController {
         text-transform: capitalize;
     }
 </style>
+<div class="row">
+<div class="col-md-12">
+    <h4>Candidate Details</h4>
+    <table class="table table-bordered table-striped summarytable">
+        <tr><th style="width: 30%">Candidate Full Name:</th><td>$name</td></tr>
+        <tr><th>Date of Birth:</th><td>$dob</td></tr>
+        <tr><th>Address:</th><td>$address</td></tr>
+    </table>
 
+    <h4>Report Details</h4>
+    <table class="table table-bordered table-striped">
+        <tr><th style="width: 30%">Report Prepared For</th><td colspan="3">$company</td></tr>
+        <tr><th>MWEMA Reference Number</th><td colspan="3">$ref</td></tr>
+        <tr><th>Date Submitted</th><td>$date1</td>
+            <th>Date Completed</th><td> $date2</td></tr>
+    </table>
+
+</div></div>
 <div class="row">
 
 <div class="col-md-12">
@@ -350,10 +378,10 @@ class OrderController extends \BaseController {
   <th>Background Checks Included Within This Report:</th><th>Status</th>
   </tr>
   <tr>
-  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>Identity Validation</b></div></td><td><div style="padding: 0px; background-color: $color1 ;height: 25px" ></div></td>
+  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;"><b>Identity Validation</b></div></td><td><div style="padding: 0px; background-color: $color1 ;" ></div></td>
   </tr>
   <tr>
-  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>Address Check</b></div></td><td><div style="padding: 0px; background-color: $color ;height: 25px" ></div></td>
+  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;"><b>Address Check</b></div></td><td><div style="padding: 0px; background-color: $color ;" ></div></td>
   </tr>
 </table>
 
