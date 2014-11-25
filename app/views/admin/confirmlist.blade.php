@@ -93,7 +93,7 @@
                 $(this).parent().parent().find("span").remove();
             });
             $("#yes").click(function(){
-                $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>deleting...");
+                $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>confirming...");
                 $.post("<?php echo url('order/confirm') ?>/"+id1,function(data){
                     btn.hide("slow").next("hr").hide("slow");
                 });

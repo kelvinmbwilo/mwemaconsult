@@ -137,7 +137,7 @@
                     html += "<th>Address</th><td>"+$('input[name=address]').val()+"</td> ";
                     html += "</tr> ";
                     html += "<tr> ";
-                    html += "<td>Services Selected</td><td colspan='2'>"+$('.checkboxes input:checked').length+"</td> ";
+                    html += "<td>Services Selected</td><td colspan='2'>"+$('.checkboxes input:checked').parent().text()+"</td> ";
                     html += "</tr> ";
                     html += "</table> ";
                     $(".summary").html(html);
