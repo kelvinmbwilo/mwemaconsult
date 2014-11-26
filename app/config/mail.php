@@ -28,8 +28,8 @@ return array(
     |
     */
 
-    //'host' => 'smtp.mailgun.org',
-    'host' => 'smtp.gmail.com',
+    'host' => 'smtp.sendgrid.net',
+
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -41,7 +41,7 @@ return array(
     |
     */
 
-    'port' => 587,
+    'port' => 25,
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
     |
     */
 
-    'from' => array('address' => 'mwemadvocate@gmail.com', 'name' => 'Mwema Advocate'),
+    'from' => array('address' => "info@mwemadvocates.com", 'name' => "Mwema Advocates"),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,8 +80,7 @@ return array(
     |
     */
 
-    'username' => 'mwemadvocate@gmail.com ',
-
+    'username' => "adililyas",
     /*
     |--------------------------------------------------------------------------
     | SMTP Server Password
@@ -93,7 +92,7 @@ return array(
     |
     */
 
-    'password' => 'mwemadvocate2014',
+    'password' => "leavitt",
 
     /*
     |--------------------------------------------------------------------------
@@ -122,10 +121,3 @@ return array(
     'pretend' => false,
 
 );
-
-
-//'host' => 'smtp.gmail.com',
-//'port' => 465,
-//'encryption' => 'ssl',
-//'username' => '*your@gmail.com*',
-//'password' => '*yourpassword*',

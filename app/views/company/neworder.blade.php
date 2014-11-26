@@ -7,7 +7,7 @@
 @stop
 
 @section('contents')
-{{ HTML::style("css/jquery.steps.css%3F1.css") }}
+{{ HTML::style("css/jquery.steps.css") }}
 {{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
 {{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
 {{ HTML::style("js/bootstrap-timepicker/css/timepicker.css") }}

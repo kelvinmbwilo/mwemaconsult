@@ -56,6 +56,13 @@ class UserController extends \BaseController {
                     $user->role = 'company';
                     $user->company_id = Input::get('company');
                     $user->save();
+                    $array = array("email"=>$user->email,"name"=>$user->firstname." ".$user->lastname);
+                    $mail = Mail::send('company.confirmuser', array('user' => $user), function($message) use($array)
+                    {
+                        $message->from('info@mwemadvocates.com', 'Mwema Advocate');
+                        $message->to("kelvinmbwilo@gmail.com", $array['name'])->subject('Pre-employment Background Check Order');
+                        $message->attach(asset('images/logo1.png'));
+                    });
                 }
                 $name = $user->firstname." ".$user->lastname;
                 Logs::create(array(
