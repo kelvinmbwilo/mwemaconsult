@@ -54,7 +54,7 @@
             <label class="checkbox">
                 <input type="checkbox" value="keep" name="keep"> Remember me
                 <span class="pull-right">
-                    <a href="{{ url('password/remind/') }}" style="color: white"> Forgot Password?</a>
+<!--                    <a href="{{ url('password/remind/') }}" style="color: white"> Forgot Password?</a>-->
 
                 </span>
             </label>

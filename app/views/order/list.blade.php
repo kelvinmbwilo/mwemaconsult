@@ -12,7 +12,7 @@ function calculateRange($start,$j,$order){
             }
         }
         if(count($package) == 2){
-            $j = 15;
+            $j = 10;
         }else{
             if(in_array('1',$package)){
                 $j = 5;
