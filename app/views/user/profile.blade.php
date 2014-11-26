@@ -9,6 +9,7 @@
 
 @section('contents')
 <div class="row">
+
     <div class="col-md-7" id="profileInfo">
         @include('user.profileInfo')
     </div>

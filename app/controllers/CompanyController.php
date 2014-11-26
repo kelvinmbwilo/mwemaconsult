@@ -116,8 +116,6 @@ class CompanyController extends \BaseController {
             $value->delete();
         }foreach($company->orders as $value){
             $value->delete();
-        }foreach($company->results as $value){
-            $value->delete();
         }
         $company->delete();
 	}

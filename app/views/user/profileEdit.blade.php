@@ -3,6 +3,12 @@
         <h3 class="box-title">Update Your Information </h3>
     </div><!-- /.box-header -->
     <!-- form start -->
+    <?php
+    if(Auth::user()->role == "company"){
+        $valid = "disabled";
+    }
+
+    ?>
     <form role="form" id="profileEditor" method="post" action="{{url("user/edit/{$user->id}")}}">
         <div class="box-body">
             <div class="form-group">
@@ -37,7 +43,7 @@
 
             <div class="form-group">
                 <label for="phone" class="col-sm-3">Re-enter Password</label>
-                <div class="col-sm-9"> <input type="password" class="form-control" id="password" name="re_enter_password" value="" placeholder="Re-enter Password"></div>
+                <div class="col-sm-9"> <input type="password" class="form-control" id="password" name="re_enter_password" value="" placeholder=""></div>
             </div>
         </div><!-- /.box-body -->
         <div id="output"></div>

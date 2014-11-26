@@ -47,7 +47,8 @@ class OrderController extends \BaseController {
             "company_id"  => $id,
             "employee_id" => $employee->id,
             "result_id"   => mt_rand(100000,1000000),
-            "status"      => 'pending'
+            "status"      => 'pending',
+            "sender"   => Auth::user()->id,
         ));
         foreach(Input::get('creteria') as $criteria){
             foreach(Package::find($criteria)->criteria as $criteria1){
@@ -57,6 +58,14 @@ class OrderController extends \BaseController {
                     "screen_id" => $criteria1->id,
                     "visibilty_status" => 'hidden'
                 ));
+                if($criteria1->package->id == 1){
+                    $orderScreen->deadline = $this->calculateRange(date('Y-m-d',strtotime($order->created_at)),5);
+                    $orderScreen->save();
+                }elseif($criteria1->package->id == 2){
+                    $orderScreen->deadline = $this->calculateRange(date('Y-m-d',strtotime($order->created_at)),5);
+                    $orderScreen->save();
+                }
+
             }
         }
         if(Input::file('docs')){
@@ -81,6 +90,7 @@ class OrderController extends \BaseController {
             "user_id"=>  Auth::user()->id,
             "action"  =>"Create a new order for ". $employee->firstname." ".$employee->lastname
         ));
+        echo $order->result_id;
 	}
 
 
@@ -440,4 +450,28 @@ EOF;
         $screen = OrderScreening::find($id);
         return View::make('summary.idcheck',compact('screen'));
     }
+
+        function calculateRange($start,$j){
+
+//    $start = new DateTime($start);
+            $date = "";$i = 0;
+            for($m = 0; $m<30 ; $m++){
+                $nextday = date('Y-m-d',strtotime($start)+(24*60*60));
+
+                $holidays = array('2012-09-07');
+                if (in_array(date('Y-m-d',strtotime($nextday)), $holidays)) {
+
+                }elseif (date('D',strtotime($nextday)) == 'Sat' || date('D',strtotime($nextday)) == 'Sun') {
+
+                } else{
+                    $i++;
+                }
+                if($i == $j){
+                    $date = date('j M Y',strtotime($nextday));
+                }
+                $start = $nextday;
+            }
+            return $date;
+
+        }
 }

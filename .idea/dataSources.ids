@@ -1555,6 +1555,7 @@
       <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="complete" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="visibilty_status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="deadline" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>

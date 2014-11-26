@@ -68,7 +68,7 @@ function calculateRange($start,$j,$order){
         <tbody>
         @foreach(Order::where('status','pending')->get() as $employee)
         <tr class="gradeX">
-            <td>{{ $employee->employee->id }}</td>
+            <td>{{ $employee->result_id }}</td>
             <td style="text-transform: capitalize">{{  $employee->employee->firstname }} {{  $employee->employee->middlename }} {{  $employee->employee->lastname }}</td>
             <td class="hidden-phone">{{  $employee->company->name }}</td>
             <td class="hidden-phone">{{  $employee->employee->dob }}</td>

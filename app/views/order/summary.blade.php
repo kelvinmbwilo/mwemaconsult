@@ -29,7 +29,7 @@
     <h4>Report Details</h4>
     <table class="table table-bordered table-striped">
         <tr><th style="width: 30%">Report Prepared For</th><td colspan="3">{{ $screen->employee->company->name }}</td></tr>
-        <tr><th>MWEMA Reference Number</th><td colspan="3">{{ $screen->order->id }}</td></tr>
+        <tr><th>MWEMA Reference Number</th><td colspan="3">{{ $screen->order->result_id }}</td></tr>
         <tr><th>Date Submitted</th><td>{{ date('j M Y',strtotime($screen->order->created_at)) }}</td>
             <th>Date Completed</th><td>@if($screen->complete == 100) {{ date('j M Y',strtotime($screen->updated_at )) }}
                 @else

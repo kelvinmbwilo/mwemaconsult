@@ -48,6 +48,7 @@ return $date;
 <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
 <thead>
 <tr>
+    <th>Id</th>
     <th>Ref#</th>
     <th>Full Name</th>
     <th class="hidden-phone">Birth Date</th>
@@ -61,6 +62,7 @@ return $date;
 @foreach(Order::where('company_id',Auth::user()->company_id)->orderBy('created_at')->get() as $employee)
 <tr class="gradeX">
     <td>{{ $employee->employee->id }}</td>
+    <td>{{ $employee->result_id }}</td>
     <td style="text-transform: capitalize">{{  $employee->employee->firstname }} {{  $employee->employee->middlename }} {{  $employee->employee->lastname }}</td>
     <td class="hidden-phone">{{  $employee->employee->dob }}</td>
     <td class="center hidden-phone">{{  $employee->employee->address }}</td>

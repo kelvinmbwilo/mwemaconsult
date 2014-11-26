@@ -133,7 +133,7 @@ class ProcessController extends \BaseController {
         echo "<th style='width: 20%'>Screening Type</th>";
         echo "<th>Complete(%)</th>";
         echo "<th style='width: 20%'>Update</th>";
-        echo "<th style='width: 20%'>View Summary</th>";
+        echo "<th style='width: 20%'>View Report</th>";
         echo "<th style='width: 5%'>Get Report</th>";
         echo "<th style='width: 5%'>publish</th>";
         echo "</tr>";
@@ -160,12 +160,15 @@ class ProcessController extends \BaseController {
             echo "<td id='".$screen->id."'><a href='#' class='addform'> <i class='fa fa-pencil'></i> Update Form </a></td>";
             echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> view Summary Report </a></td>";
             echo "<td><a href='".url("order/pdf/".$screen->id)."'> <i class='fa fa-download'></i>  </a></td>";
-//            if($screen)
+
             if($screen->visibilty_status == 'show'){
                 echo "<td id='".$screen->id."'>Published</td>";
             }else{
-
-                echo "<td id='".$screen->id."'><a href='#w' class='publish'> <i class='fa fa-check text-success'></i> </a></td>";
+                if($screen->complete != 100){
+                    echo "<td id='".$screen->id."'>Not Filled</td>";
+                }else{
+                    echo "<td id='".$screen->id."'><a href='#w' class='publish'> <i class='fa fa-check text-success'></i> </a></td>";
+                }
 
             }
 
