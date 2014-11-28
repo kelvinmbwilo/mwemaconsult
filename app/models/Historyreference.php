@@ -1,14 +1,13 @@
 <?php
 
-class Cvnalysis extends Eloquent  {
+class Historyreference extends Eloquent  {
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'cvanalysis';
+    protected $table = 'emphistory_references';
 
     protected $guarded = array("id");
-    
 }

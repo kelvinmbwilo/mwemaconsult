@@ -16,7 +16,7 @@
     <!--Core CSS -->
     {{ HTML::style("bs3/css/bootstrap.min.css") }}
     {{ HTML::style("css/bootstrap-reset.css") }}
-    {{ HTML::style("font-awesome/css/font-awesome.css") }}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!--dynamic table-->
     {{ HTML::style("js/advanced-datatable/css/demo_page.css") }}

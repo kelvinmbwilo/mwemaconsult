@@ -102,29 +102,28 @@ class OrderController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$screen = OrderScreening::find($id);
+        $screen = OrderScreening::find($id);
         if($screen->screening->name == "Academic Qualifications"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.academic',compact('screen'));
         }elseif($screen->screening->name == "Adverse Media Search"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.adverse',compact('screen'));
         }elseif($screen->screening->name == "Compliance Database Check"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.compliance',compact('screen'));
         }elseif($screen->screening->name == "Criminal Check"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.criminal',compact('screen'));
         }elseif($screen->screening->name == "CV Analysis"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary',compact('screen'));
         }elseif($screen->screening->name == "Employment Historyand References"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.employement',compact('screen'));
         }elseif($screen->screening->name == "Gap Analysis"){
             return View::make('order.summary',compact('screen'));
         }elseif($screen->screening->name == "ID Document Check"){
             return View::make('summary.idcheck',compact('screen'));
         }elseif($screen->screening->name == "Professional Qualifications"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.professional',compact('screen'));
         }else{
             return View::make('order.summary',compact('screen'));
         }
-
 	}
 
 

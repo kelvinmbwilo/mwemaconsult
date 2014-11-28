@@ -7,9 +7,13 @@ class Gapanalysis extends Eloquent  {
      *
      * @var string
      */
-    protected $table = 'iddocumentcheck';
+    protected $table = 'gapanalysis';
 
     protected $guarded = array("id");
+	
+	public function history(){
+        return $this::hasMany("GapanalysisHistory","gapanalysis_id","id");
+    }
     
 }
 

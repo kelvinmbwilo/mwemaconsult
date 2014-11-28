@@ -10,5 +10,12 @@ class Adversemedia extends Eloquent  {
     protected $table = 'adversemediacheck';
 
     protected $guarded = array("id");
+	
+    public function order(){
+        return $this::belongsTo("OrderScreening","screen_id","id");
+    }
+	public function matches(){
+        return $this::hasMany("AdversemediaMatches","adverseid","id");
+    }
     
 }

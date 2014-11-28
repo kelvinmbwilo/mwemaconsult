@@ -1,11 +1,11 @@
-<form action="" >
+<form name="validity" method="post" action="{{ url('form/submit/cvvalidity/'.$screen->id) }}" id="FileUploader">
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>
          
         <div class="row">
            <div class="col-sm-12"> 
-             <h3 class="text-info">CV Analysis</h3>
+             <h3 class="text-info">CV Analysis for {{ $screen->employee->firstname }} {{ $screen->employee->lastname }} from {{ $screen->employee->company->name }}</h3>
            </div>
         </div>
         
@@ -18,16 +18,16 @@
                 </div>
                 <div class="col-sm-2">
                     <br>
-                    <label><input type="radio" name="adresscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                    <label><input type="radio" name="cvscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
                 </div>
 
                 <div class="col-sm-2">
                     <br>
-                    <label><input type="radio" name="adresscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                    <label><input type="radio" name="cvscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
                 </div>
                 <div class="col-sm-2">
                     <br>
-                    <label><input type="radio" name="adresscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                    <label><input type="radio" name="cvscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
                 </div>
             </div>
             <div class="form-group">
@@ -48,10 +48,32 @@
            </div>
       </div>
 
-
+</div>
+                <div id="output" class="col-sm-12"></div>
+      </div>
       </td>
         </tr>
         </table>
         
 </form>
 
+<script>
+    $(document).ready(function (){
+        $('#FileUploader').on('submit', function(e) {
+            e.preventDefault();
+            $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
+            $(this).ajaxSubmit({
+                target: '#output',
+                success:  afterSuccess
+            });
+
+        });
+
+
+        function afterSuccess(){
+            setTimeout(function() {
+                $("#myModal").modal("hide");
+            }, 3000);
+        }
+    });
+</script>

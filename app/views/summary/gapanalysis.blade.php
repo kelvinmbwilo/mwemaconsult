@@ -5,7 +5,7 @@
          
         <div class="row">
            <div class="col-sm-12"> 
-             <h3 class="text-info"> Employment Gap Analysis for {{ $screen->employee->firstname }} {{ $screen->employee->lastname }} from {{ $screen->employee->company->name }}</h3>
+             <h3 class="text-info"> Employment Gap Analysis</h3>
            </div>
         </div>
         
@@ -17,24 +17,12 @@
         <div class="row">
            <div class="form-group">
               <div class="col-sm-12">
-               
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <?php 
-			    if(count($screen->employeehistory->historydates)==0)
-				{
-					echo "No employement record found";
-				}
-				else
-				{
-			   ?>
-                {{foreach($screen->employeehistory->historydates as $ehist }}
                   <tr>
-                    <td class="col-sm-6">
-					<?php strtotime(candidate_edate) -strtotime($ehist->candidate_sdate)  ?></td>
+                    <td class="col-sm-6">Period</td>
                     <td class="col-sm-6">Comments</td>
                   </tr>
-                {{@endforeach}}
-                <?php }?>
+                
                   <tr>
                     <td class="col-sm-6"><label for="eperiod"></label>
                     <input type="text" name="eperiod[]" id="eperiod"  class="form-control"/></td>
@@ -52,16 +40,16 @@
                 </div>
                 <div class="col-sm-2">
                     <br>
-                    <label><input type="radio" name="gapscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                    <label><input type="radio" name="adresscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
                 </div>
 
                 <div class="col-sm-2">
                     <br>
-                    <label><input type="radio" name="gapscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                    <label><input type="radio" name="adresscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
                 </div>
                 <div class="col-sm-2">
                     <br>
-                    <label><input type="radio" name="gapscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                    <label><input type="radio" name="adresscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
                 </div>
             </div>
         </div>
