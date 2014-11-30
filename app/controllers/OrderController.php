@@ -112,11 +112,11 @@ class OrderController extends \BaseController {
         }elseif($screen->screening->name == "Criminal Check"){
             return View::make('summary.criminal',compact('screen'));
         }elseif($screen->screening->name == "CV Analysis"){
-            return View::make('summary',compact('screen'));
+            return View::make('summary.cvanalysis',compact('screen'));
         }elseif($screen->screening->name == "Employment Historyand References"){
             return View::make('summary.employement',compact('screen'));
         }elseif($screen->screening->name == "Gap Analysis"){
-            return View::make('order.summary',compact('screen'));
+            return View::make('summary.gapanalysis',compact('screen'));
         }elseif($screen->screening->name == "ID Document Check"){
             return View::make('summary.idcheck',compact('screen'));
         }elseif($screen->screening->name == "Professional Qualifications"){
@@ -250,198 +250,64 @@ class OrderController extends \BaseController {
     }
 
     public function generatePdf($id){
+        
         $screen = OrderScreening::find($id);
-        if($screen->idcheck->address_score == 1){
-            $color = "#91CF4F";
-        }elseif($screen->idcheck->address_score == 2){
-            $color = "#FFBF00";
-        }elseif($screen->idcheck->address_score == 3){
-            $color = "#red";
+        if($screen->screening->name == "Academic Qualifications"){
+            
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.academic',compact('screen'));
+            return $pdf->download('Adverse Media Searchck.pdf'); //Download file
+
+        }elseif($screen->screening->name == "Adverse Media Search"){
+            
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.adverse',compact('screen'));
+            return $pdf->download('Adverse Media Searchck.pdf'); //Download file
+
+        }elseif($screen->screening->name == "Compliance Database Check"){
+            
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.compliance',compact('screen'));
+            return $pdf->download('Compliance Database Check.pdf'); //Download file
+
+        }elseif($screen->screening->name == "Criminal Check"){
+
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.criminal',compact('screen'));
+            return $pdf->download('Criminal Check.pdf'); //Download file
+
+        }elseif($screen->screening->name == "CV Analysis"){
+                        
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.cvanalysis',compact('screen'));
+            return $pdf->download('CV Analysis.pdf'); //Download file 
+
+        }elseif($screen->screening->name == "Employment Historyand References"){
+            
+
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.employement',compact('screen'));
+            return $pdf->download('Employment Historyand References.pdf'); //Download file 
+
+        }elseif($screen->screening->name == "Gap Analysis"){
+            
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.gapanalysis',compact('screen'));
+            return $pdf->download('Gap Analysis.pdf'); //Download file 
+
+        }elseif($screen->screening->name == "ID Document Check"){
+            //return View::make('summary.idcheck',compact('screen'));
+            
+            //Generate pdf 
+            $pdf = PDF::loadView('summary.idcheck',compact('screen'));
+            return $pdf->download('ID Document Check.pdf');
+
+        }elseif($screen->screening->name == "Professional Qualifications"){
+            return View::make('summary.professional',compact('screen'));
         }else{
-            $color = "#gray";
+            return View::make('order.summary',compact('screen'));
         }
-
-        if($screen->idcheck->id_score == 1){
-            $color1 = "#91CF4F";
-        }elseif($screen->idcheck->id_score == 2){
-            $color1 = "#FFBF00";
-        }elseif($screen->idcheck->id_score == 3){
-            $color1 = "#red";
-        }else{
-            $color1 = "#gray";
-        }
-        $descr = $screen->idcheck->description;
-        $validate = $screen->idcheck->validated;
-        $rating =$screen->idcheck->rating;
-        $alias =$screen->idcheck->alias;
-        $mortality =$screen->idcheck->mortality;
-        $curradd =$screen->idcheck->currentaddress;
-        $data =$screen->idcheck->datapiece;
-        $name = $screen->employee->firstname." ".$screen->employee->middlename." ".$screen->employee->lastname;
-        $dob = $screen->employee->dob;
-        $address= $screen->employee->address;
-        $company= $screen->employee->company->name;
-        $ref = $screen->order->id;
-        $date1 = date('j M Y',strtotime($screen->order->created_at));
-        if($screen->complete == 100){
-            $date2 = date('j M Y',strtotime($screen->updated_at ));
-        }else{
-            $date2 = $screen->complete;
-        }
-
-        $pdf = new TCPDF();
-
-        $pdf->SetPrintHeader(false);
-        $pdf->SetPrintFooter(false);
-        $pdf->AddPage();
-        $name = 'kelvin';
-      ///$html = '<style>'.file_get_contents(asset("bs3/css/bootstrap.min.css")).'</style>';
-        $html = <<<EOF
-<!-- EXAMPLE OF CSS STYLE -->
-<style>
-    table{
-     background-color:#F9F9F9;
-    }
-    h1 {
-        color: navy;
-        font-family: times;
-        font-size: 24pt;
-        text-decoration: underline;
-    }
-    p.first {
-        color: #003300;
-        font-family: helvetica;
-        font-size: 12pt;
-    }
-    p.first span {
-        color: #006600;
-        font-style: italic;
-    }
-    p#second {
-        color: rgb(00,63,127);
-        font-family: times;
-        font-size: 12pt;
-        text-align: justify;
-    }
-    p#second > span {
-        background-color: #FFFFAA;
-    }
-    table.first {
-        color: #003300;
-        font-family: helvetica;
-        font-size: 8pt;
-        border-left: 3px solid red;
-        border-right: 3px solid #FF00FF;
-        border-top: 3px solid green;
-        border-bottom: 3px solid blue;
-        background-color: #ccffcc;
-    }
-    td {
-        border: 1px solid grey;
-        background-color: #ffffee;
-    }
-    div.test {
-        color: #CC0000;
-        background-color: #FFFF66;
-        font-family: helvetica;
-        font-size: 10pt;
-        border-style: solid solid solid solid;
-        border-width: 2px 2px 2px 2px;
-        border-color: green #FF00FF blue red;
-        text-align: center;
-    }
-    .lowercase {
-        text-transform: lowercase;
-    }
-    .uppercase {
-        text-transform: uppercase;
-    }
-    .capitalize {
-        text-transform: capitalize;
-    }
-</style>
-<div class="row">
-<div class="col-md-12">
-    <h4>Candidate Details</h4>
-    <table class="table table-bordered table-striped summarytable">
-        <tr><th style="width: 30%">Candidate Full Name:</th><td>$name</td></tr>
-        <tr><th>Date of Birth:</th><td>$dob</td></tr>
-        <tr><th>Address:</th><td>$address</td></tr>
-    </table>
-
-    <h4>Report Details</h4>
-    <table class="table table-bordered table-striped">
-        <tr><th style="width: 30%">Report Prepared For</th><td colspan="3">$company</td></tr>
-        <tr><th>MWEMA Reference Number</th><td colspan="3">$ref</td></tr>
-        <tr><th>Date Submitted</th><td>$date1</td>
-            <th>Date Completed</th><td> $date2</td></tr>
-    </table>
-
-</div></div>
-<div class="row">
-
-<div class="col-md-12">
-<h4>Report Details</h4>
-<table>
-  <tr>
-  <th>Background Checks Included Within This Report:</th><th>Status</th>
-  </tr>
-  <tr>
-  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;"><b>Identity Validation</b></div></td><td><div style="padding: 0px; background-color: $color1 ;" ></div></td>
-  </tr>
-  <tr>
-  <td><div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;"><b>Address Check</b></div></td><td><div style="padding: 0px; background-color: $color ;" ></div></td>
-  </tr>
-</table>
-
-</div>
-<div class="col-md-12">
-    <br>
-<h4>Observations</h4>
-<div class="col-sm-12" style="padding: 10px; background-color: #F3F3F3;height: 100px;font-size: 1.2em">
-
-     $descr
-</div>
-</div>
-    <div class="col-md-12">
-        <h3>Identity Check</h3><hr>
-    <h4>Identity Validation</h4>
-    <table class="table table-bordered table-striped summarytable">
-        <tr>
-            <th>Candidate Identity Validated?</th>
-            <th>Confidence Rating<br>
-                (Low / Medium / High)</th>
-            <th>Alias Names found</th>
-            <th>Mortality file match?</th>
-        </tr>
-        <tr>
-            <td> $validate </td>
-            <td> $rating </td>
-            <td> $alias </td>
-            <td> $mortality </td>
-        </tr>
-    </table>
-
-        <h4>Address Check</h4>
-    <table class="table table-bordered table-striped summarytable">
-        <tr>
-            <th>Does the data suggest the candidate is resident at their current
-                address?</th>
-            <th>How many pieces of data support the validation?</th>
-        </tr>
-        <tr>
-            <td> $curradd </td>
-            <td>$data </td>
-        </tr>
-    </table>
-</div>
-    </div>
-EOF;
-        $pdf->writeHTML($html, true, false, true, false, '');
-        $filename = storage_path() . '/test.pdf';
-        $pdf->output($filename, 'F');
-
-        return Response::download($filename);
+        
  }
 
     public function idshow($id)
