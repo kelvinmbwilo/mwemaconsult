@@ -9,7 +9,6 @@
 @section('contents')
 {{ HTML::style("css/jquery.steps.css") }}
 {{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
-{{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
 {{ HTML::style("js/bootstrap-timepicker/css/timepicker.css") }}
 {{ HTML::style("js/bootstrap-colorpicker/css/colorpicker.css") }}
 {{ HTML::style("js/bootstrap-daterangepicker/daterangepicker-bs3.css") }}

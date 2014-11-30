@@ -60,7 +60,7 @@ class UserController extends \BaseController {
                     $mail = Mail::send('company.confirmuser', array('user' => $user), function($message) use($array)
                     {
                         $message->from('info@mwemadvocates.com', 'Mwema Advocate');
-                        $message->to("kelvinmbwilo@gmail.com", $array['name'])->subject('Pre-employment Background Check Order');
+                        $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Order');
                         $message->attach(asset('images/logo1.png'));
                     });
                 }

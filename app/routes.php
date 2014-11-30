@@ -179,3 +179,6 @@ Route::get('order/fill/{id}',array('uses'=>'ProcessController@fillform'));
 //id check form
 Route::post('form/submit/validity/{id}',array('uses'=>'ProcessFormController@idcheck'));
 
+//id check form
+Route::post('form/submit/advalidity/{id}',array('uses'=>'ProcessFormController@adversecheck'));
+

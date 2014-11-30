@@ -1,3 +1,4 @@
+{{ HTML::style("js/bootstrap-datepicker/css/datepicker.css") }}
 <form name="validity" method="post" action="{{ url('form/submit/advalidity/'.$screen->id) }}" id="FileUploader">
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
@@ -18,19 +19,19 @@
           <div class="form-group">
               <div class="col-sm-3">
               <label for="searchterms">Search Team(s) Entered</label>
-              <input type="text" value="" class="form-control"  name="searchterms"/>
+              <input type="text" value="" class="form-control"  name="searchterms" required="required"/>
               </div>
               <div class="col-sm-3">
               <label for="datesearch">Date of Search</label>
-              <input type="text" value="" class="form-control"  name="datesearch"/>
+              <input type="text" value="" class="form-control dates"  name="datesearch" required="required"/>
               </div>
               <div class="col-sm-3">
               <label for="totalmatch">Total Matches on searche Term</label>
-              <input type="text" value="" class="form-control"  name="totalmatch"/>
+              <input type="text" value="" class="form-control"  name="totalmatch" required="required"/>
               </div>
               <div class="col-sm-3">
               <label for="matchonly">Matches Only</label>
-              <input type="text" value="" class="form-control"  name="matchonly"/>
+              <input type="text" value="" class="form-control"  name="matchonly" required="required"/>
               </div>
            </div>
         </div>
@@ -82,7 +83,7 @@
                     </div>
                     <div class="col-sm-3">
                     <label for="dob[]">Age /DOB</label>
-                    <input type="text" value="" class="form-control" name="dob[]" id="dob[]"/>
+                    <input type="text" value="" class="form-control dates" name="dob[]" id="dob[]"/>
                     </div>
                     <div class="col-sm-5">
                     <label for="extract[]">Extract</label>
@@ -143,8 +144,15 @@
         </table>
         
 </form>
+{{ HTML::script("js/bootstrap-datepicker/js/bootstrap-datepicker.js") }}
 <script>
     $(document).ready(function (){
+        $(".dates").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1950:<?php echo date("Y") ?>",
+            dateFormat:"yy-mm-dd"
+        });
         $('#FileUploader').on('submit', function(e) {
             e.preventDefault();
             $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
@@ -172,7 +180,13 @@ function addRowElement1()
 		
 	var cell = row.insertCell(0);
 	
-	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='namemarch'>Name matched on</label><input type='text' value='' class='form-control' name='namemarch[]'/></div><div class='col-sm-3'><label for='dob[]'>Age /DOB</label><input type='text' value='' class='form-control' name='dob[]' id='dob[]'/></div><div class='col-sm-5'><label for='extract[]'>Extract</label><input type='text' value='' class='form-control' name='extract[]' id='extract[]'/></div></div></div>";	
+	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='namemarch'>Name matched on</label><input type='text' value='' class='form-control' name='namemarch[]'/></div><div class='col-sm-3'><label for='dob[]'>Age /DOB</label><input type='text' value='' class='form-control dates' name='dob[]' id='dob[]'/></div><div class='col-sm-5'><label for='extract[]'>Extract</label><input type='text' value='' class='form-control' name='extract[]' id='extract[]'/></div></div></div>";
+    $(".dates").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "1950:<?php echo date("Y") ?>",
+        dateFormat:"yy-mm-dd"
+    });
 }
 </script>
 
