@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'mwemaconsult',
 			'username'  => 'root',
-			'password'  => 'kevdom',
+			'password'  => '0ct0pus',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "laurentbrieu/tcpdf": "dev-master"
+        "laurentbrieu/tcpdf": "dev-master",
+		"barryvdh/laravel-dompdf": "*"
 	},
 	"autoload": {
 		"classmap": [
