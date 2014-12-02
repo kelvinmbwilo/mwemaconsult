@@ -169,6 +169,24 @@
                     $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Uploading file and saving changes, please wait...</span><h3>");
                     $('#fileUploader').ajaxSubmit({
                         target: '#output',
+                        error: function() {
+                        alert("something went wrong...")
+                            $("#output").html();
+                        },
+                        progress: function(e) {
+                            //make sure we can compute the length
+                            if(e.lengthComputable) {
+                                //calculate the percentage loaded
+                                var pct = (e.loaded / e.total) * 100;
+
+                                //log percentage loaded
+                                console.log(pct);
+                            }
+                            //this usually happens when Content-Length isn't set
+                            else {
+                                console.warn('Content Length not reported!');
+                            }
+                        },
                         success:  afterSuccess
                     });
 

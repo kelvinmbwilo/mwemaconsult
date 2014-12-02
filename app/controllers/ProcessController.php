@@ -92,11 +92,17 @@ class ProcessController extends \BaseController {
         $order->completed_date = Input::get('data');
         $order->save();
         $array = array("name"=>$order->user->firstname." ".$order->user->lastname,"email"=>$order->user->email);
-        Mail::send('company.confirmemail3', array('order' => $order), function($message) use($array)
+        Mail::later(5,'company.confirmemail3', array('order' => $order), function($message) use($array)
         {
-            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
-            $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Declined Order');
-            $message->attach(asset('images/logo1.png'));
+            $message->from('info@mwemadvocates.com', 'Mwema Advocate');
+            $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Order Declined ');
+            $message->attach(asset('images/mwemadvocates.png'));
+        });
+        $mail = Mail::later(5,'company.confirmemail3', array('order' => $order), function($message)
+        {
+            $message->from('info@mwemadvocates.com', 'Mwema Advocate');
+            $message->to("order@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order Declined');
+            $message->attach(asset('images/mwemadvocates.png'));
         });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,

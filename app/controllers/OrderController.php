@@ -80,11 +80,17 @@ class OrderController extends \BaseController {
                 $order->save();
             }
         }
-        $mail = Mail::send('company.confirmemail', array('order' => $order), function($message)
+        $mail = Mail::later(5,'company.confirmemail', array('order' => $order), function($message)
         {
-            $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
-            $message->to(Auth::user()->email, Auth::user()->firstname." ".Auth::user()->lastname)->subject('Pre-employment Background Check Order');
-            $message->attach(asset('images/logo1.png'));
+            $message->from('info@mwemadvocates.com', 'Mwema Advocate');
+            $message->to(Auth::user()->email, Auth::user()->firstname." ".Auth::user()->lastname)->subject('Pre-employment Background Check Order Confirmation');
+            $message->attach(asset('images/mwemadvocates.png'));
+        });
+        $mail = Mail::later(5,'company.confirmemail', array('order' => $order), function($message)
+        {
+            $message->from('info@mwemadvocates.com', 'Mwema Advocate');
+            $message->to("order@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order Confirmation');
+            $message->attach(asset('images/mwemadvocates.png'));
         });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,
