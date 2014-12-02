@@ -18,7 +18,7 @@ class Compliance extends Eloquent  {
         return $this->hasMany('Compliancematches', 'complianceid', 'id');
     }
     public function getposibles(){
-        return $this->hasMany('Compliancematches', 'complianceid', 'id');
+        return $this->hasMany('Complianceposibles', 'complianceid', 'id');
     }
 }
 

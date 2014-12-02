@@ -179,6 +179,23 @@ Route::get('order/fill/{id}',array('uses'=>'ProcessController@fillform'));
 //id check form
 Route::post('form/submit/validity/{id}',array('uses'=>'ProcessFormController@idcheck'));
 
-//id check form
+///Form check routes
+Route::post('form/submit/validity/{id}',array('uses'=>'ProcessFormController@idcheck'));
+//id gapanalysis form
+Route::post('form/submit/gapvalidity/{id}',array('uses'=>'ProcessFormController@gapanalysis'));
+//id professional form
+Route::post('form/submit/professionvalidity/{id}',array('uses'=>'ProcessFormController@professional'));
+//id cvanalysis form
+Route::post('form/submit/cvvalidity/{id}',array('uses'=>'ProcessFormController@cvanalysis'));
+//id criminal form
+Route::post('form/submit/criminvalidity/{id}',array('uses'=>'ProcessFormController@criminal'));
+//id academic form
+Route::post('form/submit/academvalidity/{id}',array('uses'=>'ProcessFormController@academic'));
+//id employeehistory form
+Route::post('form/submit/emplvalidity/{id}',array('uses'=>'ProcessFormController@employeehistory'));
+//id compliencecheck form
+Route::post('form/submit/compvalidity/{id}',array('uses'=>'ProcessFormController@compliencecheck'));
+//id adversecheck form
 Route::post('form/submit/advalidity/{id}',array('uses'=>'ProcessFormController@adversecheck'));
+
 

@@ -178,26 +178,7 @@
         </table>
         
 </form>
-<script>
-    $(document).ready(function (){
-        $('#FileUploader').on('submit', function(e) {
-            e.preventDefault();
-            $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
-            $(this).ajaxSubmit({
-                target: '#output',
-                success:  afterSuccess
-            });
 
-        });
-
-
-        function afterSuccess(){
-            setTimeout(function() {
-                $("#myModal").modal("hide");
-            }, 3000);
-        }
-    });
-</script>
 <script language="javascript" type="text/javascript">
 function addRowElement1()
 {
@@ -220,4 +201,24 @@ function addRowElement2()
 	cell.innerHTML = "<div class='row'><div class='form-group'><table width='100%' border='0' cellspacing='0' cellpadding='0' id='qualificationstb'><tr><td><div class='row'><div class='form-group'><div class='col-sm-5'><span><h4>Did candidate study at this establishment?</h4></span></div><div class='col-sm-2'><select name='checkstudy[]' id='checkstudy[]' class='form-control'><option value=''>--Select--</option><option>Yes</option><option>No</option></select></div></div><div class='form-group'><div class='col-sm-12'><table width='100%' border='0' cellspacing='0' cellpadding='0' class='table table-bordered'><tr><td align='left' valign='top' class='col-sm-4'>&nbsp;</td><td align='left' valign='top' class='col-sm-4'><strong>Candidate</strong></td><td align='left' valign='top' class='col-sm-4'><strong>Reference</strong></td></tr><tr><td align='left' valign='top'>Attendence Date</td><td align='left' valign='top'><label for='candidate_adate[]'></label><input type='text' name='candidate_adate[]' id='candidate_adate[]' class='form-control' /></td><td align='left' valign='top'><input type='text' name='reference_adate[]' id='reference_adate[]' class='form-control'/></td></tr><tr><td align='left' valign='top'>Name of course(s) studied</td><td align='left' valign='top'><input type='text' name='candidate_course[]' id='candidate_course[]' class='form-control'/></td><td align='left' valign='top'><input type='text' name='reference_course[]' id='reference_course[]' class='form-control' /></td></tr><tr><td align='left' valign='top'>Qualification and grade awaded</td><td align='left' valign='top'><input type='text' name='candidate_grade[]' id='candidate_grade[]' class='form-control' /></td><td align='left' valign='top'><input type='text' name='reference_grade[]' id='reference_grade[]' class='form-control' /></td></tr></table></div></div></div><div class='row'><div class='col-sm-12'><div class='form-group'></div></div></div></td></tr></table></div></div>";	
 }
 
+</script>
+<script>
+    $(document).ready(function (){
+        $('#FileUploader').on('submit', function(e) {
+            e.preventDefault();
+            $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
+            $(this).ajaxSubmit({
+                target: '#output',
+                success:  afterSuccess
+            });
+
+        });
+
+
+        function afterSuccess(){
+            setTimeout(function() {
+                $("#myModal").modal("hide");
+            }, 3000);
+        }
+    });
 </script>

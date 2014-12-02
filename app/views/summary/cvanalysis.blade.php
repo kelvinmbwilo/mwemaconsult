@@ -20,7 +20,7 @@ if($screen->cvnalysis->cvscore== 1){
 
 ?>
 <div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>Cvanalysis Check</b></div>
-<div class="col-sm-2" style="padding: 0px; background-color:{{$color}}"></div>
+    <div class="col-sm-2" style="padding: 0px; background-color:<?php echo $color ?> ;height: 25px" ></div>
 
 </div>
 

@@ -1,10 +1,11 @@
 @include('order.summary')
 <?php
-if($screen->compliance->namescore == 1){
+$screen1  = $screen->compliance->first();
+if($screen1->namescore == 1){
     $color = "#91CF4F";
-}elseif($screen->compliance->namescore == 2){
+}elseif($screen1->namescore == 2){
     $color = "#FFBF00";
-}elseif($screen->compliance->namescore == 3){
+}elseif($screen1->namescore == 3){
     $color = "#red";
 }else{
     $color = "#gray";
@@ -25,7 +26,7 @@ if($screen->compliance->namescore == 1){
 <h4>Observations</h4>
 <div class="col-sm-12" style="padding: 10px; background-color: #F3F3F3;height: 100px;font-size: 1.2em">
 
-    {{ $screen->compliance->comments }}
+    {{ $screen1->comments }}
 </div>
 </div>
   <div class="col-md-12">
@@ -43,11 +44,11 @@ if($screen->compliance->namescore == 1){
             <th>Posible Matches on your Candidate</th>
         </tr>
         <tr>
-            <td>{{ $screen->compliance->searchteam }}</td>
-            <td>{{ $screen->compliance->datesearch }}</td>
-            <td>{{ $screen->compliance->totalmatches }}</td>
-            <td>{{ $screen->compliance->matchesqualified }}</td>
-            <td>{{ $screen->compliance->possiblematches }}</td>
+            <td>{{ $screen1->searchteam }}</td>
+            <td>{{ $screen1->datesearch }}</td>
+            <td>{{ $screen1->totalmatches }}</td>
+            <td>{{ $screen1->matchesqualified }}</td>
+            <td>{{ $screen1->possiblematches }}</td>
         </tr>
     </table>
 
@@ -64,7 +65,7 @@ if($screen->compliance->namescore == 1){
               Reson Qualified
             </th>
       </tr>
-         @foreach($screen->compliance->getmatches as $matc)
+         @foreach(Compliancematches::where('complianceid',$screen1->id)->get() as $matc)
         <tr>
             <td>{{ $matc->namematchedon }}</td>
             <td>{{ $matc->issuingentity }}</td>
@@ -87,7 +88,7 @@ if($screen->compliance->namescore == 1){
          Extract
        </th>
      </tr>
-     @foreach($screen->compliance->getposibles as $maps)
+     @foreach($screen1->getposibles as $maps)
   <tr>
     <td>{{ $maps->namematchedon	 }}</td>
     <td>{{ $maps->issuingentity }}</td>

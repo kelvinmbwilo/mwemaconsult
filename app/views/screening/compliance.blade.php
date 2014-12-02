@@ -18,21 +18,21 @@
           <div class="form-group">
               <div class="col-sm-2">
               <label for="searchteam">Search Team(s) Entered</label>
-              <input type="text" value="" class="form-control"  name="searchteam" id="searchteam" />
+              <input type="text" required="" value="" class="form-control"  name="searchteam" id="searchteam" />
               </div>
             <div class="col-sm-2">
               <label for="datesearch"><label>Date of Search</label>
-              <input type="text" value="" class="form-control"  name="datesearch"/>
+              <input type="text" required="" value="" class="form-control dates"  name="datesearch"/>
               </div>
               <div class="col-sm-3">
               <label for="totalmatches"><label>Total Matches on search Term</label>
-              <input type="text" value="" class="form-control"  name="totalmatches" id="totalmatches"/>
+              <input type="text" required="" value="" class="form-control"  name="totalmatches" id="totalmatches"/>
               </div>
               <div class="col-sm-2"> <label>Match Qualified Out</label>
-                <input type="text" value="" class="form-control"  name="matchesqualified" id="matchesqualified"/>
+                <input type="text" required="" value="" class="form-control"  name="matchesqualified" id="matchesqualified"/>
               </div>
             <div class="col-sm-3">Possible Match on Your Candidate
-                <input type="text" value="" class="form-control"  name="possiblematches" id="possiblematches"/>
+                <input type="text" required="" value="" class="form-control"  name="possiblematches" id="possiblematches"/>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
                  <td>
                  <div class="row">
                  <div class="col-sm-2 col-sm-offset-9">
-                   <input name="btnAdpname" type="button" class="btn-primary" id="btnAdpname" value="Add Matches Qualified Out" 
+                   <input name="btnAdpname" type="button" class="btn btn-xs btn-primary" id="btnAdpname" value="Add Another"
                onclick="addRowElement1();"/>
                  </div>
             </div>
@@ -115,8 +115,8 @@
                <tr>
                  <td>
                  <div class="row">
-                 <div class="col-sm-2 col-sm-offset-8">
-                   <input name="btnAdpname" type="button" class="btn-primary" id="btnAdpname" value="Add Possible Matches on your candidate" 
+                 <div class="col-sm-2 col-sm-offset-9">
+                   <input name="btnAdpname" type="button" class="btn btn-xs btn-primary" id="btnAdpname" value="Add Another"
                onclick="addRowElement2();"/>
                  </div>
             </div>
@@ -195,6 +195,12 @@ function addRowElement2()
 </script>
 <script>
     $(document).ready(function (){
+        $(".dates").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1950:<?php echo date("Y") ?>",
+            dateFormat:"yy-mm-dd"
+        });
         $('#FileUploader').on('submit', function(e) {
             e.preventDefault();
             $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");

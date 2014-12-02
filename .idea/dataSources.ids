@@ -1354,19 +1354,35 @@
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="academic_qualification" schema="" catalog="mwemaconsult" type="TABLE">
+    <table name="academic" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="academic_establishment" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="establish_name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="referencemethod" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="dateproduced" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="imageattached" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
+      <column name="qualiscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="academic_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+    </table>
+    <table name="academic_qualification" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="checkstudy" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="candidate_adate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="reference_adate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="candidate_course" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="reference_course" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="candidate_grade" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="reference_grade" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="academic_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1384,11 +1400,13 @@
     <table name="adversemediacheck" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="searchteam" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="datesearch" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="datesearch" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="totalmatches" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="matchesonly" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="namescore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="detailscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1405,6 +1423,42 @@
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="compliance" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="searchteam" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="datesearch" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="totalmatches" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="matchesqualified" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="possiblematches" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="namescore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="compliance_matches" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="namematchedon" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="issuingentity" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="resonqualified" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="complianceid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="updated_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="compliance_posibles" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="namematchedon" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="issuingentity" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="extract" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="complianceid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
     <table name="countries" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="country_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -1416,7 +1470,8 @@
     <table name="criminalcheck" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="namescore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1424,7 +1479,8 @@
     <table name="cvanalysis" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="cvscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1441,14 +1497,18 @@
     </table>
     <table name="emphistory" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="comments" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="created_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="history_score" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="role_score" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="empdate_score" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="emphistory_dates" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="oganisation" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="candidate_sdate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="referee_sdate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="candidate_edate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
@@ -1461,8 +1521,8 @@
     <table name="emphistory_jobs" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="oganisation" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="positionheld" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="reference" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="cpositionheld" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="rposition" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="emphistory_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
@@ -1474,6 +1534,7 @@
       <column name="referencemethod" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="dateproduced" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="imageattached" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
+      <column name="historyscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="emphistory_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="updated_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -1493,15 +1554,17 @@
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="gapanalysis" schema="" catalog="mwemaconsult" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="created_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="updated_at" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="gapscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="gapanalysis_history" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="period" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="period" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="gapanalysis_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
@@ -1519,6 +1582,7 @@
       <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="id_score" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="address_score" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -1575,19 +1639,34 @@
       <index name="password_reminders_email_index" unique="false" columns="email"/>
       <index name="password_reminders_token_index" unique="false" columns="token"/>
     </table>
-    <table name="professional" schema="" catalog="mwemaconsult" type="TABLE">
+    <table name="profesional" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="Comments" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="screen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+    </table>
+    <table name="professional_establishment" schema="" catalog="mwemaconsult" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="establish_name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="referencemethod" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="dateproduced" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="imageattached" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
+      <column name="qualiscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="professionalid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+    </table>
+    <table name="professional_qualification" schema="" catalog="mwemaconsult" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="checkstudy" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="candidate_adate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="reference_adate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="candidate_course" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="reference_course" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="candidate_grade" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="reference_grade" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="employee_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="professionalid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
     </table>

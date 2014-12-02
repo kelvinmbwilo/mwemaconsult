@@ -30,7 +30,7 @@ class OrderScreening extends Eloquent  {
         return $this->hasOne('Employmenthistory', 'screen_id', 'id');
     }
     public function compliance(){
-        return $this->hasOne('Compliance', 'screen_id', 'id');
+        return $this->hasMany("Compliance",'screen_id','id');
     }
     public function academic(){
         return $this->hasOne('Academic', 'screen_id', 'id');

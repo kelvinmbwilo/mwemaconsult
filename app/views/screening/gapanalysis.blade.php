@@ -17,24 +17,18 @@
         <div class="row">
            <div class="form-group">
               <div class="col-sm-12">
-               
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <?php 
-			    if(count($screen->employeehistory->historydates)==0)
-				{
-					echo "No employement record found";
-				}
-				else
-				{
-			   ?>
-                {{foreach($screen->employeehistory->historydates as $ehist }}
+                  <div class="row">
+                      <div class="col-sm-2 col-sm-offset-9">
+                          <input name="btnAdpname" type="button" class="btn btn-xs btn-primary" id="btnAdpname" value="Add Another"
+                                 onclick="addRowElement1();"/>
+                      </div>
+                  </div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" id="gaptable">
                   <tr>
                     <td class="col-sm-6">
-					<?php strtotime(candidate_edate) -strtotime($ehist->candidate_sdate)  ?></td>
+					Period</td>
                     <td class="col-sm-6">Comments</td>
                   </tr>
-                {{@endforeach}}
-                <?php }?>
                   <tr>
                     <td class="col-sm-6"><label for="eperiod"></label>
                     <input type="text" name="eperiod[]" id="eperiod"  class="form-control"/></td>
@@ -83,9 +77,62 @@
                
            </div>
       </div>
-        </td>
+            <div id="output" class="col-sm-12"></div>
+        </div>
+      </td>
         </tr>
         </table>
         
 </form>
+
+<script language="javascript" type="text/javascript">
+    function addRowElement1()
+    {
+        var html = '<tr>';
+        html += '<td class="col-sm-6"><label for="eperiod"></label>';
+        html += '<input type="text" name="eperiod[]" id="eperiod"  class="form-control"/></td>';
+        html += '<td class="col-sm-6"><label for="egcomments"></label>';
+        html += '<input type="text" name="egcomments[]" id="egcomments" class="form-control"/></td>';
+        html += '</tr>';
+        $("#gaptable").append(html)
+    }
+
+
+    function addRowElement2()
+    {
+        var table = document.getElementById('Matchescandidate');
+        var row = table.insertRow(-1);
+
+        var cell = row.insertCell(0);
+
+        cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-3'><label for='namemarch'>Name matched on</label><input type='text' value='' class='form-control' name='pnamematchedon[]' id='pnamematchedon[]'/></div><div class='col-sm-3'><label for='pissuingentity[]'>I</label>ssuing Entity / Country<input type='text' value='' class='form-control' name='pissuingentity[]' id='pissuingentity[]'/></div><div class='col-sm-3'><label for='pextract[]'>Type</label><input type='text' value='' class='form-control' name='ptype[]' id='ptype[]'/></div><div class='col-sm-3'><label for='pextract[]'>Extract</label><input type='text' value='' class='form-control' name='pextract[]' id='pextract[]'/></div></div></div>";
+    }
+
+</script>
+<script>
+    $(document).ready(function (){
+        $(".dates").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1950:<?php echo date("Y") ?>",
+            dateFormat:"yy-mm-dd"
+        });
+        $('#FileUploader').on('submit', function(e) {
+            e.preventDefault();
+            $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
+            $(this).ajaxSubmit({
+                target: '#output',
+                success:  afterSuccess
+            });
+
+        });
+
+
+        function afterSuccess(){
+            setTimeout(function() {
+                $("#myModal").modal("hide");
+            }, 3000);
+        }
+    });
+</script>
 

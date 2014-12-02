@@ -12,10 +12,10 @@ class Professional extends Eloquent  {
     protected $guarded = array("id");
 	
 	 public function establishment(){
-        return $this::hasMany("ProfessionalEstablishment","academic_id","id");
+        return $this::hasMany("ProfessionalEstablishment","professionalid","id");
     }
 	public function qualification(){
-        return $this::hasMany("ProfessionalQualification","academic_id","id");
+        return $this::hasMany("ProfessionalQualification","professionalid","id");
     }
     
 }

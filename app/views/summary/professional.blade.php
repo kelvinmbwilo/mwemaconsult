@@ -45,7 +45,7 @@ if($est->qualiscore == 1){
             <th>Date Supplied</th>
             <th>Image Attached</th>
         </tr>
-        @foreach($screen->professional->historyreference as $est)
+        @foreach($screen->professional->establishment as $est)
         <tr>
             <td>{{ $est->establish_name}}</td>
             <td>{{ $est->referencemethod }}</td>
@@ -60,7 +60,7 @@ if($est->qualiscore == 1){
     <table class="table table-bordered table-striped summarytable">
         <tr>
             <th width="302">Qualification</th>
-            <th width="337" colspan="2">{{$screen->professional->establishment->establish_name}}</th>
+            <th width="337" colspan="2"></th>
       </tr>
         <tr>
           <th>Did candidate study at this establishment?</th>

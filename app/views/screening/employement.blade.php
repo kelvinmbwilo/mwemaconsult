@@ -14,7 +14,7 @@
                  <td>
                  <div class="row">
                  <div class="col-sm-2 col-sm-offset-10">
-                   <input name="btnAdpname" type="button" class="btn-primary" id="btnAdpname" value="Add Employment history" 
+                   <input name="btnAdpname" type="button" class="btn-xs btn btn-primary" id="btnAdpname" value="Add Another"
                onclick="addRowElement1();"/>
                  </div>
             </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-sm-3">
                     <label for="organisation[]">Date Produced</label>
-                    <input type="text" value="" class="form-control" name="dateproduced[]" id="dateproduced[]"/>
+                    <input type="text" value="" class="form-control dates" name="dateproduced[]" id="dateproduced[]"/>
                     </div>
                     <div class="col-sm-2">
                     <label for="imageattached[]">Image Attached</label>
@@ -43,30 +43,31 @@
                     </div>
               </div>
             </div>
-            <div class="row">
-        <div class="form-group">
-                <div class="col-sm-4">
-                    <br>
-                    Employment history and references - System Score
-                </div>
-                <div class="col-sm-2">
-                    <br>
-                    <label><input type="radio" name="historyscore[]" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
-                </div>
-
-                <div class="col-sm-2">
-                    <br>
-                    <label><input type="radio" name="historyscore[]" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
-                </div>
-                <div class="col-sm-2">
-                    <br>
-                    <label><input type="radio" name="historyscore[]" value="3" required="required"><span style="background-color: red">Risk</span> </label>
-                </div>
-            </div>
-        </div>
                  </td>
                </tr>
              </table>
+
+               <div class="row">
+                   <div class="form-group">
+                       <div class="col-sm-4">
+                           <br>
+                           Employment history and references - System Score
+                       </div>
+                       <div class="col-sm-2">
+                           <br>
+                           <label><input type="radio" name="historyscore" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                       </div>
+
+                       <div class="col-sm-2">
+                           <br>
+                           <label><input type="radio" name="historyscore" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                       </div>
+                       <div class="col-sm-2">
+                           <br>
+                           <label><input type="radio" name="historyscore" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                       </div>
+                   </div>
+               </div>
            </div>
         </div>
         </div>
@@ -83,7 +84,7 @@
                  <td>
                  <div class="row">
                  <div class="col-sm-2 col-sm-offset-10">
-                   <input name="btnAdpname" type="button" class="btn-primary" id="btnAdpname" value="Add Job Role Confirmation" 
+                   <input name="btnAdpname" type="button" class="btn-xs btn btn-primary" id="btnAdpname" value="Add Another"
                onclick="addRowElement2();"/>
                  </div>
             </div>
@@ -114,6 +115,26 @@
                </tr>
              </table>
            </div>
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <br>
+                    Job Role Confirmation - System Score
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="jobrole" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                </div>
+
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="jobrole" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="jobrole" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                </div>
+            </div>
+
         </div>
         </div>
          <div class="row">
@@ -128,8 +149,8 @@
                <tr>
                  <td>
                  <div class="row">
-                 <div class="col-sm-2 col-sm-offset-8">
-                   <input name="btnAdpname" type="button" class="btn-primary" id="btnAdpname" value="Add Confirmation of Employement Date" 
+                 <div class="col-sm-2 col-sm-offset-10">
+                   <input name="btnAdpname" type="button" class="btn-xs btn btn-primary" id="btnAdpname" value="Add Another"
                onclick="addRowElement3();"/>
                  </div>
             </div>
@@ -137,18 +158,18 @@
               <div class="form-group">
                     <div class="col-sm-4">
                     <label for="organisation[]">Organisation</label>
-                    <input type="text" value="" class="form-control" name="edoganisation[]" id="edoganisation[]"/>
+                    <br><br><input type="text" value="" class="form-control" name="edoganisation[]" id="edoganisation[]"/>
                     </div>
                     <div class="col-sm-4">
                     <label for="organisation[]">Employement Start Date</label>
                         <div class="row">
                            <div class="col-sm-6">
                             <label for="organisation[]">Candidate</label>
-                            <input type="text" value="" class="form-control" name="candidate_sdate[]" id="candidate_sdate[]"/>
+                            <input type="text"  value="" class="form-control dates" name="candidate_sdate[]" id="candidate_sdate[]"/>
                            </div>
                            <div class="col-sm-6">
                             <label for="organisation[]">Referee</label>
-                            <input type="text" value="" class="form-control" name="referee_sdate[]" id="referee_sdate[]"/>
+                            <input type="text" value="" class="form-control dates" name="referee_sdate[]" id="referee_sdate[]"/>
                            </div>
                         </div>
                     </div>
@@ -157,11 +178,11 @@
                         <div class="row">
                            <div class="col-sm-6">
                             <label for="organisation[]">Candidate</label>
-                            <input type="text" value="" class="form-control" name="candidate_edate[]" id="candidate_edate[]"/>
+                            <input type="text" value="" class="form-control dates" name="candidate_edate[]" id="candidate_edate[]"/>
                            </div>
                            <div class="col-sm-6">
                             <label for="organisation[]">Referee</label>
-                            <input type="text" value="" class="form-control" name="referee_edate[]" id="	referee_edate[]"/>
+                            <input type="text" value="" class="form-control dates" name="referee_edate[]" id="referee_edate[]"/>
                            </div>
                         </div>
                     </div>
@@ -172,6 +193,26 @@
                </tr>
              </table>
            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <br>
+                    Confirmation of Employement Date - System Score
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="empdate" value="1" required="required"><span style="background-color: #91CF4F">Good</span> </label>
+                </div>
+
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="empdate" value="2" required="required"><span style="background-color: #FFBF00">Midium</span> </label>
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label><input type="radio" name="empdate" value="3" required="required"><span style="background-color: red">Risk</span> </label>
+                </div>
+            </div>
         </div>
         </div>
         <div class="row">
@@ -205,7 +246,8 @@ function addRowElement1()
 		
 	var cell = row.insertCell(0);
 	
-	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='organisation[]'>Organisation</label><input type='text' value='' class='form-control' name='organisation[]' id='organisation[]'/></div><div class='col-sm-3'><label for='organisation[]'>Reference Method</label><input type='text' value='' class='form-control' name='referencemethod[]' id='referencemethod[]'/></div><div class='col-sm-3'><label for='organisation[]'>Date Produced</label><input type='text' value='' class='form-control' name='dateproduced[]' id='dateproduced[]'/></div><div class='col-sm-2'><label for='imageattached[]'>Image Attached</label><select name='imageattached[]' id='imageattached[]' class='form-control'><option value=''>--Select--</option><option>Yes</option><option>No</option></select></div></div></div><div class='row'><div class='form-group'><div class='col-sm-4'><br>Employment history and references - System Score</div><div class='col-sm-2'><br><label><input type='radio' name='historyscore[]' value='1' required='required'><span style='background-color: #91CF4F'>Good</span> </label></div><div class='col-sm-2'><br><label><input type='radio' name='historyscore[]' value='2' required='required'><span style='background-color: #FFBF00'>Midium</span> </label></div><div class='col-sm-2'><br><label><input type='radio' name='historyscore[]' value='3' required='required'><span style='background-color: red'>Risk</span> </label></div></div></div>";	
+	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='organisation[]'>Organisation</label><input type='text' value='' class='form-control' name='organisation[]' id='organisation[]'/></div><div class='col-sm-3'><label for='organisation[]'>Reference Method</label><input type='text' value='' class='form-control' name='referencemethod[]' id='referencemethod[]'/></div><div class='col-sm-3'><label for='organisation[]'>Date Produced</label><input type='text' value='' class='form-control dates' name='dateproduced[]' id='dateproduced[]'/></div><div class='col-sm-2'><label for='imageattached[]'>Image Attached</label><select name='imageattached[]' id='imageattached[]' class='form-control'><option value=''>--Select--</option><option>Yes</option><option>No</option></select></div></div></div>";
+
 }
 
 
@@ -216,7 +258,8 @@ function addRowElement2()
 		
 	var cell = row.insertCell(0);
 	
-	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='organisation[]'>Organisation</label><input type='text' value='' class='form-control' name='jooganisation[]' id='jooganisation[]'/></div><div class='col-sm-8'><label for='organisation[]'>Position Held</label><div class='form-group'><div class='col-sm-6'><label for='organisation[]'>Candidate</label><input type='text' value='' class='form-control' name='cpositionheld[]' id='cpositionheld[]'/></div><div class='col-sm-6'><label for='rposition[]'>Referee</label><input type='text' value='' class='form-control' name='rposition[]' id='rposition[]'/></div></div></div></div></div>";	
+	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='organisation[]'>Organisation</label><input type='text' value='' class='form-control' name='jooganisation[]' id='jooganisation[]'/></div><div class='col-sm-8'><label for='organisation[]'>Position Held</label><div class='form-group'><div class='col-sm-6'><label for='organisation[]'>Candidate</label><input type='text' value='' class='form-control' name='cpositionheld[]' id='cpositionheld[]'/></div><div class='col-sm-6'><label for='rposition[]'>Referee</label><input type='text' value='' class='form-control' name='rposition[]' id='rposition[]'/></div></div></div></div></div>";
+
 }
 function addRowElement3()
 {
@@ -225,11 +268,13 @@ function addRowElement3()
 		
 	var cell = row.insertCell(0);
 	
-	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='organisation[]'>Organisation</label><input type='text' value='' class='form-control' name='edoganisation[]' id='edoganisation[]'/></div><div class='col-sm-4'><label for='organisation[]'>Employement Start Date</label><div class='row'><div class='col-sm-6'><label for='organisation[]'>Candidate</label><input type='text' value='' class='form-control' name='candidate_sdate[]' id='candidate_sdate[]'/></div><div class='col-sm-6'><label for='organisation[]'>Referee</label><input type='text' value='' class='form-control' name='referee_sdate[]' id='referee_sdate[]'/></div></div></div><div class='col-sm-4'><label for='organisation[]'>Employement End Date</label><div class='row'><div class='col-sm-6'><label for='organisation[]'>Candidate</label><input type='text' value='' class='form-control' name='candidate_edate[]' id='candidate_edate[]'/></div><div class='col-sm-6'><label for='organisation[]'>Referee</label><input type='text' value='' class='form-control' name='	referee_edate[]' id='referee_edate[]'/></div></div></div></div></div>";	
+	cell.innerHTML = "<div class='row'><div class='form-group'><div class='col-sm-4'><label for='organisation[]'>Organisation</label><input type='text' value='' class='form-control' name='edoganisation[]' id='edoganisation[]'/></div><div class='col-sm-4'><label for='organisation[]'>Employement Start Date</label><div class='row'><div class='col-sm-6'><label for='organisation[]'>Candidate</label><input type='text' value='' class='form-control  dates' name='candidate_sdate[]' id='candidate_sdate[]'/></div><div class='col-sm-6'><label for='organisation[]'>Referee</label><input type='text' value='' class='form-control dates' name='referee_sdate[]' id='referee_sdate[]'/></div></div></div><div class='col-sm-4'><label for='organisation[]'>Employement End Date</label><div class='row'><div class='col-sm-6'><label for='organisation[]'>Candidate</label><input type='text' value='' class='form-control dates' name='candidate_edate[]' id='candidate_edate[]'/></div><div class='col-sm-6'><label for='organisation[]'>Referee</label><input type='text' value='' class='form-control dates' name='referee_edate[]' id='referee_edate[]'/></div></div></div></div></div>";
+
 }
 </script>
 <script>
     $(document).ready(function (){
+
         $('#FileUploader').on('submit', function(e) {
             e.preventDefault();
             $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");

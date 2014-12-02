@@ -160,452 +160,464 @@ class ProcessFormController extends \BaseController {
 
     ///////////////Process complience form
 
-//    public function compliencecheck($id)
-//    {
-//        //
-//        $compliance= Compliance::create(array(
-//            "searchteam" => Input::get('searchteam'),
-//            "datesearch" => Input::get('datesearch'),
-//            "totalmatches" => Input::get('totalmatches'),
-//            "matchesqualified" => Input::get('matchesqualified'),
-//            "possiblematches" => Input::get('possiblematches'),
-//            "comments" => Input::get('coments'),
-//            "screen_id" => $id,
-//            "namescore" => Input::get('namescore'),
-//
-//        ));
-//
-//        //Process A	compliance_matches
-//
-//        $namematchedonArr=Input::get('namematchedon');
-//        $issuingentityArr=Input::get('issuingentity');
-//        $typeArr=Input::get('type');
-//        $reasonArr=Input::get('reason');
-//
-//        for($i=0;$i<sizeof($namematchedonArr); $i++)
-//        {
-//            $namematchedon=$namematchedonArr[$i];
-//            $issuingentity=$issuingentityArr[$i];
-//            $type=$typeArr[$i];
-//            $reason=$reasonArr[$i];
-//
-//            if($namematchedon !="" && $issuingentity != "" && $type !="")
-//            {
-//                $compliancematches = Compliancematches::create(array(
-//                    "namematchedon" => $namematchedon,
-//                    "issuingentity" => $issuingentity,
-//                    "type" => $type,
-//                    "resonqualified" =>$reason,
-//                    "complianceid" =>$compliance->id
-//                ));
-//            }
-//        }
-//
-//        //Process match posibilities
-//        $pnamematchedonArr=Input::get('pnamematchedon');
-//        $pissuingentityArr=Input::get('pissuingentity');
-//        $ptypeArr=Input::get('ptype');
-//        $pextractArr=Input::get('pextract');
-//
-//        for($i=0;$i<sizeof($pnamematchedonArr); $i++)
-//        {
-//            $pnamematchedon=$pnamematchedonArr[$i];
-//            $pissuingentity=$pissuingentityArr[$i];
-//            $ptype=$ptypeArr[$i];
-//            $pextract=$pextractArr[$i];
-//
-//            if($pnamematchedon !="" && $pissuingentity != "" && $ptype !="")
-//            {
-//                $complianceposibles = Complianceposibles::create(array(
-//                    "namematchedon" => $pnamematchedon,
-//                    "issuingentity" => $pissuingentity,
-//                    "type" => $ptype,
-//                    "extract" =>$pextract,
-//                    "complianceid" =>$compliance->id
-//                ));
-//            }
-//        }
-//        $screen = OrderScreening::find($id);
-//        $screen->complete = 100;
-//        $screen->visibilty_status = 'hidden';
-//        $screen->save();
-//
-//        Logs::create(array(
-//            "user_id"=>  Auth::user()->id,
-//            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
-//        ));
-//        return "<h4 class='text-success'>Form Updated Successful</h4>";
-//
-//    }
-//
-//    //Proceee Employement form
-//    public function employeehistory($id)
-//    {
-//        $employmenthistory= Employmenthistory::create(array(
-//            "comments" => Input::get('coments'),
-//            "screen_id" => $id
-//
-//        ));
-//
-//        //Process Employment history and references
-//
-//        $organisationArr=Input::get('organisation');
-//        $referencemethodArr=Input::get('referencemethod');
-//        $dateproducedArr=Input::get('dateproduced');
-//        $imageattachedArr=Input::get('imageattached');
+    public function compliencecheck($id)
+    {
+        //
+        $compliance= Compliance::create(array(
+            "searchteam" => Input::get('searchteam'),
+            "datesearch" => Input::get('datesearch'),
+            "totalmatches" => Input::get('totalmatches'),
+            "matchesqualified" => Input::get('matchesqualified'),
+            "possiblematches" => Input::get('possiblematches'),
+            "comments" => Input::get('coments'),
+            "screen_id" => $id,
+            "namescore" => Input::get('namescore'),
+
+        ));
+
+        //Process A	compliance_matches
+
+        $namematchedonArr=Input::get('namematchedon');
+        $issuingentityArr=Input::get('issuingentity');
+        $typeArr=Input::get('type');
+        $reasonArr=Input::get('reason');
+
+        for($i=0;$i<sizeof($namematchedonArr); $i++)
+        {
+            $namematchedon=$namematchedonArr[$i];
+            $issuingentity=$issuingentityArr[$i];
+            $type=$typeArr[$i];
+            $reason=$reasonArr[$i];
+
+            if($namematchedon !="" && $issuingentity != "" && $type !="")
+            {
+                $compliancematches = Compliancematches::create(array(
+                    "namematchedon" => $namematchedon,
+                    "issuingentity" => $issuingentity,
+                    "type" => $type,
+                    "resonqualified" =>$reason,
+                    "complianceid" =>$compliance->id
+                ));
+            }
+        }
+
+        //Process match posibilities
+        $pnamematchedonArr=Input::get('pnamematchedon');
+        $pissuingentityArr=Input::get('pissuingentity');
+        $ptypeArr=Input::get('ptype');
+        $pextractArr=Input::get('pextract');
+
+        for($i=0;$i<sizeof($pnamematchedonArr); $i++)
+        {
+            $pnamematchedon=$pnamematchedonArr[$i];
+            $pissuingentity=$pissuingentityArr[$i];
+            $ptype=$ptypeArr[$i];
+            $pextract=$pextractArr[$i];
+
+            if($pnamematchedon !="" && $pissuingentity != "" && $ptype !="")
+            {
+                $complianceposibles = Complianceposibles::create(array(
+                    "namematchedon" => $pnamematchedon,
+                    "issuingentity" => $pissuingentity,
+                    "type" => $ptype,
+                    "extract" =>$pextract,
+                    "complianceid" =>$compliance->id
+                ));
+            }
+        }
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+
+    }
+
+    //Proceee Employement form
+    public function employeehistory($id)
+    {
+        $employmenthistory= Employmenthistory::create(array(
+            "comments" => Input::get('coments'),
+            "screen_id" => $id,
+            "role_score" =>Input::get('jobrole'),
+            "empdate_score" =>Input::get('empdate'),
+            "history_score" =>Input::get('historyscore'),
+        ));
+
+        //Process Employment history and references
+
+        $organisationArr=Input::get('organisation');
+        $referencemethodArr=Input::get('referencemethod');
+        $dateproducedArr=Input::get('dateproduced');
+        $imageattachedArr=Input::get('imageattached');
 //        $historyscoreArr=Input::get('historyscore');
-//
-//        for($i=0;$i<sizeof($organisationArr); $i++)
-//        {
-//            $organisation=$organisationArr[$i];
-//            $referencemethod=$referencemethodArr[$i];
-//            $dateproduced=$dateproducedArr[$i];
-//            $imageattached=$imageattachedArr[$i];
+
+        for($i=0;$i<sizeof($organisationArr); $i++)
+        {
+            $organisation=$organisationArr[$i];
+            $referencemethod=$referencemethodArr[$i];
+            $dateproduced=$dateproducedArr[$i];
+            $imageattached=$imageattachedArr[$i];
 //            $historyscore=$historyscoreArr[$i];
-//
-//            if($organisation !="" && $referencemethod != "" && $imageattached !="")
-//            {
-//                $historyreference = Historyreference::create(array(
-//                    "organisation" => $organisation,
-//                    "referencemethod" => $referencemethod,
-//                    "dateproduced" => $dateproduced,
-//                    "imageattached" =>$imageattached,
+
+            if($organisation !="" && $referencemethod != "" && $imageattached !="")
+            {
+                $historyreference = Historyreference::create(array(
+                    "organisation" => $organisation,
+                    "referencemethod" => $referencemethod,
+                    "dateproduced" => $dateproduced,
+                    "imageattached" =>$imageattached,
 //                    "historyscore"=>$historyscore,
-//                    "emphistory_id"=>$employmenthistory->id
-//
-//                ));
-//            }
-//        }
-//
-//        //Process Job history
-//
-//
-//        $jooganisationArr=Input::get('jooganisation');
-//        $cpositionheldArr=Input::get('cpositionhel');
-//        $rpositionArr=Input::get('rposition');
-//
-//
-//        for($i=0;$i<sizeof($jooganisationArr); $i++)
-//        {
-//            $jooganisation=$jooganisationArr[$i];
-//            $cpositionhel=$cpositionheldArr[$i];
-//            $rposition=$rpositionArr[$i];
-//
-//
-//            if($jooganisation !="" && $cpositionhel != "" && $rposition !="")
-//            {
-//                $historyjobs = Historyjobs::create(array(
-//                    "oganisation" => $jooganisation,
-//                    "cpositionheld" => $positionheld,
-//                    "rposition" => $reference,
-//                    "emphistory_id"=>$employmenthistory->id
-//
-//                ));
-//            }
-//        }
-//
-//        //Process Confirmation of Employement Date
-//
-//        $edoganisationArr=Input::get('edoganisation');
-//        $candidate_sdateArr=Input::get('candidate_sdate');
-//        $referee_sdateArr=Input::get('referee_sdate');
-//        $candidate_edatedArr=Input::get('candidate_edate');
-//        $referee_edateArr=Input::get('referee_edate');
-//
-//
-//        for($i=0;$i<sizeof($edoganisationArr); $i++)
-//        {
-//            $edoganisation=$edoganisationArr[$i];
-//            $candidate_sdate=$candidate_sdateArr[$i];
-//            $referee_sdate=$referee_sdateArr[$i];
-//            $candidate_edate=$candidate_edatedArr[$i];
-//            $referee_edate=$referee_edateArr[$i];
-//
-//
-//            if($edoganisation !="" )
-//            {
-//                $historyjobs = Historydates::create(array(
-//                    "oganisation" => $edoganisation,
-//                    "candidate_sdate" => $candidate_sdate,
-//                    "referee_sdate" => $referee_sdate,
-//                    "referee_edate" => $referee_edate,
-//                    "candidate_edate" => $candidate_edate,
-//                    "emphistory_id"=>$employmenthistory->id
-//
-//                ));
-//            }
-//        }
-//        $screen = OrderScreening::find($id);
-//        $screen->complete = 100;
-//        $screen->visibilty_status = 'hidden';
-//        $screen->save();
-//
-//        Logs::create(array(
-//            "user_id"=>  Auth::user()->id,
-//            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
-//        ));
-//        return "<h4 class='text-success'>Form Updated Successful</h4>";
-//    }
-//
-//    ///Process Academic
-//
-//    public function academic($id)
-//    {
-//        $academic= Academic::create(array(
-//            "comments" => Input::get('coments'),
-//            "screen_id" => $id
-//
-//        ));
-//
-//        //Process Establishment
-//        $establish_nameArr	=Input::get('establish_name');
-//        $referencemethodArr=Input::get('referencemethod');
-//        $dateproducedArr=Input::get('dateproduced');
-//        $imageattachedArr=Input::get('imageattached');
-//        $qualiscoreArr=Input::get('qualiscore');
-//
-//        for($i=0;$i<sizeof($establish_nameArr); $i++)
-//        {
-//            $establish_name=$establish_nameArr[$i];
-//            $referencemethod=$referencemethodArr[$i];
-//            $dateproduced=$dateproducedArr[$i];
-//            $imageattache=$imageattachedArr[$i];
-//            $qualiscore=$qualiscoreArr[$i];
-//
-//
-//            if($establish_name !="" )
-//            {
-//                $establishment = Establishment::create(array(
-//                    "establish_name" => $establish_name,
-//                    "referencemethod" => $referencemethod,
-//                    "dateproduced" => $dateproduced,
-//                    "imageattached" => $imageattache,
-//                    "qualiscore" => $qualiscore,
-//                    "academic_id"=>$academic->id
-//
-//                ));
-//            }
-//        }
-//
-//
-//        ///Process Qualifications
-//
-//        $checkstudyArr	=Input::get('checkstudy');
-//        $candidate_adateArr=Input::get('candidate_adate');
-//        $reference_adateArr=Input::get('reference_adate');
-//        $reference_courseArr=Input::get('reference_course');
-//        $candidate_gradeArr=Input::get('candidate_grade');
-//        $candidate_courseArr=Input::get('candidate_course');
-//        $reference_gradeArr=Input::get('reference_grade');
-//
-//
-//        for($i=0;$i<sizeof($candidate_adateArr); $i++)
-//        {
-//            $checkstudy=$checkstudyArr[$i];
-//            $candidate_adate=$candidate_adateArr[$i];
-//            $reference_adate=$reference_adateArr[$i];
-//            $reference_course=$reference_courseArr[$i];
-//            $candidate_grade=$candidate_gradeArr[$i];
-//
-//            $candidate_course=$candidate_courseArr[$i];
-//            $reference_grade=$reference_gradeArr[$i];
-//
-//
-//            if($candidate_adate !="" )
-//            {
-//                $qualification = Qualification::create(array(
-//                    "checkstudy" => $checkstudy,
-//                    "candidate_adate" => $candidate_adate,
-//                    "reference_adate" => $reference_adate,
-//                    "candidate_course" => $candidate_course,
-//                    "reference_course" => $reference_course,
-//                    "candidate_grade" => $candidate_grade,
-//                    "reference_grade" => $reference_grade,
-//                    "academic_id"=>$academic->id
-//
-//                ));
-//            }
-//        }
-//
-//        $screen = OrderScreening::find($id);
-//        $screen->complete = 100;
-//        $screen->visibilty_status = 'hidden';
-//        $screen->save();
-//
-//        Logs::create(array(
-//            "user_id"=>  Auth::user()->id,
-//            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
-//        ));
-//        return "<h4 class='text-success'>Form Updated Successful</h4>";
-//    }
-//
-//    ///Prrocess crimina form
-//    public function criminal($id)
-//    {
-//        $academic= Criminal::create(array(
-//            "comments" => Input::get('coments'),
-//            "namescore" => Input::get('namescore'),
-//            "screen_id" => $id
-//
-//        ));
-//
-//        $screen = OrderScreening::find($id);
-//        $screen->complete = 100;
-//        $screen->visibilty_status = 'hidden';
-//        $screen->save();
-//
-//        Logs::create(array(
-//            "user_id"=>  Auth::user()->id,
-//            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
-//        ));
-//        return "<h4 class='text-success'>Form Updated Successful</h4>";
-//
-//    }
-//
-//    ///Prrocess Cv analysis form
-//    public function cvanalysis($id)
-//    {
-//        $academic= Cvnalysis::create(array(
-//            "comments" => Input::get('coments'),
-//            "cvscore" => Input::get('cvscore'),
-//            "screen_id" => $id
-//
-//        ));
-//
-//        $screen = OrderScreening::find($id);
-//        $screen->complete = 100;
-//        $screen->visibilty_status = 'hidden';
-//        $screen->save();
-//
-//        Logs::create(array(
-//            "user_id"=>  Auth::user()->id,
-//            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
-//        ));
-//        return "<h4 class='text-success'>Form Updated Successful</h4>";
-//
-//    }
-//
-//
-//    //Process proffesional forms
-//    public function professional($id)
-//    {
-//        $professional= Professional::create(array(
-//            "Comments" => Input::get('coments'),
-//            "screen_id" => $id
-//
-//        ));
-//
-//        //Professional Establishment
-//        $establish_nameArr	=Input::get('establish_name');
-//        $referencemethodArr=Input::get('referencemethod');
-//        $dateproducedArr=Input::get('dateproduced');
-//        $imageattachedArr=Input::get('imageattached');
-//        $qualiscoreArr=Input::get('qualiscore');
-//
-//        for($i=0;$i<sizeof($establish_nameArr); $i++)
-//        {
-//            $establish_name=$establish_nameArr[$i];
-//            $referencemethod=$referencemethodArr[$i];
-//            $dateproduced=$dateproducedArr[$i];
-//            $imageattache=$imageattachedArr[$i];
-//            $qualiscore=$qualiscoreArr[$i];
-//
-//
-//            if($establish_name !="" )
-//            {
-//                $establishment = ProfessionalEstablishment::create(array(
-//                    "establish_name" => $establish_name,
-//                    "referencemethod" => $referencemethod,
-//                    "dateproduced" => $dateproduced,
-//                    "imageattached" => $imageattache,
-//                    "qualiscore" => $qualiscore,
-//                    "professionalid"=>$professional->id
-//
-//                ));
-//            }
-//        }
-//
-//
-//        ///Process Qualifications
-//
-//        $checkstudyArr	=Input::get('checkstudy');
-//        $candidate_adateArr=Input::get('candidate_adate');
-//        $reference_adateArr=Input::get('reference_adate');
-//        $reference_courseArr=Input::get('reference_course');
-//        $candidate_gradeArr=Input::get('candidate_grade');
-//        $candidate_courseArr=Input::get('candidate_course');
-//        $reference_gradeArr=Input::get('reference_grade');
-//
-//
-//        for($i=0;$i<sizeof($candidate_adateArr); $i++)
-//        {
-//            $checkstudy=$checkstudyArr[$i];
-//            $candidate_adate=$candidate_adateArr[$i];
-//            $reference_adate=$reference_adateArr[$i];
-//            $reference_course=$reference_courseArr[$i];
-//
-//
-//            $candidate_course=$candidate_courseArr[$i];
-//
-//
-//
-//            if($candidate_adate !="" )
-//            {
-//                $qualification = ProfessionalQualification::create(array(
-//                    "checkstudy" => $checkstudy,
-//                    "candidate_adate" => $candidate_adate,
-//                    "reference_adate" => $reference_adate,
-//                    "candidate_course" => $candidate_course,
-//                    "reference_course" => $reference_course,
-//                    "professionalid"=>$professional->id
-//
-//                ));
-//            }
-//        }
-//
-//        $screen = OrderScreening::find($id);
-//        $screen->complete = 100;
-//        $screen->visibilty_status = 'hidden';
-//        $screen->save();
-//
-//        Logs::create(array(
-//            "user_id"=>  Auth::user()->id,
-//            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
-//        ));
-//        return "<h4 class='text-success'>Form Updated Successful</h4>";
-//    }
-//
-//    ///Process gap analysis forms
-//    public function gapanalysis($id)
-//    {
-//        $gapanalysis= Gapanalysis::create(array(
-//            "Comments" => Input::get('coments'),
-//            "gapscore" => Input::get('gapscore'),
-//            "screen_id" => $id
-//
-//        ));
-//
-//        $eperiodArr=Input::get('eperiod');
-//        $egcommentsArr=Input::get('egcomments');
-//        for($eperiodArr)
-//        {
-//
-//            $eperiod=$eperiodArr[$i];
-//            $egcomments=$egcommentsArr[$i];
-//
-//            if($eperiodArr !="" )
-//            {
-//                $qualification = GapanalysisHistory::create(array(
-//                    "period" => $period,
-//                    "comments" => $egcomments,
-//                    "professionalid"=>$gapanalysis->id
-//
-//                ));
-//            }
-//        }
-//
-//
-//
-//    }
+                    "emphistory_id"=>$employmenthistory->id
+
+                ));
+            }
+        }
+
+        //Process Job history
+
+
+        $jooganisationArr=Input::get('jooganisation');
+        $cpositionheldArr=Input::get('cpositionhel');
+        $rpositionArr=Input::get('rposition');
+
+
+        for($i=0;$i<sizeof($jooganisationArr); $i++)
+        {
+            $jooganisation=$jooganisationArr[$i];
+            $cpositionhel=$cpositionheldArr[$i];
+            $rposition=$rpositionArr[$i];
+
+
+            if($jooganisation !="" && $cpositionhel != "" && $rposition !="")
+            {
+                $historyjobs = Historyjobs::create(array(
+                    "oganisation" => $jooganisation,
+                    "cpositionheld" => $cpositionhel,
+                    "rposition" => $rposition,
+                    "emphistory_id"=>$employmenthistory->id
+
+                ));
+            }
+        }
+
+        //Process Confirmation of Employement Date
+
+        $edoganisationArr=Input::get('edoganisation');
+        $candidate_sdateArr=Input::get('candidate_sdate');
+        $referee_sdateArr=Input::get('referee_sdate');
+        $candidate_edatedArr=Input::get('candidate_edate');
+        $referee_edateArr=Input::get('referee_edate');
+
+
+        for($i=0;$i<sizeof($edoganisationArr); $i++)
+        {
+            $edoganisation=$edoganisationArr[$i];
+            $candidate_sdate=$candidate_sdateArr[$i];
+            $referee_sdate=$referee_sdateArr[$i];
+            $candidate_edate=$candidate_edatedArr[$i];
+            $referee_edate=$referee_edateArr[$i];
+
+
+            if($edoganisation !="" )
+            {
+                $historyjobs = Historydates::create(array(
+                    "oganisation" => $edoganisation,
+                    "candidate_sdate" => $candidate_sdate,
+                    "referee_sdate" => $referee_sdate,
+                    "referee_edate" => $referee_edate,
+                    "candidate_edate" => $candidate_edate,
+                    "emphistory_id"=>$employmenthistory->id
+
+                ));
+            }
+        }
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+    }
+
+    ///Process Academic
+
+    public function academic($id)
+    {
+        $academic= Academic::create(array(
+            "comments" => Input::get('coments'),
+            "screen_id" => $id
+
+        ));
+
+        //Process Establishment
+        $establish_nameArr	=Input::get('establish_name');
+        $referencemethodArr=Input::get('referencemethod');
+        $dateproducedArr=Input::get('dateproduced');
+        $imageattachedArr=Input::get('imageattached');
+        $qualiscoreArr=Input::get('qualiscore');
+
+        for($i=0;$i<sizeof($establish_nameArr); $i++)
+        {
+            $establish_name=$establish_nameArr[$i];
+            $referencemethod=$referencemethodArr[$i];
+            $dateproduced=$dateproducedArr[$i];
+            $imageattache=$imageattachedArr[$i];
+            $qualiscore=$qualiscoreArr[$i];
+
+
+            if($establish_name !="" )
+            {
+                $establishment = Establishment::create(array(
+                    "establish_name" => $establish_name,
+                    "referencemethod" => $referencemethod,
+                    "dateproduced" => $dateproduced,
+                    "imageattached" => $imageattache,
+                    "qualiscore" => $qualiscore,
+                    "academic_id"=>$academic->id
+
+                ));
+            }
+        }
+
+
+        ///Process Qualifications
+
+        $checkstudyArr	=Input::get('checkstudy');
+        $candidate_adateArr=Input::get('candidate_adate');
+        $reference_adateArr=Input::get('reference_adate');
+        $reference_courseArr=Input::get('reference_course');
+        $candidate_gradeArr=Input::get('candidate_grade');
+        $candidate_courseArr=Input::get('candidate_course');
+        $reference_gradeArr=Input::get('reference_grade');
+
+
+        for($i=0;$i<sizeof($candidate_adateArr); $i++)
+        {
+            $checkstudy=$checkstudyArr[$i];
+            $candidate_adate=$candidate_adateArr[$i];
+            $reference_adate=$reference_adateArr[$i];
+            $reference_course=$reference_courseArr[$i];
+            $candidate_grade=$candidate_gradeArr[$i];
+
+            $candidate_course=$candidate_courseArr[$i];
+            $reference_grade=$reference_gradeArr[$i];
+
+
+            if($candidate_adate !="" )
+            {
+                $qualification = Qualification::create(array(
+                    "checkstudy" => $checkstudy,
+                    "candidate_adate" => $candidate_adate,
+                    "reference_adate" => $reference_adate,
+                    "candidate_course" => $candidate_course,
+                    "reference_course" => $reference_course,
+                    "candidate_grade" => $candidate_grade,
+                    "reference_grade" => $reference_grade,
+                    "academic_id"=>$academic->id
+
+                ));
+            }
+        }
+
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+    }
+
+    ///Prrocess crimina form
+    public function criminal($id)
+    {
+        $academic= Criminal::create(array(
+            "comments" => Input::get('coments'),
+            "namescore" => Input::get('namescore'),
+            "screen_id" => $id
+
+        ));
+
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+
+    }
+//
+    ///Prrocess Cv analysis form
+    public function cvanalysis($id)
+    {
+        $academic= Cvnalysis::create(array(
+            "comments" => Input::get('coments'),
+            "cvscore" => Input::get('cvscore'),
+            "screen_id" => $id
+
+        ));
+
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+
+    }
+//
+//
+    //Process proffesional forms
+    public function professional($id)
+    {
+        $professional= Professional::create(array(
+            "Comments" => Input::get('coments'),
+            "screen_id" => $id
+
+        ));
+
+        //Professional Establishment
+        $establish_nameArr	=Input::get('establish_name');
+        $referencemethodArr=Input::get('referencemethod');
+        $dateproducedArr=Input::get('dateproduced');
+        $imageattachedArr=Input::get('imageattached');
+        $qualiscoreArr=Input::get('qualiscore');
+
+        for($i=0;$i<sizeof($establish_nameArr); $i++)
+        {
+            $establish_name=$establish_nameArr[$i];
+            $referencemethod=$referencemethodArr[$i];
+            $dateproduced=$dateproducedArr[$i];
+            $imageattache=$imageattachedArr[$i];
+            $qualiscore=$qualiscoreArr[$i];
+
+
+            if($establish_name !="" )
+            {
+                $establishment = ProfessionalEstablishment::create(array(
+                    "establish_name" => $establish_name,
+                    "referencemethod" => $referencemethod,
+                    "dateproduced" => $dateproduced,
+                    "imageattached" => $imageattache,
+                    "qualiscore" => $qualiscore,
+                    "professionalid"=>$professional->id
+
+                ));
+            }
+        }
+
+
+        ///Process Qualifications
+
+        $checkstudyArr	=Input::get('checkstudy');
+        $candidate_adateArr=Input::get('candidate_adate');
+        $reference_adateArr=Input::get('reference_adate');
+        $reference_courseArr=Input::get('reference_course');
+        $candidate_gradeArr=Input::get('candidate_grade');
+        $candidate_courseArr=Input::get('candidate_course');
+        $reference_gradeArr=Input::get('reference_grade');
+
+
+        for($i=0;$i<sizeof($candidate_adateArr); $i++)
+        {
+            $checkstudy=$checkstudyArr[$i];
+            $candidate_adate=$candidate_adateArr[$i];
+            $reference_adate=$reference_adateArr[$i];
+            $reference_course=$reference_courseArr[$i];
+
+
+            $candidate_course=$candidate_courseArr[$i];
+
+
+
+            if($candidate_adate !="" )
+            {
+                $qualification = ProfessionalQualification::create(array(
+                    "checkstudy" => $checkstudy,
+                    "candidate_adate" => $candidate_adate,
+                    "reference_adate" => $reference_adate,
+                    "candidate_course" => $candidate_course,
+                    "reference_course" => $reference_course,
+                    "professionalid"=>$professional->id
+
+                ));
+            }
+        }
+
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+    }
+
+    ///Process gap analysis forms
+    public function gapanalysis($id)
+    {
+        $gapanalysis= Gapanalysis::create(array(
+            "Comments" => Input::get('coments'),
+            "gapscore" => Input::get('gapscore'),
+            "screen_id" => $id
+
+        ));
+
+        $eperiodArr=Input::get('eperiod');
+        $egcommentsArr=Input::get('egcomments');
+        for($i=0;$i<sizeof($eperiodArr); $i++)
+        {
+
+            $eperiod=$eperiodArr[$i];
+            $egcomments=$egcommentsArr[$i];
+
+            if($eperiod !="" )
+            {
+                $qualification = GapanalysisHistory::create(array(
+                    "period" => $eperiod,
+                    "comments" => $egcomments,
+                    "gapanalysis_id"=>$gapanalysis->id
+
+                ));
+            }
+        }
+        $screen = OrderScreening::find($id);
+        $screen->complete = 100;
+        $screen->visibilty_status = 'hidden';
+        $screen->save();
+
+        Logs::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Fill in ".$screen->screening->name." form for ".  $screen->employee->firstname ." ". $screen->employee->lastname  ."from" . $screen->employee->company->name
+        ));
+        return "<h4 class='text-success'>Form Updated Successful</h4>";
+
+
+
+    }
 
 }

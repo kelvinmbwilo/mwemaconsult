@@ -198,3 +198,23 @@ function addRowElement2()
 }
 
 </script>
+<script>
+    $(document).ready(function (){
+        $('#FileUploader').on('submit', function(e) {
+            e.preventDefault();
+            $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
+            $(this).ajaxSubmit({
+                target: '#output',
+                success:  afterSuccess
+            });
+
+        });
+
+
+        function afterSuccess(){
+            setTimeout(function() {
+                $("#myModal").modal("hide");
+            }, 3000);
+        }
+    });
+</script>
