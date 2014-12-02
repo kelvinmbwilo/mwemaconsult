@@ -1650,10 +1650,15 @@
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="establish_name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="referencemethod" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="dateproduced" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="dateproduced" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="imageattached" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
       <column name="qualiscore" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="professionalid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="checkstudy" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="candidate_adate" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="reference_adate" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="candidate_course" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="reference_course" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
     </table>

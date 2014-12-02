@@ -6,6 +6,7 @@
 <h4>Report Details</h4>
 <div class="col-sm-10" style="padding: 0px"><h4>Background Checks Included Within This Report:</h4></div>
 <div class="col-sm-2" style="padding: 0px"><h4>Status:</h4></div>
+    {{$screen->professional->establishment}}
 @foreach($screen->professional->establishment as $est)
   <?php
 if($est->qualiscore == 1){
