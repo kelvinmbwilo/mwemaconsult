@@ -262,7 +262,7 @@ class OrderController extends \BaseController {
             
             //Generate pdf 
             $pdf = PDF::loadView('summary.academic',compact('screen'));
-            return $pdf->download('Adverse Media Searchck.pdf'); //Download file
+            return $pdf->download('Academic Qualification.pdf'); //Download file
 
         }elseif($screen->screening->name == "Adverse Media Search"){
             
@@ -296,10 +296,10 @@ class OrderController extends \BaseController {
             return $pdf->download('Employment Historyand References.pdf'); //Download file 
 
         }elseif($screen->screening->name == "Gap Analysis"){
-            
+
             //Generate pdf 
             $pdf = PDF::loadView('summary.gapanalysis',compact('screen'));
-            return $pdf->download('Gap Analysis.pdf'); //Download file 
+            return $pdf->download('Gap Analysis.pdf'); //Download file
 
         }elseif($screen->screening->name == "ID Document Check"){
             //return View::make('summary.idcheck',compact('screen'));

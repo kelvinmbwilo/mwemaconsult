@@ -360,19 +360,31 @@ class ProcessFormController extends \BaseController {
         ));
 
         //Process Establishment
-        $establish_nameArr	=Input::get('establish_name');
-        $referencemethodArr=Input::get('referencemethod');
-        $dateproducedArr=Input::get('dateproduced');
-        $imageattachedArr=Input::get('imageattached');
-        $qualiscoreArr=Input::get('qualiscore');
+        $establish_nameArr	    =Input::get('establish_name');
+        $referencemethodArr     =Input::get('referencemethod');
+        $dateproducedArr        =Input::get('dateproduced');
+        $qualiscoreArr          =Input::get('qualiscore');
+        $checkstudyArr	        =Input::get('checkstudy');
+        $candidate_adateArr     =Input::get('candidate_adate');
+        $reference_adateArr     =Input::get('reference_adate');
+        $reference_courseArr    =Input::get('reference_course');
+        $candidate_gradeArr     =Input::get('candidate_grade');
+        $candidate_courseArr    =Input::get('candidate_course');
+        $reference_gradeArr     =Input::get('reference_grade');
 
         for($i=0;$i<sizeof($establish_nameArr); $i++)
         {
-            $establish_name=$establish_nameArr[$i];
-            $referencemethod=$referencemethodArr[$i];
-            $dateproduced=$dateproducedArr[$i];
-            $imageattache=$imageattachedArr[$i];
-            $qualiscore=$qualiscoreArr[$i];
+            $establish_name     =$establish_nameArr[$i];
+            $referencemethod    =$referencemethodArr[$i];
+            $dateproduced       =$dateproducedArr[$i];
+            $qualiscore         =$qualiscoreArr[$i];
+            $checkstudy         =$checkstudyArr[$i];
+            $candidate_adate    =$candidate_adateArr[$i];
+            $reference_adate    =$reference_adateArr[$i];
+            $reference_course   =$reference_courseArr[$i];
+            $candidate_grade    =$candidate_gradeArr[$i];
+            $candidate_course   =$candidate_courseArr[$i];
+            $reference_grade    =$reference_gradeArr[$i];
 
 
             if($establish_name !="" )
@@ -381,41 +393,7 @@ class ProcessFormController extends \BaseController {
                     "establish_name" => $establish_name,
                     "referencemethod" => $referencemethod,
                     "dateproduced" => $dateproduced,
-                    "imageattached" => $imageattache,
                     "qualiscore" => $qualiscore,
-                    "academic_id"=>$academic->id
-
-                ));
-            }
-        }
-
-
-        ///Process Qualifications
-
-        $checkstudyArr	=Input::get('checkstudy');
-        $candidate_adateArr=Input::get('candidate_adate');
-        $reference_adateArr=Input::get('reference_adate');
-        $reference_courseArr=Input::get('reference_course');
-        $candidate_gradeArr=Input::get('candidate_grade');
-        $candidate_courseArr=Input::get('candidate_course');
-        $reference_gradeArr=Input::get('reference_grade');
-
-
-        for($i=0;$i<sizeof($candidate_adateArr); $i++)
-        {
-            $checkstudy=$checkstudyArr[$i];
-            $candidate_adate=$candidate_adateArr[$i];
-            $reference_adate=$reference_adateArr[$i];
-            $reference_course=$reference_courseArr[$i];
-            $candidate_grade=$candidate_gradeArr[$i];
-
-            $candidate_course=$candidate_courseArr[$i];
-            $reference_grade=$reference_gradeArr[$i];
-
-
-            if($candidate_adate !="" )
-            {
-                $qualification = Qualification::create(array(
                     "checkstudy" => $checkstudy,
                     "candidate_adate" => $candidate_adate,
                     "reference_adate" => $reference_adate,
