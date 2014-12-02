@@ -96,13 +96,13 @@ class ProcessController extends \BaseController {
         {
             $message->from('info@mwemadvocates.com', 'Mwema Advocate');
             $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Order Declined ');
-            $message->attach(asset('images/mwemadvocates.png'));
+            $message->attach(asset('mwemadvocates.png'));
         });
         $mail = Mail::later(5,'company.confirmemail3', array('order' => $order), function($message)
         {
             $message->from('info@mwemadvocates.com', 'Mwema Advocate');
             $message->to("order@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order Declined');
-            $message->attach(asset('images/mwemadvocates.png'));
+            $message->attach(asset('mwemadvocates.png'));
         });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,
@@ -119,7 +119,13 @@ class ProcessController extends \BaseController {
         {
             $message->from('mwemadvocate@gmail.com', 'Mwema Advocate');
             $message->to($array['email'], $array['name'])->subject('Pre-employment Background Check Order');
-            $message->attach(asset('images/logo1.png'));
+            $message->attach(asset('mwemadvocates.png'));
+        });
+        $mail = Mail::later(5,'company.confirmemail1', array('order' => $order), function($message)
+        {
+            $message->from('info@mwemadvocates.com', 'Mwema Advocate');
+            $message->to("order@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order');
+            $message->attach(asset('mwemadvocates.png'));
         });
         Logs::create(array(
             "user_id"=>  Auth::user()->id,

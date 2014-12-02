@@ -144,19 +144,13 @@
                         <span>Company Users</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('company/invoice/'.Auth::user()->company_id) }}">
-                        <i class="fa fa-user"></i>
-                        <span>Invoice</span>
-                    </a>
-                </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop"></i>
                         <span>References</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ asset('Pre-employment_background_checklist.pdf') }}">Pre Employment Check list</a></li>
+<!--                        <li><a href="{{ asset('Pre-employment_background_checklist.pdf') }}">Pre Employment Check list</a></li>-->
                         <li><a href="{{ asset('user_account.pdf') }}">User Account Information</a></li>
                         <li><a href="{{ asset('Background_check_authorization.pdf') }}">Consent Form</a></li>
                     </ul>
