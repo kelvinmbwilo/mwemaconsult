@@ -28,7 +28,7 @@ return array(
     |
     */
 
-    'host' => 'hs1.backbone.co.tz',
+    'host' => 'mail.mwemadvocates.com',
 
     /*
     |--------------------------------------------------------------------------
