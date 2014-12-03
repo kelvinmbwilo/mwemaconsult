@@ -80,7 +80,7 @@ return array(
     |
     */
 
-    'username' => "adililyas",
+    'username' => "order@mwemadvocates.com",
     /*
     |--------------------------------------------------------------------------
     | SMTP Server Password
@@ -92,7 +92,7 @@ return array(
     |
     */
 
-    'password' => "",
+    'password' => "ordermwema123",
 
     /*
     |--------------------------------------------------------------------------

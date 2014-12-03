@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dabbd91-1584-4d5a-9895-dc760ff0b12e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mwemaconsult.iws" />
@@ -75,19 +76,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="139" selection-start="3582" selection-end="3582" vertical-scroll-proportion="0.7300216" vertical-offset="1156" max-vertical-offset="3456">
+            <state line="83" column="139" selection-start="3582" selection-end="3582" vertical-scroll-proportion="-4.0238094" vertical-offset="1156" max-vertical-offset="3456">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mail.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/mail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="32" selection-start="1021" selection-end="1021" vertical-scroll-proportion="-6.0" vertical-offset="378" max-vertical-offset="2322">
+            <state line="94" column="32" selection-start="3413" selection-end="3413" vertical-scroll-proportion="-0.06754221" vertical-offset="1728" max-vertical-offset="2322">
               <folding />
             </state>
           </provider>
@@ -189,11 +190,11 @@
         <option value="$PROJECT_DIR$/app/controllers/OrderController.php" />
         <option value="$PROJECT_DIR$/app/views/order/report.blade.php" />
         <option value="$PROJECT_DIR$/app/views/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/config/mail.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail2.blade.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail3.blade.php" />
         <option value="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/app/config/mail.php" />
       </list>
     </option>
   </component>
@@ -973,13 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="32" selection-start="1021" selection-end="1021" vertical-scroll-proportion="-6.0" vertical-offset="378" max-vertical-offset="2322">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/company/confirmemail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="49" selection-start="49" selection-end="49" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="126">
@@ -1010,7 +1004,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="139" selection-start="3582" selection-end="3582" vertical-scroll-proportion="0.7300216" vertical-offset="1156" max-vertical-offset="3456">
+        <state line="83" column="139" selection-start="3582" selection-end="3582" vertical-scroll-proportion="-4.0238094" vertical-offset="1156" max-vertical-offset="3456">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="32" selection-start="3413" selection-end="3413" vertical-scroll-proportion="-0.06754221" vertical-offset="1728" max-vertical-offset="2322">
           <folding />
         </state>
       </provider>
