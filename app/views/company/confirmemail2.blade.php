@@ -1,2 +1,2 @@
-<h4>Please be informed that your request with reference number {{ $order->result_id }}  for pre-employment background check on {{ $order->employee->firstname }} {{ $order->employee->lastname }} has been
+<h4>Please be informed that your request  for pre-employment background check  has been
     accomplished. I believe you will be very satisfied with the quality of our end product. It is this quality that makes our company apart from the competition</h4>
