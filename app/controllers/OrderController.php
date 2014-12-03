@@ -99,6 +99,10 @@ class OrderController extends \BaseController {
         echo $order->result_id;
 	}
 
+    public function summaryReport($id){
+        $order = Order::find($id);
+        return View::make("order.report",compact("order"));
+    }
 
 	/**
 	 * Display the specified resource.
@@ -173,7 +177,7 @@ class OrderController extends \BaseController {
         echo "<tr>";
         echo "<th>Screening Type</th>";
         echo "<th>Complete</th>";
-        echo "<th style='width: 10%'>View Summary</th>";
+        echo "<th style='width: 10%'>View Report</th>";
         echo "<th style='width: 10%'>Get Report</th>";
         echo "</tr>";
         $total = 0;$i = 0;

@@ -145,6 +145,7 @@ class ProcessController extends \BaseController {
             $screen->save();
         }
         $order->status = 'Complete';
+        $order->completed_date = date('j M Y');
         $order->save();
     }
     public function selectforms($id){
@@ -181,7 +182,7 @@ class ProcessController extends \BaseController {
             echo "<th title=".$screen->screening->description.">".$screen->screening->name."</th>";
             echo "<td>".$prog."</td>";
             echo "<td id='".$screen->id."'><a href='#' class='addform'> <i class='fa fa-pencil'></i> Update Form </a></td>";
-            echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> view Summary Report </a></td>";
+            echo "<td id='".$screen->id."'><a href='#' class='summary'> <i class='fa fa-th-list'></i> view Report </a></td>";
             echo "<td><a href='".url("order/pdf/".$screen->id)."'> <i class='fa fa-download'></i>  </a></td>";
 
             if($screen->visibilty_status == 'show'){

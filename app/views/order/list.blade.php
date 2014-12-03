@@ -71,7 +71,12 @@ return $date;
     @if($employee->status == 'pending')
     <td class="center hidden-phone" style="background-color: ">{{  $employee->status }}</td>
     @elseif($employee->status == 'Complete')
-    <td class="center hidden-phone" style="background-color: lawngreen">{{  $employee->status }}</td>
+    <td class="center hidden-phone" style="background-color: lawngreen">{{  $employee->status }}<br>
+    <div class="btn-group btn-group-xs" id="{{$employee->id }}">
+        <a href="#s" class="report" title="view Summary Report"><i class="fa fa-th-large"></i>summary </a>
+        <a href="#s" class="down" title="Download Summary"><i class="fa fa-download"></i> </a>
+    </div>
+    </td>
     @elseif($employee->status == 'In Progress')
     <td class="center hidden-phone" style="background-color: yellow">{{  $employee->status }}</td>
     @elseif($employee->status == 'Declined')

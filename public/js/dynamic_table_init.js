@@ -15,8 +15,31 @@ function fnFormatDetails ( oTable, nTr )
 $(document).ready(function() {
 
     $('#dynamic-table').dataTable( {
-        "aaSorting": [[ 0, "desc" ]]
+        "aaSorting": [[ 5, "desc" ]]
     } );
+
+    $(".report").click(function(){
+        var id1 = $(this).parent().attr('id');
+        var modal = '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+        modal+= '<div class="modal-dialog" style="width:70%;margin-right: 15% ;margin-left: 15%">';
+        modal+= '<div class="modal-content">';
+        modal+= '<div class="modal-header">';
+        modal+= '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+        modal+= '<h4 class="modal-title" id="myModalLabel">Candidate Report</h4>';
+        modal+= '</div>';
+        modal+= '<div class="modal-body">';
+        modal+= ' </div>';
+        modal+= '</div>';
+        modal+= '</div>';
+
+        $("body").append(modal);
+        $("#myModal").modal("show");
+        $(".modal-body").html("<h3><i class='fa fa-spin fa-spinner '></i><span>loading...</span><h3>");
+        $(".modal-body").load("../../order/viewsummary/"+id1);
+        $("#myModal").on('hidden.bs.modal',function(){
+            $("#myModal").remove();
+        })
+    });
 
     /*
      * Insert a 'details' column to the table

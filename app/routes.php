@@ -176,6 +176,9 @@ Route::post('order/confirm/summary/{id}',array('uses'=>'ProcessController@select
 //display a form to fill in screening results
 Route::get('order/fill/{id}',array('uses'=>'ProcessController@fillform'));
 
+//display a form to fill in screening results
+Route::get('order/viewsummary/{id}',array('uses'=>'OrderController@summaryReport'));
+
 /////////////////////////////////////////////////////////////////////////////
 /////submiting the forms
 //////////////////////////////////////////////////////////////////////////////

@@ -146,9 +146,11 @@
 
 <div class="col-md-12">
 <h4>Report Details</h4>
-<div class="col-sm-10" style="padding: 0px"><h4>Background Checks Included Within This Report:</h4></div>
-<div class="col-sm-2" style="padding: 0px"><h4>Status:</h4></div>
-    {{$screen->professional->establishment}}
+    <table style="width: 100%">
+        <tr>
+            <td style="width: 85%"><h4>Background Checks Included Within This Report:</h4></td>
+            <td><h4>Status:</h4></td>
+        </tr>
 @foreach($screen->professional->establishment as $est)
   <?php
 if($est->qualiscore == 1){
@@ -162,11 +164,14 @@ if($est->qualiscore == 1){
 }
 
 ?>
-<div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>{{$est->establish_name}}</b></div>
-<div class="col-sm-2" style="padding: 0px; background-color:{{$color}}"></div>
+        <tr>
+            <td style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>{{$est->establish_name}}</b></td>
+            <td style="padding: 0px; background-color:<?php echo $color ?> ;height: 25px"></td>
+        </tr>
 
-</div>
 @endforeach
+        </table>
+    </div>
 <div class="col-md-12">
     <br>
 <h4>Observations</h4>
@@ -193,17 +198,16 @@ if($est->qualiscore == 1){
             <td>{{ $est->establish_name}}</td>
             <td>{{ $est->referencemethod }}</td>
             <td>{{ $est->dateproduced }}</td>
-            <td>{{ $est->imageattached }}</td>
         </tr>
         @endforeach
     </table>
 <div class="row">
     <div class="col-sm-12">
-      @foreach($screen->professional->qualification as $qf)
+      @foreach($screen->professional->establishment as $qf)
     <table class="table table-bordered table-striped summarytable">
         <tr>
             <th width="302">Qualification</th>
-            <th width="337" colspan="2"></th>
+            <th width="337" colspan="2">{{$qf->establish_name}}</th>
       </tr>
         <tr>
           <th>Did candidate study at this establishment?</th>

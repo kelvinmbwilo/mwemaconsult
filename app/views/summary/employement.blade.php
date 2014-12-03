@@ -146,32 +146,41 @@
 
 <div class="col-md-12">
 <h4>Report Details</h4>
-<div class="col-sm-10" style="padding: 0px"><h4>Background Checks Included Within This Report:</h4></div>
-<div class="col-sm-2" style="padding: 0px"><h4>Status:</h4></div>
-@foreach($screen->employeehistory->historyreference as $hst)
+    <table style="width: 100%">
+        <tr>
+            <td style="width: 85%"><h4>Background Checks Included Within This Report:</h4></td>
+            <td><h4>Status:</h4></td>
+        </tr>
+
+
+@foreach($screen->employeehistory as $hst)
   <?php
-if($screen->employeehistory->historyscore == 1){
+if($hst->history_score == 1){
     $color = "#91CF4F";
-}elseif($screen->employeehistory->historyscore == 2){
+}elseif($hst->history_score == 2){
     $color = "#FFBF00";
-}elseif($screen->employeehistory->historyscore == 3){
+}elseif($hst->history_score == 3){
     $color = "#red";
 }else{
     $color = "#gray";
 }
 
 ?>
-<div class="col-sm-10" style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>{{$hst->organisation}}</b></div>
-<div class="col-sm-2" style="padding: 0px; background-color:{{$color}}"></div>
+        <tr>
+            <td style="padding: 5px; background-color: #F3F3F3;height: 25px"><b>{{ $hst->organisation }}</b></td>
+            <td style="padding: 0px; background-color:<?php echo $color ?> ;height: 25px"></td>
+        </tr>
+
 
 </div>
 @endforeach
+    </table>
 <div class="col-md-12">
     <br>
 <h4>Observations</h4>
 <div class="col-sm-12" style="padding: 10px; background-color: #F3F3F3;height: 100px;font-size: 1.2em">
 
-    {{ $screen->employeehistory->comments }}
+    {{ $screen->employeehistory->first()->comments }}
 </div>
 </div>
     <div class="col-md-12">
@@ -183,14 +192,12 @@ if($screen->employeehistory->historyscore == 1){
             <th>Organisation</th>
             <th>Reference Method</th>
             <th>Date Produced</th>
-            <th>Image Attached</th>
         </tr>
-        @foreach($screen->employeehistory->historyreference as $hst)
+        @foreach($screen->employeehistory as $hst)
         <tr>
             <td>{{ $hst->organisation}}</td>
             <td>{{ $hst->referencemethod }}</td>
             <td>{{ $hst->dateproduced }}</td>
-            <td>{{ $hst->imageattached }}</td>
         </tr>
         @endforeach
     </table>
@@ -201,9 +208,9 @@ if($screen->employeehistory->historyscore == 1){
             <th width="302">Organisation</th>
             <th colspan="2">Position Held</th>
       </tr>
-         @foreach($screen->employeehistory->historyjobs as $hstj)
+         @foreach($screen->employeehistory as $hstj)
         <tr>
-            <td rowspan="2">{{ $hstj->oganisation}}</td>
+            <td rowspan="2">{{ $hstj->organisation }}</td>
             <td width="170">Candidate</td>
             <td width="167">Reference</td>
         </tr>
@@ -222,9 +229,9 @@ if($screen->employeehistory->historyscore == 1){
               <label for="organisation[]">Employement End Date</label>
             </span></th>
       </tr>
-         @foreach($screen->employeehistory->historydates as $hstd)
+         @foreach($screen->employeehistory as $hstd)
         <tr>
-          <td>{{ $hstd->oganisation}}</td>
+          <td>{{ $hstd->organisation }}</td>
           <td>{{ $hstd->candidate_sdate}}</td>
           <td>{{ $hstd->referee_sdate}}</td>
           <td>{{ $hstd->candidate_edate}}</td>

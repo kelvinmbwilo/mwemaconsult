@@ -195,12 +195,6 @@ function addRowElement2()
 </script>
 <script>
     $(document).ready(function (){
-        $(".dates").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: "1950:<?php echo date("Y") ?>",
-            dateFormat:"yy-mm-dd"
-        });
         $('#FileUploader').on('submit', function(e) {
             e.preventDefault();
             $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");

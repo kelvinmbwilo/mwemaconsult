@@ -7,7 +7,7 @@ class Professional extends Eloquent  {
      *
      * @var string
      */
-    protected $table = 'academic';
+    protected $table = 'profesional';
 
     protected $guarded = array("id");
 	

@@ -95,9 +95,11 @@ class ProcessFormController extends \BaseController {
            "description" => Input::get('coments'),
            "address_score" => Input::get('adresscore')
         ));
+        $avg = intval(($iddoc->id_score + $iddoc->address_score)/2);
 
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $avg;
         $screen->visibilty_status = 'hidden';
         $screen->save();
         Logs::create(array(
@@ -110,17 +112,14 @@ class ProcessFormController extends \BaseController {
     //***************************************
     ///Submit adverse check form
     public function adversecheck($id){
-
-
-        $adversemedia= Adversemedia::create(array(
+        $adversemedia = Adversemedia::create(array(
             "searchteam" => Input::get('searchterms'),
             "datesearch" => Input::get('datesearch'),
             "totalmatches" => Input::get('totalmatch'),
             "matchesonly" => Input::get('matchonly'),
             "comments" => Input::get('coments'),
             "screen_id" => $id,
-            "namescore" => Input::get('namescore'),
-            "detailscore" => Input::get('detailscore')
+            "namescore" => Input::get('namescore')
         ));
         //Process Adverse media name matches These are the arrays treet them right
 
@@ -147,6 +146,7 @@ class ProcessFormController extends \BaseController {
 
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $adversemedia->namescore;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -227,6 +227,7 @@ class ProcessFormController extends \BaseController {
         }
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $compliance->namescore;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -241,104 +242,55 @@ class ProcessFormController extends \BaseController {
     //Proceee Employement form
     public function employeehistory($id)
     {
-        $employmenthistory= Employmenthistory::create(array(
-            "comments" => Input::get('coments'),
-            "screen_id" => $id,
-            "role_score" =>Input::get('jobrole'),
-            "empdate_score" =>Input::get('empdate'),
-            "history_score" =>Input::get('historyscore'),
-        ));
+
 
         //Process Employment history and references
-
         $organisationArr=Input::get('organisation');
         $referencemethodArr=Input::get('referencemethod');
         $dateproducedArr=Input::get('dateproduced');
-        $imageattachedArr=Input::get('imageattached');
-//        $historyscoreArr=Input::get('historyscore');
-
+        $historyscoreArr=Input::get('historyscore');
+        $cpositionheldArr=Input::get('cpositionheld');
+        $rpositionArr=Input::get('rposition');
+        $candidate_sdateArr=Input::get('candidate_sdate');
+        $referee_sdateArr=Input::get('referee_sdate');
+        $candidate_edatedArr=Input::get('candidate_edate');
+        $referee_edateArr=Input::get('referee_edate');
+        $sum = 0; $num = 0;
         for($i=0;$i<sizeof($organisationArr); $i++)
         {
             $organisation=$organisationArr[$i];
             $referencemethod=$referencemethodArr[$i];
             $dateproduced=$dateproducedArr[$i];
-            $imageattached=$imageattachedArr[$i];
-//            $historyscore=$historyscoreArr[$i];
-
-            if($organisation !="" && $referencemethod != "" && $imageattached !="")
-            {
-                $historyreference = Historyreference::create(array(
-                    "organisation" => $organisation,
-                    "referencemethod" => $referencemethod,
-                    "dateproduced" => $dateproduced,
-                    "imageattached" =>$imageattached,
-//                    "historyscore"=>$historyscore,
-                    "emphistory_id"=>$employmenthistory->id
-
-                ));
-            }
-        }
-
-        //Process Job history
-
-
-        $jooganisationArr=Input::get('jooganisation');
-        $cpositionheldArr=Input::get('cpositionhel');
-        $rpositionArr=Input::get('rposition');
-
-
-        for($i=0;$i<sizeof($jooganisationArr); $i++)
-        {
-            $jooganisation=$jooganisationArr[$i];
+            $historyscore=$historyscoreArr[$i];
             $cpositionhel=$cpositionheldArr[$i];
             $rposition=$rpositionArr[$i];
-
-
-            if($jooganisation !="" && $cpositionhel != "" && $rposition !="")
-            {
-                $historyjobs = Historyjobs::create(array(
-                    "oganisation" => $jooganisation,
-                    "cpositionheld" => $cpositionhel,
-                    "rposition" => $rposition,
-                    "emphistory_id"=>$employmenthistory->id
-
-                ));
-            }
-        }
-
-        //Process Confirmation of Employement Date
-
-        $edoganisationArr=Input::get('edoganisation');
-        $candidate_sdateArr=Input::get('candidate_sdate');
-        $referee_sdateArr=Input::get('referee_sdate');
-        $candidate_edatedArr=Input::get('candidate_edate');
-        $referee_edateArr=Input::get('referee_edate');
-
-
-        for($i=0;$i<sizeof($edoganisationArr); $i++)
-        {
-            $edoganisation=$edoganisationArr[$i];
             $candidate_sdate=$candidate_sdateArr[$i];
             $referee_sdate=$referee_sdateArr[$i];
             $candidate_edate=$candidate_edatedArr[$i];
             $referee_edate=$referee_edateArr[$i];
-
-
-            if($edoganisation !="" )
+            if($organisation !="")
             {
-                $historyjobs = Historydates::create(array(
-                    "oganisation" => $edoganisation,
-                    "candidate_sdate" => $candidate_sdate,
-                    "referee_sdate" => $referee_sdate,
-                    "referee_edate" => $referee_edate,
-                    "candidate_edate" => $candidate_edate,
-                    "emphistory_id"=>$employmenthistory->id
-
+                $sum += $historyscore;$num++;
+                $employmenthistory= Employment::create(array(
+                    "comments"          => Input::get('coments'),
+                    "screen_id"         => $id,
+                    "organisation"      => $organisation,
+                    "referencemethod"   => $referencemethod,
+                    "dateproduced"      => $dateproduced,
+                    "history_score"     =>$historyscore,
+                    "cpositionheld"     => $cpositionhel,
+                    "rposition"         => $rposition,
+                    "candidate_sdate"   => $candidate_sdate,
+                    "referee_sdate"     => $referee_sdate,
+                    "eferee_edate"     => $referee_edate,
+                    "candidate_edate"   => $candidate_edate,
                 ));
             }
         }
+        $avg = intval($sum/$num);
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $avg;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -353,7 +305,7 @@ class ProcessFormController extends \BaseController {
 
     public function academic($id)
     {
-        $academic= Professional::create(array(
+        $academic= Academic::create(array(
             "comments" => Input::get('coments'),
             "screen_id" => $id
 
@@ -371,7 +323,7 @@ class ProcessFormController extends \BaseController {
         $candidate_gradeArr     =Input::get('candidate_grade');
         $candidate_courseArr    =Input::get('candidate_course');
         $reference_gradeArr     =Input::get('reference_grade');
-
+        $sum = 0; $num = 0;
         for($i=0;$i<sizeof($establish_nameArr); $i++)
         {
             $establish_name     =$establish_nameArr[$i];
@@ -389,26 +341,28 @@ class ProcessFormController extends \BaseController {
 
             if($establish_name !="" )
             {
-                $establishment = ProfessionalEstablishment::create(array(
-                    "establish_name" => $establish_name,
-                    "referencemethod" => $referencemethod,
-                    "dateproduced" => $dateproduced,
-                    "qualiscore" => $qualiscore,
-                    "checkstudy" => $checkstudy,
-                    "candidate_adate" => $candidate_adate,
-                    "reference_adate" => $reference_adate,
-                    "candidate_course" => $candidate_course,
-                    "reference_course" => $reference_course,
-                    "candidate_grade" => $candidate_grade,
-                    "reference_grade" => $reference_grade,
-                    "professionalid"=>$academic->id
+                $sum += $qualiscore;$num++;
+                $establishment = Establishment::create(array(
+                    "establish_name"    => $establish_name,
+                    "referencemethod"   => $referencemethod,
+                    "dateproduced"      => $dateproduced,
+                    "qualiscore"        => $qualiscore,
+                    "checkstudy"        => $checkstudy,
+                    "candidate_adate"   => $candidate_adate,
+                    "reference_adate"   => $reference_adate,
+                    "candidate_course"  => $candidate_course,
+                    "reference_course"  => $reference_course,
+                    "candidate_grade"   => $candidate_grade,
+                    "reference_grade"   => $reference_grade,
+                    "academic_id"       => $academic->id
 
                 ));
             }
         }
-
+        $avg = intval($sum/$num);
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $avg;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -431,6 +385,7 @@ class ProcessFormController extends \BaseController {
 
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $academic->namescore;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -454,6 +409,7 @@ class ProcessFormController extends \BaseController {
 
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $academic->cvscore;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -485,7 +441,7 @@ class ProcessFormController extends \BaseController {
         $reference_adateArr     =Input::get('reference_adate');
         $reference_courseArr    =Input::get('reference_course');
         $candidate_courseArr    =Input::get('candidate_course');
-
+        $sum = 0; $num = 0;
         for($i=0;$i<sizeof($establish_nameArr); $i++)
         {
             $establish_name     =$establish_nameArr[$i];
@@ -501,6 +457,7 @@ class ProcessFormController extends \BaseController {
 
             if($establish_name !="" )
             {
+                $sum += $qualiscore;$num++;
                 $establishment = ProfessionalEstablishment::create(array(
                     "establish_name" => $establish_name,
                     "referencemethod" => $referencemethod,
@@ -516,9 +473,11 @@ class ProcessFormController extends \BaseController {
                 ));
             }
         }
+        $avg = intval($sum/$num);
 
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $avg;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
@@ -559,6 +518,7 @@ class ProcessFormController extends \BaseController {
         }
         $screen = OrderScreening::find($id);
         $screen->complete = 100;
+        $screen->mark = $gapanalysis->gapscore;
         $screen->visibilty_status = 'hidden';
         $screen->save();
 
