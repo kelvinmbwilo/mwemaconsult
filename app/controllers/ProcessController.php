@@ -124,7 +124,7 @@ class ProcessController extends \BaseController {
         $mail = Mail::later(5,'company.confirmemail1', array('order' => $order), function($message)
         {
             $message->from('info@mwemadvocates.com', 'Mwema Advocate');
-            $message->to("order1@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order');
+            $message->to("order@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order');
             $message->attach(asset('mwemadvocates.png'));
         });
         Logs::create(array(
