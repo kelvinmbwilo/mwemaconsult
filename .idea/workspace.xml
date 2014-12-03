@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dabbd91-1584-4d5a-9895-dc760ff0b12e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mwemaconsult.iws" />
@@ -29,26 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="report.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/order/report.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="2323" selection-end="2323" vertical-scroll-proportion="-42.0" vertical-offset="0" max-vertical-offset="1422">
-              <folding>
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#table#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/order/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,6 +55,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="OrderController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/OrderController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="114" column="31" selection-start="4006" selection-end="4006" vertical-scroll-proportion="1.3115385" vertical-offset="1370" max-vertical-offset="3348">
+              <folding>
+                <element signature="n#summarylist#0;n#OrderController#0;n#!!top" expanded="false" />
+                <element signature="n#generatePdf#0;n#OrderController#0;n#!!top" expanded="false" />
+                <element signature="n#idshow#0;n#OrderController#0;n#!!top" expanded="false" />
+                <element signature="n#calculateRange#0;n#OrderController#0;n#!!top" expanded="false" />
+                <marker date="1417615426221" expanded="false" signature="5953:5964" placeholder="..." />
+                <marker date="1417615426221" expanded="false" signature="6016:6034" placeholder="..." />
+                <marker date="1417615426221" expanded="false" signature="6159:6169" placeholder="..." />
+                <marker date="1417615426221" expanded="false" signature="6215:6225" placeholder="..." />
+                <marker date="1417615426221" expanded="false" signature="6869:6901" placeholder="..." />
+                <marker date="1417615426221" expanded="false" signature="7149:7181" placeholder="..." />
+                <marker date="1417615426221" expanded="false" signature="9097:9142" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="dashboard.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mail.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/mail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="33" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.30393997" vertical-offset="378" max-vertical-offset="2322">
+            <state line="30" column="33" selection-start="1022" selection-end="1022" vertical-scroll-proportion="-2.0" vertical-offset="486" max-vertical-offset="2322">
               <folding />
             </state>
           </provider>
@@ -915,26 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="55" selection-start="3841" selection-end="3841" vertical-scroll-proportion="-56.666668" vertical-offset="324" max-vertical-offset="2916">
-          <folding>
-            <element signature="n#show#0;n#OrderController#0;n#!!top" expanded="false" />
-            <element signature="n#summarylist#0;n#OrderController#0;n#!!top" expanded="false" />
-            <element signature="n#generatePdf#0;n#OrderController#0;n#!!top" expanded="false" />
-            <element signature="n#idshow#0;n#OrderController#0;n#!!top" expanded="false" />
-            <element signature="n#calculateRange#0;n#OrderController#0;n#!!top" expanded="false" />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1417615426221" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/order/report.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="0" selection-start="2323" selection-end="2323" vertical-scroll-proportion="-42.0" vertical-offset="0" max-vertical-offset="1422">
@@ -1011,8 +991,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="33" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.30393997" vertical-offset="378" max-vertical-offset="2322">
+        <state line="30" column="33" selection-start="1022" selection-end="1022" vertical-scroll-proportion="-2.0" vertical-offset="486" max-vertical-offset="2322">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="31" selection-start="4006" selection-end="4006" vertical-scroll-proportion="1.3115385" vertical-offset="1370" max-vertical-offset="3348">
+          <folding>
+            <element signature="n#summarylist#0;n#OrderController#0;n#!!top" expanded="false" />
+            <element signature="n#generatePdf#0;n#OrderController#0;n#!!top" expanded="false" />
+            <element signature="n#idshow#0;n#OrderController#0;n#!!top" expanded="false" />
+            <element signature="n#calculateRange#0;n#OrderController#0;n#!!top" expanded="false" />
+            <marker date="1417615426221" expanded="false" signature="5953:5964" placeholder="..." />
+            <marker date="1417615426221" expanded="false" signature="6016:6034" placeholder="..." />
+            <marker date="1417615426221" expanded="false" signature="6159:6169" placeholder="..." />
+            <marker date="1417615426221" expanded="false" signature="6215:6225" placeholder="..." />
+            <marker date="1417615426221" expanded="false" signature="6869:6901" placeholder="..." />
+            <marker date="1417615426221" expanded="false" signature="7149:7181" placeholder="..." />
+            <marker date="1417615426221" expanded="false" signature="9097:9142" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
