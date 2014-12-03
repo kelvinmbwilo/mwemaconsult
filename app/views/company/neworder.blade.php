@@ -194,7 +194,7 @@
 
                 function afterSuccess(){
                     var ref= $("#output").html();
-                    var html = "<h2>Your order with reference number "+ref+" has been placed successful</h2>";
+                    var html = "<h2>Your order has been placed successful</h2>";
                     html += "<h4>You will receive an email confirmation soon and confirmation  from Mwema Advocate within a day</h4>";
                     html += "<a href='<?php echo url('order/new') ?>' class='btn btn-primary btn-lg'>Place Another Order</a> "
                     $(".panel-body").html(html);
