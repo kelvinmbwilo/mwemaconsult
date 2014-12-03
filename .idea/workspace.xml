@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5dabbd91-1584-4d5a-9895-dc760ff0b12e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/dashboard.blade.php" afterPath="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mwemaconsult.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,7 +79,7 @@
       <file leaf-file-name="dashboard.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="147" selection-start="6307" selection-end="6318" vertical-scroll-proportion="0.49568966" vertical-offset="2290" max-vertical-offset="3456">
+            <state line="144" column="119" selection-start="7138" selection-end="7138" vertical-scroll-proportion="0.5344828" vertical-offset="2344" max-vertical-offset="3456">
               <folding />
             </state>
           </provider>
@@ -1010,7 +1011,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="147" selection-start="6307" selection-end="6318" vertical-scroll-proportion="0.49568966" vertical-offset="2290" max-vertical-offset="3456">
+        <state line="144" column="119" selection-start="7138" selection-end="7138" vertical-scroll-proportion="0.5344828" vertical-offset="2344" max-vertical-offset="3456">
           <folding />
         </state>
       </provider>

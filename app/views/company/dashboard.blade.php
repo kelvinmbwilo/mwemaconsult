@@ -140,9 +140,9 @@ foreach(Screening::all() as $screen){
 $i ++;
   $Completed = count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id')+array(0))->where('complete','100')->where('visibilty_status','show')->get());
   $InProgress = count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->where('status','In Progress')->get()->lists('id') + array(0))->where('visibilty_status','hidden')->get());
-  $Pending = count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->where('status','pending')->get());
-  $Declined =count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->where('status','Declined')->get());
-   $total = count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->get());;
+  $Pending = count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id')+array(0))->where('company_id',$company->id)->where('status','pending')->get());
+  $Declined =count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id')+array(0))->where('company_id',$company->id)->where('status','Declined')->get());
+   $total = count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id')+array(0))->where('company_id',$company->id)->get());;
    $bardata .= (count(Screening::all()) == $i)?"{ type: 'column',name:'".$screen->name."',data:[$Completed,$InProgress,$Pending,$Declined] }":"{ type: 'column',name:'".$screen->name."',data:[$Completed,$InProgress,$Pending,$Declined] },";
    $linedata .= (count(Screening::all()) == $i)?"{ type: 'spline',name:'".$screen->name."',data:[$Completed,$InProgress,$Pending,$Declined] }":"{ type: 'spline',name:'".$screen->name."',data:[$Completed,$InProgress,$Pending,$Declined] },";
    $piedata .= (count(Screening::all()) == $i)?"{ name:'".$screen->name."',y:$total }":"{ type: 'spline',name:'".$screen->name."',y:$total },";
