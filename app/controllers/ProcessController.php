@@ -124,7 +124,7 @@ class ProcessController extends \BaseController {
         $mail = Mail::later(5,'company.confirmemail1', array('order' => $order), function($message)
         {
             $message->from('info@mwemadvocates.com', 'Mwema Advocate');
-            $message->to("order@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order');
+            $message->to("order1@mwemadvocates.com", "Mwema Advocates ")->subject('Pre-employment Background Check Order');
             $message->attach(asset('mwemadvocates.png'));
         });
         Logs::create(array(
@@ -135,6 +135,16 @@ class ProcessController extends \BaseController {
     public function publishorder($id){
         $order = OrderScreening::find($id);
         $order->visibilty_status = 'show';
+        $order->save();
+    }
+
+    public function publishall($id){
+        $order = Order::find($id);
+        foreach($order->screening as $screen){
+            $screen->visibilty_status = 'show';
+            $screen->save();
+        }
+        $order->status = 'Complete';
         $order->save();
     }
     public function selectforms($id){
@@ -150,6 +160,7 @@ class ProcessController extends \BaseController {
         echo "<th style='width: 5%'>publish</th>";
         echo "</tr>";
         $total = 0;$i = 0;
+        $idd = $order->id;
         foreach($order->screening as $screen){
             $total += $screen->complete; $i ++;
             if($screen->complete >= 80 && $screen->complete <= 100 ){
@@ -204,7 +215,11 @@ class ProcessController extends \BaseController {
                 <span class="sr-only">20% Complete</span>
               </div>
             </div></div>';
-        echo '<div class="col-sm-2"><a href="#d" class="btn btn-primary"><i class="fa fa-check"></i> Mark as Complete </a> </div>'
+        if($order->status == 'In Progress'){
+            echo '<div class="col-sm-2"><a href="#d" class="btn btn-primary publishall" id="'.$idd.'"><i class="fa fa-check"></i> Mark as Complete </a> </div>';
+        }else{
+            echo '<i class="fa fa-check"></i> Complete </a> </div>';
+        }
         ?>
         <script>
             $(".summary").click(function(){
@@ -267,6 +282,22 @@ class ProcessController extends \BaseController {
                     $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>publishing...");
                     $.post("<?php echo url('order/publish') ?>/"+id1,function(data){
                         btn.html("Published");
+                    });
+                });
+            });
+            $(".publishall").click(function(){
+                var id1 = $(this).attr('id');
+                $(".publishall").show("slow").parent().find("span").remove();
+                var btn = $(this).parent();
+                $(this).hide("slow").parent().append("<span><br>Are You Sure <br /><br><a href='#s' id='yes' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Yes</a> <a href='#s' id='no' class='btn btn-danger btn-xs'> <i class='fa fa-times'></i> No</a></span>");
+                $("#no").click(function(){
+                    $(this).parent().parent().find(".publishall").show("slow");
+                    $(this).parent().parent().find("span").remove();
+                });
+                $("#yes").click(function(){
+                    $(this).parent().html("<br><i class='fa fa-spinner fa-spin'></i>publishing...");
+                    $.post("<?php echo url('order/publishall') ?>/"+id1,function(data){
+                        btn.html("<i class='fa fa-check'></i> Published");
                     });
                 });
             });

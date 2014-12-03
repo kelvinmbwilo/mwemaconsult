@@ -164,6 +164,9 @@ Route::post('order/unconfirm/{id}',array('uses'=>'ProcessController@unconfirm'))
 //confirming of order
 Route::post('order/confirm/{id}',array('uses'=>'ProcessController@confirmorder'));
 
+//confirming of order
+Route::post('order/publishall/{id}',array('uses'=>'ProcessController@publishall'));
+
 //publishing a part of order
 Route::post('order/publish/{id}',array('uses'=>'ProcessController@publishorder'));
 

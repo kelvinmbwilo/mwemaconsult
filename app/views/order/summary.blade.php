@@ -1,7 +1,13 @@
 <div class="row">
 <!--    logo-->
     <div class="col-sm-12">
-        <img src="{{ asset('images/logo1.png') }}" class="img-responsive img-rounded pull-right" style="height: 60px">
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 80%"></td>
+                <td><img src="{{ asset('images/logo1.png') }}" class="img-responsive img-rounded pull-right" style="height: 60px"></td>
+            </tr>
+        </table>
+
     </div>
 
 <style>
