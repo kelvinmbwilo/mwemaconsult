@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dabbd91-1584-4d5a-9895-dc760ff0b12e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/confirmemail.blade.php" afterPath="$PROJECT_DIR$/app/views/company/confirmemail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/confirmemail2.blade.php" afterPath="$PROJECT_DIR$/app/views/company/confirmemail2.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/confirmemail3.blade.php" afterPath="$PROJECT_DIR$/app/views/company/confirmemail3.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/company/dashboard.blade.php" afterPath="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
     </list>
     <ignored path="mwemaconsult.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="186" column="5" selection-start="8802" selection-end="8802" vertical-scroll-proportion="-17.962963" vertical-offset="2863" max-vertical-offset="3456">
+            <state line="140" column="147" selection-start="6307" selection-end="6318" vertical-scroll-proportion="0.49568966" vertical-offset="2290" max-vertical-offset="3456">
               <folding />
             </state>
           </provider>
@@ -115,10 +111,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmemail3.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="confirmemail3.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/company/confirmemail3.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="21" selection-start="98" selection-end="98" vertical-scroll-proportion="0.033707865" vertical-offset="0" max-vertical-offset="534">
+            <state line="1" column="21" selection-start="98" selection-end="98" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="144">
               <folding />
             </state>
           </provider>
@@ -193,11 +189,11 @@
         <option value="$PROJECT_DIR$/app/controllers/OrderController.php" />
         <option value="$PROJECT_DIR$/app/views/order/report.blade.php" />
         <option value="$PROJECT_DIR$/app/views/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/config/mail.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail2.blade.php" />
         <option value="$PROJECT_DIR$/app/views/company/confirmemail3.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/company/dashboard.blade.php" />
       </list>
     </option>
   </component>
@@ -558,7 +554,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1602" height="874" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13147411" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20025674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -568,7 +564,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18508655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18508655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -977,13 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="186" column="5" selection-start="8802" selection-end="8802" vertical-scroll-proportion="-17.962963" vertical-offset="2863" max-vertical-offset="3456">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="32" selection-start="1021" selection-end="1021" vertical-scroll-proportion="-6.0" vertical-offset="378" max-vertical-offset="2322">
@@ -1014,7 +1003,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/company/confirmemail3.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="98" selection-end="98" vertical-scroll-proportion="0.033707865" vertical-offset="0" max-vertical-offset="144">
+        <state line="1" column="21" selection-start="98" selection-end="98" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/company/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="147" selection-start="6307" selection-end="6318" vertical-scroll-proportion="0.49568966" vertical-offset="2290" max-vertical-offset="3456">
           <folding />
         </state>
       </provider>

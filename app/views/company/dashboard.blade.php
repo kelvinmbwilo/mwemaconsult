@@ -78,9 +78,9 @@
                     @foreach(Screening::all() as $screen)
                     <tr>
                         <td>{{ $screen->name }}</td>
-                        <td>{{ count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id'))->get()) }}</td>
-                        <td>{{ count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id'))->where('complete','100')->where('visibilty_status','show')->get()) }}</td>
-                        <td>{{ count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->where('status','In Progress')->get()->lists('id') + array(0))->where('visibilty_status','hidden')->get()) }}</td>
+                        <td>{{ count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id')+array(0))->get()) }}</td>
+                        <td>{{ count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id')+array(0))->where('complete','100')->where('visibilty_status','show')->get()) }}</td>
+                        <td>{{ count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->where('status','In Progress')->get()->lists('id')+array(0) + array(0))->where('visibilty_status','hidden')->get()) }}</td>
                         <td>{{ count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->where('status','pending')->get()) }}</td>
                         <td>{{ count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->where('status','Declined')->get()) }}</td>
 
@@ -138,7 +138,7 @@
     $i = 0;
 foreach(Screening::all() as $screen){
 $i ++;
-  $Completed = count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id'))->where('complete','100')->where('visibilty_status','show')->get());
+  $Completed = count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->get()->lists('id')+array(0))->where('complete','100')->where('visibilty_status','show')->get());
   $InProgress = count(OrderScreening::where('screen_id',$screen->id)->whereIn('order_id',Order::where('company_id',$company->id)->where('status','In Progress')->get()->lists('id') + array(0))->where('visibilty_status','hidden')->get());
   $Pending = count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->where('status','pending')->get());
   $Declined =count(Order::whereIn('id',OrderScreening::where('screen_id',$screen->id)->get()->lists('order_id'))->where('company_id',$company->id)->where('status','Declined')->get());
